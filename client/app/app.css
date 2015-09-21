@@ -96,14 +96,24 @@ p, a, h4 {
     margin: 0 !important;
 }
 
-.width75{
-    width:75%;
-}
-
 .navbar-custom{
     background-color: #fff;
     border-bottom: 1px solid #eee;
 }
+
+.search-form{
+  padding-left: 10px;
+  height: 30px;
+  font-size: 14px;
+  color: #818285;
+  font-weight: 300;
+  outline: none;
+  border: 1px solid #00aeef;
+  margin-top: 10px;
+  border-radius: 4px;
+  width: 120px;
+}
+
 /* title */
 .navbar-custom .navbar-brand {
     color: #171918;
@@ -213,21 +223,4 @@ p, a, h4 {
 /**
 **Practice CSS
 */
-.search{
-  position: absolute;
-  top: 20px;
-  right: 0;
-  z-index: 1;
-}
 
-.search-form{
-  padding-left: 10px;
-  height: 30px;
-  font-size: 18px;
-  color: #818285;
-  font-weight: 300;
-  outline: none;
-  border: 1px solid #00aeef;
-  margin-top: 10px;
-  border-radius: 4px;
-}

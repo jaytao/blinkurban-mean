@@ -21,3 +21,5 @@ angular.module('blinkUrbanApp')
       return route === $location.path();
     };
   });
+
+  

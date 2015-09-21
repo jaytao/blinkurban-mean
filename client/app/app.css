@@ -1,4 +1,173 @@
+* {
+    webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 200px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 200px;
+  background-color: white;
+  font-size:70%;
+}
+
+.footer > li > a {
+    color: gray;
+}
+
+.header-social {
+    cursor: default;
+    font: 10px/20px ProximaNova,Arial,sans-serif;
+    height: 20px;
+    text-align: right;
+}    
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.border-right{
+    border-right: 1px solid #000000;
+}
+
+p, a, h4 {
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/*changing color of form fields to indicate validation result*/
+.ng-invalid.ng-touched{
+ border-color:red; 
+}
+.ng-valid.ng-touched{
+ border-color: green; 
+}
+
+/*style navigation bar*/
+.navbar-brand {
+    position: absolute;
+    font: #8CC8E5;
+/*    left: 50%;*/
+/*    margin-left: -50px !important; */ /* 50% of logo width */
+    display: block;
+    font-size: 150%;
+}   
+.navbar-nav li a{
+    letter-spacing: .15em;
+    padding-left: 25px;
+    width
+}
+
+.somepadding{
+    padding-left:140px;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.width75{
+    width:75%;
+}
+
+.navbar-custom{
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+/* title */
+.navbar-custom .navbar-brand {
+    color: #171918;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #777;
+}
+
+
+/* link */
+.navbar-custom .navbar-nav > li > a {
+    color: #777;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #333;
+}
+.navbar-custom .navbar-nav > .active > a, 
+.navbar-custom .navbar-nav > .active > a:hover, 
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #555;
+/*    background-color: #E7E7E7;*/
+}
+.navbar-custom .navbar-nav > .open > a, 
+.navbar-custom .navbar-nav > .open > a:hover, 
+.navbar-custom .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* caret */
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-custom .navbar-nav > .open > a .caret, 
+.navbar-custom .navbar-nav > .open > a:hover .caret, 
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-custom .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+}
 /**
  * Bootstrap Fonts
  */
@@ -37,3 +206,8 @@
     color: #000;
     padding: 0.2em 0;
 }
+
+
+/**
+**Practice CSS
+*/

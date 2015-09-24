@@ -3,7 +3,19 @@
 angular.module('blinkUrbanApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'NEW',
+      'link': '/'
+    },{
+      'title': 'TOPS',
+      'link': '/'
+    },{
+      'title': 'BOTTOMS',
+      'link': '/'
+    },{
+      'title': 'ACCESSORIES',
+      'link': '/'
+    },{
+      'title': 'SALE',
       'link': '/'
     }];
 

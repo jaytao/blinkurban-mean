@@ -2,5 +2,11 @@
 
 angular.module('blinkUrbanApp')
   .controller('ItemCtrl', function ($scope) {
-    $scope.message = 'Hello';
+  	$scope.item = {};
+  	
+    $scope.addItem = function(form){
+      if(form.$valid) {
+
+      }
+    };
   });

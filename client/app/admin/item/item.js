@@ -3,8 +3,8 @@
 angular.module('blinkUrbanApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('item', {
-        url: '/item',
+      .state('admin.items', {
+        url: '/items',
         templateUrl: 'app/admin/item/item.html',
         controller: 'ItemCtrl'
       });

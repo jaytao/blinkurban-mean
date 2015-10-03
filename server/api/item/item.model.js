@@ -8,7 +8,10 @@ var ItemSchema = new Schema({
   description: String,
   basecost: Number,
   price: Number,
+  gender: String,
+  categories: Array,
   metrics: [{
+    _id: String,
     color: String,
     size: String,
     count: Number 

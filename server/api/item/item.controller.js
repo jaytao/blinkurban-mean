@@ -22,6 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new item in the DB.
 exports.create = function(req, res) {
+  req.body.categories = req.body.categories.map(function(x) { return x.toLowerCase(); });
   Item.create(req.body, function(err, item) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(item);
@@ -49,23 +50,18 @@ exports.add = function(req, res) {
   Item.findById(req.params.id, function (err, item) {
     if (err) { return handleError(res, err); }
     if (!item) {return res.status(404).send('Not Found'); }
-    var sent = false
     var metric = req.body
-
-    //Go through list of metrics and 
-    for (var i = 0; i < item.metrics.length; i++) {
-      var mColor = item.metrics[i].color
-      var mSize = item.metrics[i].size
-      if (mColor == metric.color && mSize == metric.size) {
-        item.metrics[i].count += metric.count
-        item.save(function (err) {
-          return res.status(200).json(item);
-        });
-        sent = true;
-        break;
-      }
-    };
-    if (!sent){
+    var mKey = metric.color.toLowerCase() + "_" + metric.size.toLowerCase()
+    
+    if (item.metrics.id(mKey)) {
+      var dbMetric = item.metrics.id(mKey)
+      dbMetric.count += metric.count
+      item.save(function (err) {
+        return res.status(200).json(item);
+      });
+    }
+    else { 
+      metric._id = mKey
       item.metrics.push(metric)
       item.save(function (err) {
         return res.status(200).json(item);

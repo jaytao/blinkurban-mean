@@ -83,6 +83,17 @@ exports.destroy = function(req, res) {
   });
 };
 
+exports.search = function(req, res){
+    Item.find(
+        { $text : { $search : req.body.search } },
+        { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        return res.status(200).json(results)
+    });
+};
+
 function handleError(res, err) {
   return res.status(500).send(err);
 }

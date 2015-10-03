@@ -21,8 +21,6 @@ var OrderSchema = new Schema({
 
 /*
 Virtuals
-*/
-
 OrderSchema
     .virtual("total")
     .get(function() {
@@ -33,10 +31,13 @@ OrderSchema
             Item.findById(entry.itemId, function (err, item) {
                 if (err) return;
                 total += (entry.count * item.price)
+                count++
+                if (count == length) {
+                    console.log("I'm here")
+                    return total
+                }
             });
-             
         });
-        return total;
     });
-
+*/
 module.exports = mongoose.model('Order', OrderSchema);

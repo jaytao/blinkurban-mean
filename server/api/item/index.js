@@ -7,6 +7,7 @@ var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/:id', controller.show);
+router.post("/search", controller.search);
 router.post('/', controller.create);
 router.post('/:id/add', controller.add);
 router.put('/:id', controller.update);

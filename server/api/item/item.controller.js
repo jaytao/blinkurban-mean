@@ -42,6 +42,39 @@ exports.update = function(req, res) {
   });
 };
 
+// Adds metrics and counts
+exports.add = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+
+  Item.findById(req.params.id, function (err, item) {
+    if (err) { return handleError(res, err); }
+    if (!item) {return res.status(404).send('Not Found'); }
+    var sent = false
+    var metric = req.body
+
+    //Go through list of metrics and 
+    for (var i = 0; i < item.metrics.length; i++) {
+      var mColor = item.metrics[i].color
+      var mSize = item.metrics[i].size
+      if (mColor == metric.color && mSize == metric.size) {
+        item.metrics[i].count += metric.count
+        item.save(function (err) {
+          return res.status(200).json(item);
+        });
+        sent = true;
+        break;
+      }
+    };
+    if (!sent){
+      item.metrics.push(metric)
+      item.save(function (err) {
+        return res.status(200).json(item);
+      });
+    }
+  });
+};
+
+
 // Deletes a item from the DB.
 exports.destroy = function(req, res) {
   Item.findById(req.params.id, function (err, item) {

@@ -5,8 +5,14 @@ var mongoose = require('mongoose'),
 
 var ItemSchema = new Schema({
   name: String,
-  cost: Number,
-  price: Number
+  description: String,
+  basecost: Number,
+  price: Number,
+  metrics: [{
+    color: String,
+    size: String,
+    count: Number 
+  }]
 });
 
 module.exports = mongoose.model('Item', ItemSchema);

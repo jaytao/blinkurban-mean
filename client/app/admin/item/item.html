@@ -1,9 +1,9 @@
 
 <div class="container">
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<table class="table table-striped">
+	<button class="btn btn-primary pull-right" ng-click="createItemModal()">Create Item</button>
+
+	<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -17,8 +17,8 @@
 					<tr ng-repeat="product in products">
 						<td>{{product.name}}</td>
 						<td>{{product.description}}</td>
-						<td>{{product.price}}</td>
-						<td>{{product.basecost}}</td>
+						<td>{{product.price | currency}}</td>
+						<td>{{product.basecost | currency}}</td>
 						<td>
 							<div class="btn-group" dropdown is-open="status.isopen">
 					      <button id="item-action-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
@@ -32,75 +32,4 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-
-		<div class="col-xs-12 col-sm-6">
-			<h3>ADD NEW ITEM</h3>
-			<h6 class="pull-right">
-				<small>* REQUIRED FIELD</small>
-			</h6>
-			<form class="form" name="form" novalidate ng-submit="form.$valid && addItem()">
-
-				<div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
-					'has-error': form.name.$invalid && submitted }">
-					<label>Name</label>
-					<input type="text" name="name" class="form-control" ng-model="item.name" required placeholder="ITEM NAME *"/>
-					<p class="help-block" ng-show="form.name.$error.required && form.$submitted">
-						An item name is required
-					</p>
-				</div>
-
-				<div class="form-group" ng-class="{ 'has-success': form.price.$valid && submitted,
-					'has-error': form.price.$invalid && submitted }">
-					<label>Price</label>
-					<input type="number" name="price" class="form-control" ng-model="item.price" required placeholder="ITEM PRICE *"/>
-					<p class="help-block" ng-show="form.price.$error.required && form.$submitted">
-						An item price is required
-					</p>
-				</div>
-
-				<div class="form-group" ng-class="{ 'has-success': form.basecost.$valid && submitted,
-					'has-error': form.basecost.$invalid && submitted }">
-					<label>Base Cost</label>
-					<input type="number" name="basecost" class="form-control" ng-model="item.basecost" required placeholder="ITEM BASE COST *"/>
-					<p class="help-block" ng-show="form.basecost.$error.required && form.$submitted">
-						An item base price is required
-					</p>
-				</div>
-
-				<div class="form-group" ng-class="{ 'has-success': form.description.$valid && submitted,
-					'has-error': form.description.$invalid && submitted }">
-					<label>Description</label>
-					<input type="text" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *"/>
-					<p class="help-block" ng-show="form.description.$error.required && form.$submitted">
-						An item description is required
-					</p>
-				</div>
-
-				<div class="form-group">
-					<label class="radio-inline">
-					  <input ng-model="item.gender" type="radio" name="gender" id="Male" value="Male"> Male
-					</label>
-					<label class="radio-inline">
-					  <input ng-model="item.gender" type="radio" name="gender" id="Female" value="Female"> Female
-					</label>
-					<label class="radio-inline">
-					  <input ng-model="item.gender" type="radio" name="gender" id="None" value="None"> None
-					</label>
-				</div>
-
-				<div class="form-group">
-					<select multiple class="form-control" ng-model="item.categories">
-						<option ng-repeat="category in categories" value="{{category}}">{{category}}</option>
-					</select>
-				</div>
-
-				<div>
-					<button class="btn btn-primary" type="submit">SUBMIT</button>
-				</div>
-			</form>
-
-		</div>
-
-	</div>
 </div>

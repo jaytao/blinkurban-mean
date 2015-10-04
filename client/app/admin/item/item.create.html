@@ -1,0 +1,115 @@
+<div class="modal-header">
+	<h3 class="modal-title">Create an Item</h3>
+</div>
+
+<form class="form" name="form" novalidate ng-submit="form.$valid && addItem()">
+
+	<div class="modal-body">
+		<h6 class="pull-right">
+			<small>* REQUIRED FIELD</small>
+		</h6>
+		<div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+			'has-error': form.name.$invalid && submitted }">
+			<label for="name">Name</label>
+			<small class="text-danger" ng-show="form.name.$error.required && form.$submitted">
+				Item name is required
+			</small>
+			<input type="text" id="name" name="name" class="form-control" ng-model="item.name" required placeholder="ITEM NAME *"/>
+		</div>
+
+		<div class="form-group" ng-class="{ 'has-success': form.price.$valid && submitted, 'has-error': form.price.$invalid && submitted }">
+			<label for="price">Price</label>
+			<small class="text-danger" ng-show="form.price.$error.required && form.$submitted">
+				Item price is required
+			</small>
+			<input type="number" id="price" name="price" class="form-control" ng-model="item.price" required placeholder="ITEM PRICE *"/>
+		</div>
+
+		<div class="form-group" ng-class="{ 'has-success': form.basecost.$valid && submitted,'has-error': form.basecost.$invalid && submitted }">
+			<label for="basecost">Base Cost</label>
+			<small class="text-danger" ng-show="form.basecost.$error.required && form.$submitted">
+				Item base price is required
+			</small>
+			<input type="number" id="basecost" name="basecost" class="form-control" ng-model="item.basecost" required placeholder="ITEM BASE COST *"/>
+		</div>
+
+		<div class="form-group" ng-class="{ 'has-success': form.description.$valid && submitted, 'has-error': form.description.$invalid && submitted }">
+			<label for="description">Description</label>
+			<small class="text-danger" ng-show="form.description.$error.required && form.$submitted">
+				Item description is required
+			</small>
+			<input type="text" id="description" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *"/>
+		</div>
+
+		<div class="form-group">
+			<label class="radio-inline">
+				<input ng-model="item.gender" ng-required="!item.gender" type="radio" name="gender" id="Male" value="Male"> Male
+			</label>
+			<label class="radio-inline">
+				<input ng-model="item.gender" ng-required="!item.gender" type="radio" name="gender" id="Female" value="Female"> Female
+			</label>
+			<label class="radio-inline">
+				<input ng-model="item.gender" ng-required="!item.gender" type="radio" name="gender" id="None" value="None"> None
+			</label>
+			<small class="text-danger" ng-show="form.gender.$error.required && form.$submitted">
+				Gender is required
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="categories">Categories </label> <small class="text-danger" ng-show="form.categories.$error.required && form.$submitted">Category is required</small>
+			<select id="categories" required multiple name="categories" class="form-control" ng-options="category for category in categories" ng-model="item.categories"></select>
+		</div>
+
+		<div ng-show="item.metrics.length > 0">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Color</th>
+						<th>Size</th>
+						<th>Count</th>
+						<th>Remove</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="metric in item.metrics">
+						<td>{{metric.color}}</td>
+						<td>{{metric.size}}</td>
+						<td>{{metric.count}}</td>
+						<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="form-inline">
+
+			<div class="form-group">
+				<label for="metricColor">Color</label>
+				<select id="metricColor" class="form-control" ng-options="color for color in colors" ng-model="metric.color"></select>
+			</div>
+
+			<div class="form-group">
+				<label for="metricSize">Size</label>
+				<select id="metricSize" class="form-control" ng-options="size for size in sizes" ng-model="metric.size"></select>
+			</div>
+
+			<div class="form-group">
+				<label for="metricCount">Count</label>
+				<input type="number" name="metricCount" class="form-control" ng-model="metric.count" placeholder="Count"/>
+			</div>
+
+			<button class="btn btn-default" ng-click="addMetric()"><span class="glyphicon glyphicon-plus"></span></button>
+
+		</div>
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-default" type="button" ng-click="cancel()">CANCEL</button>
+		<button class="btn btn-primary" type="submit">SUBMIT</button>
+	</div>
+
+
+</form>
+
+

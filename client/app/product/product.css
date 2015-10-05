@@ -1,0 +1,30 @@
+.product-color label{
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+.product-color{
+	display: block;
+	width:40px;
+	height: 20px;
+	background-color: #eee;
+	cursor: pointer;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.product-color:hover{
+	border: 1px solid #bebebe;
+}
+
+
+.color{
+	display: block;
+	width: 100%;
+	height: 100%;
+}

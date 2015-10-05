@@ -1,0 +1,47 @@
+
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-8">
+		</div>
+		<div class="col-xs-12 col-md-4 product-form">
+			<form>
+				<h2>{{product.name}}</h2>
+				<h3>{{product.price | currency}}</h3>
+				<hr>
+				<fieldset>
+					<h4><small>COLOR: {{orderColor}}</small></h4>
+					<ul class="list-unstyled list-inline">
+						<li class="product-color" ng-repeat="metric in product.metrics | unique:'color' ">
+							<label class="radio-inline" for="color-{{metric.color}}-{{$index}}" ng-style="{'background-color': metric.color}">
+								<input type="radio" id="color-{{metric.color}}-{{$index}}" name="color" ng-model="$parent.orderColor" ng-value="metric.color">
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+				<fieldset>
+					<h4><small>SIZE: {{orderColor}}</small></h4>
+					<ul class="list-unstyled list-inline">
+						<li class="product-color" ng-repeat="metric in product.metrics | unique:'size' ">
+							<label class="radio-inline" for="size-{{metric.size}}-{{$index}}">{{metric.size}}
+								<input type="radio" id="size-{{metric.size}}-{{$index}}" name="size" ng-model="$parent.orderSize" ng-value="metric.size">
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+			
+			<h2>Description</h2>
+			<p>{{product.description}}</p>
+
+			<div>
+				<select ng-change="filterAvailableColors()" ng-model="orderSize" ng-options="metric.size for metric in product.metrics">
+				</select>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

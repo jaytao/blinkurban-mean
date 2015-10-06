@@ -15,25 +15,35 @@ angular.module('blinkUrbanApp')
       $scope.product = product;
       angular.forEach($scope.product.metrics, function(item){
       	if($scope.availableSizes.indexOf(item.size) === -1){
-      		$scope.availableSizes.push(item.size)
+      		$scope.availableSizes.push(item.size);
       	}
       	if($scope.availableColors.indexOf(item.color) === -1){
-      		$scope.availableColors.push({"color": item.color, "available": true})
+      		$scope.availableColors.push(item.color);
       	}
       });
     });
 
-    $scope.filterAvailableColors = function(){
+    //filter availableSizes everytime there's a change to ordeColor
+    $scope.$watch('orderColor', function(value){
+    	$scope.availableSizes = [];
     	angular.forEach($scope.product.metrics, function(item){
-	      	if($scope.availableColors.indexOf(item.color) === -1 && item.size === $scope.orderSize.size){
-	      		$scope.availableColors.push(item.color)
+	      	if(item.color === value){
+	      		$scope.availableSizes.push(item.size);
 	      	}
 	    });
-    }
+	    //reset order size
+	    $scope.orderSize = "";
+	    $scope.selectedSizeIndex = -1;
+    });
 
+    $scope.hasSize = function(size){
+    	return $scope.availableSizes.indexOf(size) >= 0 ? false : true;
+    }
+    //store selected color index to property highlight selected color
     $scope.selectColor = function(index){
     	$scope.selectedColorIndex = index;
     }
+    //store selected size index to property highlight selected size
     $scope.selectSize = function(index){
     	$scope.selectedSizeIndex = index;
     }

@@ -8,6 +8,8 @@ angular.module('blinkUrbanApp')
     $scope.availableColors = [];
     $scope.orderSize = "";
     $scope.orderColor = "";
+    $scope.selectedColorIndex = -1;
+    $scope.selectedSizeIndex = -1;
 
     $http.get('/api/items/' + $stateParams.id).success(function(product) {
       $scope.product = product;
@@ -27,6 +29,13 @@ angular.module('blinkUrbanApp')
 	      		$scope.availableColors.push(item.color)
 	      	}
 	    });
+    }
+
+    $scope.selectColor = function(index){
+    	$scope.selectedColorIndex = index;
+    }
+    $scope.selectSize = function(index){
+    	$scope.selectedSizeIndex = index;
     }
 
   });

@@ -1,3 +1,7 @@
+.border-top{
+	border-top: 1px solid #eee;
+}
+
 .product-color label{
 	cursor: pointer;
 	display: block;
@@ -8,23 +12,39 @@
 
 .product-color{
 	display: block;
-	width:40px;
-	height: 20px;
-	background-color: #eee;
+	width:35px;
+	height:35px;
 	cursor: pointer;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: 3px !important;
 	margin-right: 5px;
 	margin-bottom: 5px;
 }
 
 .product-color:hover{
-	border: 1px solid #bebebe;
+	border: 1px solid #333;
 }
 
+.selected {
+	border: 1px solid #333 !important;
+}
 
-.color{
+.product-size{
 	display: block;
+	width:35px;
+	height:35px;
+	cursor: pointer;
+	padding: 3px !important;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #e4e4e4;
+}
+
+.product-size:hover{
+	border: 1px solid #333;
+}
+
+.product-size label{
+	padding-left: 0px !important;
 	width: 100%;
 	height: 100%;
 }

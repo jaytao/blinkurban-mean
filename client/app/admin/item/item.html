@@ -1,36 +1,35 @@
 
 <div class="container">
-
-	<button class="btn btn-primary pull-right" ng-click="createItemModal()">Create Item</button>
-
+	<button class="btn btn-primary pull-right" ng-click="openItemModal('Create')">Create Item</button>
 	<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Price</th>
-						<th>Base Cost</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="product in products">
-						<td>{{product.name}}</td>
-						<td>{{product.description}}</td>
-						<td>{{product.price | currency}}</td>
-						<td>{{product.basecost | currency}}</td>
-						<td>
-							<div class="btn-group" dropdown is-open="status.isopen">
-					      <button id="item-action-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
-					        Action <span class="caret"></span>
-					      </button>
-					      <ul class="dropdown-menu" role="menu" aria-labelledby="item-action-button">
-					        <li role="menuitem"><a ng-click="deleteItem(product)">Delete</a></li>
-					        <li role="menuitem"><a ng-href="/product/{{product._id}}">View Detail</a></li>
-					      </ul>
-					    </div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Base Cost</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in products">
+				<td>{{product.name}}</td>
+				<td>{{product.description}}</td>
+				<td>{{product.price | currency}}</td>
+				<td>{{product.basecost | currency}}</td>
+				<td>
+					<div class="btn-group" dropdown is-open="status.isopen">
+						<button id="item-action-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
+							Action <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="item-action-button">
+							<li role="menuitem"><a ng-click="deleteItem(product)">Delete</a></li>
+							<li role="menuitem"><a ng-href="/product/{{product._id}}">View Detail</a></li>
+							<li role="menuitem"><a ng-click="openItemModal('Update', product)">Update</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

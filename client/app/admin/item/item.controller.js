@@ -23,7 +23,7 @@ angular.module('blinkUrbanApp')
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
 
 			  	$scope.addMetric = function(){
-			    	if($scope.metric !== "" && typeof $scope.metric.color !== 'undefined'
+			    	if($scope.metric !== "" && typeof $scope.metric.colorname !== 'undefined' && typeof $scope.metric.colorhex !== 'undefined'
 			    		&& typeof $scope.metric.size !== 'undefined' && typeof $scope.metric.count !== 'undefined'){
 			    		$scope.item.metrics.push($scope.metric);
 			    		$scope.metric = {};

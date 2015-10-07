@@ -66,6 +66,7 @@
 				<thead>
 					<tr>
 						<th>Color</th>
+						<th>Color Hex</th>
 						<th>Size</th>
 						<th>Count</th>
 						<th>Remove</th>
@@ -73,7 +74,8 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="metric in item.metrics">
-						<td>{{metric.color}}</td>
+						<td>{{metric.colorname}}</td>
+						<td><span class="color-icon" ng-style="{'background-color': '#' + metric.colorhex}"></span></td>
 						<td>{{metric.size}}</td>
 						<td>{{metric.count}}</td>
 						<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
@@ -83,10 +85,19 @@
 		</div>
 
 		<div class="form-inline">
-
+			<!--
 			<div class="form-group">
 				<label for="metricColor">Color</label>
 				<select id="metricColor" class="form-control" ng-options="color for color in colors" ng-model="metric.color"></select>
+			</div>
+			-->
+			<div class="form-group">
+				<label for="metricColor">Color Name</label>
+				<input type="text" name="metricColor" class="form-control" ng-model="metric.colorname" placeholder="Color Name"/>
+			</div>
+			<div class="form-group">
+				<label for="metricColorHex">Color Hex</label>
+				<input type="text" name="metricColorHex" class="form-control" ng-model="metric.colorhex" placeholder="Color Hex"/>
 			</div>
 
 			<div class="form-group">

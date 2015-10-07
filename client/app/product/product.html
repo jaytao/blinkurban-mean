@@ -19,13 +19,13 @@
 		<div class="col-xs-12 col-md-4 product-form">
 			<form>
 				<h2>{{product.name}}</h2>
-				<h3>{{product.price | currency}}</h3>
+				<h3>{{product.price | currency:"$"}}</h3>
 				<fieldset class="border-top">
 					<h4><small>COLOR: {{orderColor}}</small></h4>
 					<ul class="list-unstyled list-inline">
-						<li class="product-color" ng-repeat="metric in product.metrics | unique:'color' " ng-class="{selected: $index == selectedColorIndex}">
-							<label class="radio-inline" for="color-{{metric.color}}-{{$index}}" ng-style="{'background-color': metric.color}">
-								<input type="radio" id="color-{{metric.color}}-{{$index}}" name="color" ng-model="$parent.orderColor" ng-click="selectColor($index)" ng-value="metric.color" class="ng-hide">
+						<li class="product-color" ng-repeat="metric in product.metrics | unique:'colorhex' " ng-class="{selected: $index == selectedColorIndex}">
+							<label class="radio-inline" for="color-{{metric.colorhex}}-{{$index}}" ng-style="{'background-color': '#' + metric.colorhex}">
+								<input type="radio" id="color-{{metric.colorhex}}-{{$index}}" name="color" ng-model="$parent.orderColor" ng-click="selectColor($index)" ng-value="metric.colorname" class="ng-hide">
 							</label>
 						</li>
 					</ul>

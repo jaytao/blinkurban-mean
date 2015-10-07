@@ -12,7 +12,8 @@ var ItemSchema = new Schema({
   categories: Array,
   metrics: [{
     _id: String,
-    color: String,
+    colorname: String,
+    colorhex: String,
     size: String,
     count: Number 
   }]

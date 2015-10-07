@@ -11,6 +11,8 @@ angular.module('blinkUrbanApp')
     $scope.selectedColorIndex = -1;
     $scope.selectedSizeIndex = -1;
 
+    $scope.slides = [];
+
     $http.get('/api/items/' + $stateParams.id).success(function(product) {
       $scope.product = product;
       angular.forEach($scope.product.metrics, function(item){
@@ -27,7 +29,7 @@ angular.module('blinkUrbanApp')
     $scope.$watch('orderColor', function(value){
     	$scope.availableSizes = [];
     	angular.forEach($scope.product.metrics, function(item){
-	      	if(item.color === value){
+	      	if(item.colorname === value){
 	      		$scope.availableSizes.push(item.size);
 	      	}
 	    });

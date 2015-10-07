@@ -21,11 +21,13 @@ angular.module('blinkUrbanApp')
           $scope.mode = mode;
     			$scope.item = {};
 			  	$scope.item.metrics = [];
+          $scope.item.styles = [];
 			  	$scope.metric = {};
     			$scope.categories = ["top", "bottom", "accessories"];
 			  	$scope.colors = ["Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Violet", 
 			  	"Purple", "Magenta", "Pink", "Brown", "White", "Gray", "Black"];
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
+          $scope.style = "";
 
           if(mode === 'Update'){
             $scope.item = item;
@@ -57,6 +59,13 @@ angular.module('blinkUrbanApp')
 			    $scope.cancel = function(){
 			    	$modalInstance.dismiss('cancel');
 			    };
+
+          $scope.addStyle = function(){
+            if($scope.style !== "" && $scope.item.styles.indexOf($scope.style) === -1){
+              $scope.item.styles.push($scope.style);
+              $scope.style = "";
+            }
+          };
 
     		}
     	});

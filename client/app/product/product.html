@@ -14,7 +14,7 @@
 			        </div>
 			      </slide>
 			    </carousel>
-			  </div>
+			</div>
 		</div>
 		<div class="col-xs-12 col-md-4 product-form">
 			<form>
@@ -44,6 +44,10 @@
 
 				<h2>Description</h2>
 				<p>{{product.description}}</p>
+
+				<ul>
+					<li ng-repeat="style in product.styles">{{style}}</li>
+				</ul>
 
 			</form>
 			

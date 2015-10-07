@@ -61,43 +61,38 @@
 			<select id="categories" required multiple name="categories" class="form-control" ng-options="category for category in categories" ng-model="item.categories"></select>
 		</div>
 
-		<div ng-show="item.metrics.length > 0">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Color</th>
-						<th>Color Hex</th>
-						<th>Size</th>
-						<th>Count</th>
-						<th>Remove</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="metric in item.metrics">
-						<td>{{metric.colorname}}</td>
-						<td><span class="color-icon" ng-style="{'background-color': '#' + metric.colorhex}"></span></td>
-						<td>{{metric.size}}</td>
-						<td>{{metric.count}}</td>
-						<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
- 
-		<div class="form-inline">
-			<!--
-			<div class="form-group">
-				<label for="metricColor">Color</label>
-				<select id="metricColor" class="form-control" ng-options="color for color in colors" ng-model="metric.color"></select>
+ 		
+ 		<fieldset class="form-inline">
+ 			<legend>Metrics:</legend>
+ 			<div ng-show="item.metrics.length > 0">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Color</th>
+							<th>Color Hex</th>
+							<th>Size</th>
+							<th>Count</th>
+							<th>Remove</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="metric in item.metrics">
+							<td>{{metric.colorname}}</td>
+							<td><span class="color-icon" ng-style="{'background-color': '#' + metric.colorhex}"></span></td>
+							<td>{{metric.size}}</td>
+							<td>{{metric.count}}</td>
+							<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-			-->
-			<div class="form-group">
+ 			<div class="form-group">
 				<label for="metricColor">Color Name</label>
 				<input type="text" name="metricColor" class="form-control" ng-model="metric.colorname" placeholder="Color Name"/>
 			</div>
 			<div class="form-group">
 				<label for="metricColorHex">Color Hex</label>
-				<input type="text" name="metricColorHex" class="form-control" ng-model="metric.colorhex" placeholder="Color Hex"/>
+				<input maxlength="6" size="6" type="text" name="metricColorHex" class="form-control" ng-model="metric.colorhex" placeholder="Color Hex"/>
 			</div>
 
 			<div class="form-group">
@@ -107,12 +102,26 @@
 
 			<div class="form-group">
 				<label for="metricCount">Count</label>
-				<input type="number" name="metricCount" class="form-control" ng-model="metric.count" placeholder="Count"/>
+				<input type="number" min="0" name="metricCount" class="form-control" ng-model="metric.count" placeholder="Count"/>
 			</div>
 
 			<button class="btn btn-default" type="button" ng-click="addMetric()"><span class="glyphicon glyphicon-plus"></span></button>
+ 		</fieldset>
+ 		<br>
+ 		<fieldset class="form-inline">
+ 			<legend>Product Styles: </legend>
+ 			<ul>
+ 				<li ng-repeat="style in item.styles">{{style}}</li>
+ 			</ul>
+ 			<div class="form-group">
+				<label class="sr-only" for="styles">STYLES</label>
+				<input type="text" id="styles" name="styles" class="form-control" ng-model="style" placeholder="ITEM STYLES *"/>
+			</div>
+			<button class="btn btn-default" type="button" ng-click="addStyle()">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+ 		</fieldset>
 
-		</div>
 	</div>
 
 	<div class="modal-footer">

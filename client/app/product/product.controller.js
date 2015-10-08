@@ -33,9 +33,12 @@ angular.module('blinkUrbanApp')
 	      		$scope.availableSizes.push(item.size);
 	      	}
 	    });
-	    //reset order size
-	    $scope.orderSize = "";
-	    $scope.selectedSizeIndex = -1;
+	    //reset order size if it isn't available for the new selected color
+      if($scope.hasSize($scope.orderSize)){
+        $scope.orderSize = "";
+        $scope.selectedSizeIndex = -1;
+      }
+	    
     });
 
     $scope.hasSize = function(size){

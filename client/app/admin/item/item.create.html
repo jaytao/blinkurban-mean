@@ -10,7 +10,7 @@
 		</h6>
 		<div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
 			'has-error': form.name.$invalid && submitted }">
-			<label for="name">Name</label>
+			<label for="name">Name *</label>
 			<small class="text-danger" ng-show="form.name.$error.required && form.$submitted">
 				Item name is required
 			</small>
@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-success': form.price.$valid && submitted, 'has-error': form.price.$invalid && submitted }">
-			<label for="price">Price</label>
+			<label for="price">Price *</label>
 			<small class="text-danger" ng-show="form.price.$error.required && form.$submitted">
 				Item price is required
 			</small>
@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-success': form.basecost.$valid && submitted,'has-error': form.basecost.$invalid && submitted }">
-			<label for="basecost">Base Cost</label>
+			<label for="basecost">Base Cost *</label>
 			<small class="text-danger" ng-show="form.basecost.$error.required && form.$submitted">
 				Item base price is required
 			</small>
@@ -34,7 +34,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-success': form.description.$valid && submitted, 'has-error': form.description.$invalid && submitted }">
-			<label for="description">Description</label>
+			<label for="description">Description *</label>
 			<small class="text-danger" ng-show="form.description.$error.required && form.$submitted">
 				Item description is required
 			</small>
@@ -57,7 +57,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="categories">Categories </label> <small class="text-danger" ng-show="form.categories.$error.required && form.$submitted">Category is required</small>
+			<label for="categories">Categories *</label> <small class="text-danger" ng-show="form.categories.$error.required && form.$submitted">Category is required</small>
 			<select id="categories" required multiple name="categories" class="form-control" ng-options="category for category in categories" ng-model="item.categories"></select>
 		</div>
 
@@ -110,8 +110,11 @@
  		<br>
  		<fieldset class="form-inline">
  			<legend>Product Styles: </legend>
- 			<ul>
- 				<li ng-repeat="style in item.styles">{{style}}</li>
+ 			<ul class="list-group">
+ 				<li ng-repeat="style in item.styles" class="list-group-item">
+ 					<button ng-click="removeStyle(style)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+ 					{{style}}
+ 				</li>
  			</ul>
  			<div class="form-group">
 				<label class="sr-only" for="styles">STYLES</label>

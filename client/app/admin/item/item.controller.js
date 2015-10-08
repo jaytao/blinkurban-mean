@@ -67,6 +67,11 @@ angular.module('blinkUrbanApp')
             }
           };
 
+          $scope.removeStyle = function(style){
+            var index = $scope.item.styles.indexOf(style);
+            $scope.item.styles.splice(index,1);
+          }
+
     		}
     	});
     }

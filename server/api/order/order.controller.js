@@ -16,19 +16,24 @@ exports.show = function(req, res) {
   Order.findById(req.params.id, function (err, order) {
     if(err) { return handleError(res, err); }
     if(!order) { return res.status(404).send('Not Found'); }
-    console.log("The total for this order is: " + order.total);
     return res.json(order);
   });
 };
 
 // Creates a new order in the DB.
 exports.create = function(req, res) {
+
+  //TODO - Query db to see if all the items and metrics are still available
+  //       and if so, decrement the count in those metrics 
+
   Order.create(req.body, function(err, order) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(order);
   });
 };
 
+
+//remove order
 exports.destroy = function(req, res) {
   Order.findById(req.params.id, function (err, order) {
     if (err) { return handleError(res,err); }

@@ -3,8 +3,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
-var textSearch = require('mongoose-text-search')
+var textSearch = require('mongoose-text-search');
 var Item = require('../item/item.model');
+
+var opts = {};
+opts.toJSON = { virtuals: true };
 
 var OrderSchema = new Schema({
     userId: {
@@ -16,30 +19,23 @@ var OrderSchema = new Schema({
             type: ObjectId,
             ref: "Item",
         },
+        size: String,
+        colorname: String,
         count: Number,
         purchasePrice: Number
     }], 
-});
+}, opts);
 
-/*
-Virtuals
+//Virtuals
 OrderSchema
     .virtual("total")
     .get(function() {
-        var total = 0
-        var count = 0
-        var length = this.items.length 
+        var total = 0;
+        var count = 0;
         this.items.forEach(function(entry) {
-            Item.findById(entry.itemId, function (err, item) {
-                if (err) return;
-                total += (entry.count * item.price)
-                count++
-                if (count == length) {
-                    console.log("I'm here")
-                    return total
-                }
-            });
+            total += (entry.purchasePrice*entry.count);
         });
+        return total;
     });
-*/
+
 module.exports = mongoose.model('Order', OrderSchema);

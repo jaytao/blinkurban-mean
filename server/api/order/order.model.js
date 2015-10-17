@@ -3,6 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
+var textSearch = require('mongoose-text-search')
 var Item = require('../item/item.model');
 
 var OrderSchema = new Schema({

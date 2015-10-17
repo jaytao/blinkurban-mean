@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-
 var ItemSchema = new Schema({
   name: String,
   description: String,
@@ -19,7 +18,6 @@ var ItemSchema = new Schema({
     count: Number 
   }]
 });
-
-ItemSchema.index({ categories : 'text', name : 'text', description : 'text' },
-                 { weights: {name: 10, categorie: 5, description: 3}, name: "textScore"});
+ItemSchema.index({ name : 'text', categories: 'text', description : 'text' },
+                 { weights: {name: 10, categories: 5, description: 3}, name: "textScore"});
 module.exports = mongoose.model('Item', ItemSchema);

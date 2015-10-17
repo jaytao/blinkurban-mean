@@ -85,7 +85,7 @@ exports.destroy = function(req, res) {
 
 exports.search = function(req, res){
     Item.find(
-        { $text : { $search : req.body.search } },
+        { $text : { $search : req.query.field } },
         { score : { $meta: "textScore" } }
     )
     .sort({ score : { $meta : 'textScore' } })

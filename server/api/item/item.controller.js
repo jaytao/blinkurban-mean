@@ -78,7 +78,7 @@ exports.destroy = function(req, res) {
     if(!item) { return res.status(404).send('Not Found'); }
     item.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.status(204).send('No Content');
+      return res.status(204).send('Item Removed');
     });
   });
 };

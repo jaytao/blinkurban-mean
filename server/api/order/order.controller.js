@@ -28,3 +28,14 @@ exports.create = function(req, res) {
     return res.status(201).json(order);
   });
 };
+
+exports.destroy = function(req, res) {
+  Order.findById(req.params.id, function (err, order) {
+    if (err) { return handleError(res,err); }
+    if (!order) { return res.status(404).send("Not Found"); }
+    order.remove(function(err) {
+      if(err) { return handleError(res, err); }
+      return res.status(204).send("Order Deleted");
+    });
+  });
+};

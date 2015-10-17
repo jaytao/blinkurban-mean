@@ -14,9 +14,10 @@ var OrderSchema = new Schema({
     items: [{
         itemId: {
             type: ObjectId,
-            ref: "Item"
+            ref: "Item",
         },
-        count: Number
+        count: Number,
+        purchasePrice: Number
     }], 
 });
 

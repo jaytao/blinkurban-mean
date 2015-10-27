@@ -5,7 +5,7 @@ angular.module('blinkUrbanApp')
     $scope.user = {};
     $scope.errors = {};
 
-    $scope.login = function(form) {
+    $scope.contact = function(form) {
       $scope.submitted = true;
 
       if(form.$valid) {

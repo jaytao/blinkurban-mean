@@ -112,11 +112,6 @@ p, a, h4 {
     padding-left:0px;
 }
 
-.nopadding {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
 .search-form{
   padding-left: 10px;
   height: 30px;

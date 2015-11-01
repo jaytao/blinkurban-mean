@@ -1,10 +1,22 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <p class="lead">I suck at coding - Deon</p>
-    <img class="img-rounded" src="assets/images/PokemonSad.png" width="304" height="400" alt="Darn">
-  </div>
-</header>
-  
+<div class="row">
+	<div class="hero-unit" id="banner">
+	  <div class="container col-md-6">
+	    <p class="lead">I still suck at coding - Deon</p>
+	    <img class="img-rounded" src="assets/images/PokemonSad.png" width="304" height="400" alt="Darn">
+	  </div>
+	</div>	
+	<div classs"container col-md-6" ng-controller="NavbarCtrl">
+		<ul>
+			<li ng-repeat="item in menu | filter:query" ng-class="{active: isActive(item.link)}">
+	            <a ng-href="{{item.link}}">{{item.title}}</a>
+	        </li>
+		</ul>
+	</div>	
+</div>
+
+
+
+
 <div ng-include="'components/footer/footer.html'"></div>

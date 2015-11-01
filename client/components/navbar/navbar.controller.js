@@ -18,6 +18,8 @@ angular.module('blinkUrbanApp')
       'title': 'SALE',
       'link': '/'
     }];
+    // To hide the search icon and bring search bar
+    $scope.clickedsearch=true;
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

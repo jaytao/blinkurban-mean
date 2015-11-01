@@ -1,0 +1,23 @@
+<script type="text/javascript">
+function hideshow(which){
+if (!document.getElementById)
+return
+if (which.style.display=="block")
+which.style.display="none";
+else
+which.style.display="block";
+}
+function hide(which){
+if (!document.getElementById)
+return
+if (which.style.display=="block")
+which.style.display="none";
+else
+which.style.display="block";
+}
+</script>
+ 
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="nopadding"><input id="searchfield" style="display:none" type="text" class="search-form" placeholder="Search for..."></a></li>  
+        <li><a id="searchicon" style="display: block" href=""><span id="myList" onclick="javascript:hide(document.getElementById('searchicon')),hide(document.getElementById('searchfield'))" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>

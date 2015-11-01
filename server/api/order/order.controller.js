@@ -25,7 +25,7 @@ exports.create = function(req, res) {
 
   //TODO - Query db to see if all the items and metrics are still available
   //       and if so, decrement the count in those metrics 
-
+  
   Order.create(req.body, function(err, order) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(order);

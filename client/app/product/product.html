@@ -23,7 +23,7 @@
 				<fieldset class="border-top">
 					<h4><small>COLOR: {{orderColor}}</small></h4>
 					<ul class="list-unstyled list-inline">
-						<li class="product-color" ng-repeat="metric in product.metrics | unique:'colorhex' " ng-class="{selected: $index == selectedColorIndex}">
+						<li class="product-color" ng-repeat="metric in availableColors" ng-class="{selected: $index == selectedColorIndex}">
 							<label class="radio-inline" for="color-{{metric.colorhex}}-{{$index}}" ng-style="{'background-color': '#' + metric.colorhex}">
 								<input type="radio" id="color-{{metric.colorhex}}-{{$index}}" name="color" ng-model="$parent.orderColor" ng-click="selectColor($index)" ng-value="metric.colorname" class="ng-hide">
 							</label>
@@ -33,12 +33,16 @@
 				<fieldset class="border-top">
 					<h4><small>SIZE: {{orderSize}}</small></h4>
 					<ul class="list-unstyled list-inline">
-						<li class="product-size" ng-repeat="metric in product.metrics | unique:'size'" ng-class="{selected: $index == selectedSizeIndex, unavailable: hasSize(metric.size)}">
-							<label class="radio-inline text-center" for="size-{{metric.size}}-{{$index}}">{{metric.size}}
-								<input type="radio" id="size-{{metric.size}}-{{$index}}" name="size" ng-disabled="hasSize(metric.size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="metric.size"class="ng-hide">
+						<li class="product-size" ng-repeat="size in allSizes" ng-class="{selected: $index == selectedSizeIndex, unavailable: hasSize(size)}">
+							<label class="radio-inline text-center" for="size-{{size}}-{{$index}}">{{size}}
+								<input type="radio" id="size-{{size}}-{{$index}}" name="size" ng-disabled="hasSize(size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="size"class="ng-hide">
 							</label>
 						</li>
 					</ul>
+				</fieldset>
+				<fieldset>
+					<h4><small>QUANTITY: </small></h4>
+					<select ng-repeat=""></select>
 				</fieldset>
 				<button class="btn btn-primary form-control">ADD TO CART</button>
 

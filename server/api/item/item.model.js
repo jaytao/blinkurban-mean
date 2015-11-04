@@ -9,7 +9,7 @@ var ItemSchema = new Schema({
   price: Number,
   gender: String,
   categories: Array,
-  styles: Array,
+  materials: Array,
   metrics: [{
     _id: String,
     colorname: String,

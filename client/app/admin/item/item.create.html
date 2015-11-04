@@ -114,18 +114,18 @@
  		</fieldset>
  		<br>
  		<fieldset class="form-inline">
- 			<legend>Product Styles: </legend>
- 			<ul ng-show="item.styles.length > 0" class="list-group">
- 				<li ng-repeat="style in item.styles" class="list-group-item">
- 					<button ng-click="removeStyle(style)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
- 					{{style}}
+ 			<legend>Product Materials: </legend>
+ 			<ul ng-show="item.materials.length > 0" class="list-group">
+ 				<li ng-repeat="material in item.materials" class="list-group-item">
+ 					<button ng-click="removeMaterial(material)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+ 					{{material}}
  				</li>
  			</ul>
  			<div class="form-group">
-				<label class="sr-only" for="styles">STYLES</label>
-				<input type="text" id="styles" name="styles" class="form-control" ng-model="style" placeholder="ITEM STYLES"/>
+				<label class="sr-only" for="materials">MATERIALS</label>
+				<input type="text" id="materials" name="materials" class="form-control" ng-model="material" placeholder="ITEM MATERIALS"/>
 			</div>
-			<button class="btn btn-default" type="button" ng-click="addStyle()">
+			<button class="btn btn-default" type="button" ng-click="addMaterial()">
 				<span class="glyphicon glyphicon-plus"></span>
 			</button>
  		</fieldset>

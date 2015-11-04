@@ -55,11 +55,12 @@
 
 				<button class="btn btn-primary form-control">ADD TO CART</button>
 
-				<h2>Description</h2>
-				<p>{{product.description}}</p>
+				<h4>DESCRIPTION</h4>
+				<p><small>{{product.description}}</small></p>
 
+				<h4>MATERIALS</h4>
 				<ul class="list-unstyled">
-					<li ng-repeat="style in product.styles">- {{style}}</li>
+					<li ng-repeat="material in product.materials"><small>- {{material}}</small></li>
 				</ul>
 
 			</form>

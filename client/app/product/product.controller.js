@@ -5,11 +5,11 @@ angular.module('blinkUrbanApp')
 
     $scope.product = {};
     $scope.availableSizes = [];
-    //$scope.availableQuantity = 
+    $scope.availableQuantity = [];
     $scope.orderSize = "";
     $scope.orderColor = "";
-    $scope.orderQuantity = 1; //by default, 1 item quantity is selected
-    $scope.selectedColorIndex = 0; 
+    $scope.orderQuantity = "1"; //by default, 1 item quantity is selected
+    $scope.selectedColorIndex = 0; //by default, the first color is selected
     $scope.selectedSizeIndex = -1;
 
     $scope.slides = [];
@@ -36,9 +36,11 @@ angular.module('blinkUrbanApp')
           $scope.orderColor = $scope.availableColors[0].colorname;
         }
       }else{
-        //default selected color if no color provided
+        //default select the first color if no color is provided
         $scope.orderColor = $scope.availableColors[0].colorname;
       }
+
+      $scope.updateAvailableQuantity($scope.orderColor);
 
     });
 
@@ -56,20 +58,53 @@ angular.module('blinkUrbanApp')
         $scope.orderSize = "";
         $scope.selectedSizeIndex = -1;
       }
-	    
+      //update quantity
+      if(value){
+        $scope.updateAvailableQuantity(value, $scope.orderSize);
+      }
     });
 
+    //update availableQuantity everytime a size is selected
+    $scope.$watch('orderSize', function(value){
+      if(value){
+        $scope.updateAvailableQuantity($scope.orderColor, value);
+      }
+    });
+
+    $scope.$watch('availableQuantity', function(value){
+      //if there are less available product then orderQuantity, reset to 1
+      if(value.length < parseInt($scope.orderQuantity)){
+        $scope.orderQuantity = "1";
+      }
+    });
+
+    //get quantity of a product as an array of numbers
+    $scope.updateAvailableQuantity = function(color, size){
+      var quantity = 1;
+      if(size && size !== ""){
+        quantity = _.result(_.find($scope.product.metrics, function(metric){
+          return metric.colorname === color && metric.size === size;
+        }), 'count');
+      }else{
+        quantity = _.result(_.find($scope.product.metrics, function(metric){
+          return metric.colorname === color;
+        }), 'count');
+      }
+      
+      quantity = quantity > 10 ? 10 : quantity; //limit select quantity to 10
+      $scope.availableQuantity = _.range(1, quantity + 1); 
+    };
     //check if there's an available size for this product
     $scope.hasSize = function(size){
     	return $scope.availableSizes.indexOf(size) >= 0 ? false : true;
-    }
+    };
     //store selected color index to property highlight selected color
     $scope.selectColor = function(index){
     	$scope.selectedColorIndex = index;
-    }
+    };
     //store selected size index to property highlight selected size
     $scope.selectSize = function(index){
     	$scope.selectedSizeIndex = index;
-    }
+    };
 
   });

@@ -40,10 +40,19 @@
 						</li>
 					</ul>
 				</fieldset>
-				<fieldset>
-					<h4><small>QUANTITY: </small></h4>
-					<select ng-repeat=""></select>
+
+				<fieldset class="form-inline border-top">
+				  	<div class="form-group">
+				    	<h4><small>QUANTITY: </small></h4>
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="quantity" class="sr-only"></label>
+						<select class="form-control" id="quantity" ng-model="orderQuantity">
+							<option ng-repeat="count in availableQuantity">{{count}}</option>
+						</select>
+				  	</div>
 				</fieldset>
+
 				<button class="btn btn-primary form-control">ADD TO CART</button>
 
 				<h2>Description</h2>

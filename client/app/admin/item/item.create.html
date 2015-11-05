@@ -43,7 +43,8 @@
 			<small class="text-danger" ng-show="form.description.$error.required && form.$submitted">
 				Item description is required
 			</small>
-			<input type="text" id="description" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *"/>
+			<textarea id="description" rows="5" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *">
+			</textarea>
 		</div>
 
 		<div class="form-group">

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blinkUrbanApp')
-  .controller('ProductCtrl', function ($scope, $stateParams, $http) {
+  .controller('ProductCtrl', function ($scope, $stateParams, $http, $location) {
 
     $scope.product = {};
     $scope.availableSizes = [];
@@ -12,12 +12,9 @@ angular.module('blinkUrbanApp')
     $scope.selectedColorIndex = 0; //by default, the first color is selected
     $scope.selectedSizeIndex = -1;
 
-    $scope.slides = [];
-    $scope.slides.push({ image: ""});
-
     //get the product that matches the provided id
-    $http.get('/api/items/' + $stateParams.id).success(function(product) {
-      $scope.product = product;
+    $http.get('/api/items/' + $stateParams.id).then(function successCallback(response) {
+      $scope.product = response.data;
       //filter unique size to available sizes 
       $scope.availableSizes = _.pluck(_.uniq($scope.product.metrics, 'size'), 'size');
       $scope.allSizes = $scope.availableSizes;
@@ -41,9 +38,10 @@ angular.module('blinkUrbanApp')
       }
 
       $scope.updateAvailableQuantity($scope.orderColor);
-
+    }, function errorCallback(response) {
+      //redirect to home page if it is an invalid id
+      $location.path("/");
     });
-
     
     //filter availableSizes everytime there's a change to ordeColor
     $scope.$watch('orderColor', function(value){

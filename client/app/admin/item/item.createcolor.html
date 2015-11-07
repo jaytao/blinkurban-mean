@@ -1,0 +1,43 @@
+<div class="modal-header">
+	<h3 class="modal-title">Create a new color</h3>
+</div>
+<form class="form" name="form" novalidate ng-submit="form.$valid && addColor()">
+
+	<div class="modal-body">
+
+		<p>Available Colors: <small>{{selectedColor}}</small></p>
+
+		<ul class="list-unstyled list-inline">
+			<li class="product-color" ng-repeat="color in colors" ng-class="{selected: $index == selectedColorIndex}">
+				<label class="radio-inline" for="color-{{color.colorhex}}-{{$index}}" ng-style="{'background-color': '#' + color.colorhex}">
+					<input type="radio" id="color-{{color.colorhex}}-{{$index}}" name="color" ng-model="$parent.selectedColor" ng-value="color.colorname" class="ng-hide">
+				</label>
+			</li>
+		</ul>
+
+		<hr>
+
+		<div class="form-group">
+			<label for="colorName">Color Name</label>
+			<small class="text-danger" ng-show="form.colorName.$error.required && form.$submitted">
+				Color name is required
+			</small>
+			<input type="text" name="colorName" class="form-control" ng-model="newColor.colorname" placeholder="Color Name" required/>
+		</div>
+		<div class="form-group">
+			<label for="colorHex">Color Hexadecimal</label>
+			<small class="text-danger" ng-show="form.colorHex.$error.required && form.$submitted">
+				Color hexadecimal is required
+			</small>
+			<input maxlength="6" size="6" type="text" name="colorHex" class="form-control" ng-model="newColor.colorhex" placeholder="Color Hex" required/>
+		</div>
+
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="submit">Add</button>
+		<button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+
+</form>
+

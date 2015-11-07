@@ -12,8 +12,7 @@ var ItemSchema = new Schema({
   materials: Array,
   metrics: [{
     _id: String,
-    colorname: String,
-    colorhex: String,
+    colorId: { type: Schema.Types.ObjectId, ref: 'Color' },
     size: String,
     count: Number 
   }]

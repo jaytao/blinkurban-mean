@@ -104,5 +104,9 @@ angular.module('blinkUrbanApp')
     $scope.selectSize = function(index){
     	$scope.selectedSizeIndex = index;
     };
+    //submit order to be added 
+    $scope.submit = function(){
+      //TODO add item to order
+    };
 
   });

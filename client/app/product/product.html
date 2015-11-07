@@ -7,7 +7,7 @@
 			
 		</div>
 		<div class="col-xs-12 col-md-4 product-form">
-			<form>
+			<form class="form" name="form" novalidate ng-submit="form.$valid && submit()">
 				<h2>{{product.name}}</h2>
 				<h3>{{product.price | currency:"$"}}</h3>
 				<fieldset class="border-top">
@@ -21,11 +21,16 @@
 					</ul>
 				</fieldset>
 				<fieldset class="border-top">
-					<h4><small>SIZE: {{orderSize}}</small></h4>
+					<h4>
+						<small>SIZE: {{orderSize}}</small>
+						<small class="text-danger" ng-show="form.size.$error.required && form.$submitted">
+							Please select a size
+						</small>
+					</h4>
 					<ul class="list-unstyled list-inline">
 						<li class="product-size" ng-repeat="size in allSizes" ng-class="{selected: $index == selectedSizeIndex, unavailable: hasSize(size)}">
 							<label class="radio-inline text-center" for="size-{{size}}-{{$index}}">{{size}}
-								<input type="radio" id="size-{{size}}-{{$index}}" name="size" ng-disabled="hasSize(size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="size"class="ng-hide">
+								<input type="radio" id="size-{{size}}-{{$index}}" name="size" ng-disabled="hasSize(size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="size"class="ng-hide" required>
 							</label>
 						</li>
 					</ul>
@@ -43,7 +48,7 @@
 				  	</div>
 				</fieldset>
 
-				<button class="btn btn-primary form-control">ADD TO CART</button>
+				<button class="btn btn-primary form-control" type="submit">ADD TO CART</button>
 
 				<h4>DESCRIPTION</h4>
 				<p><small>{{product.description}}</small></p>

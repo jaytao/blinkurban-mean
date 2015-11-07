@@ -83,6 +83,8 @@ exports.destroy = function(req, res) {
   });
 };
 
+
+// Search functionality
 exports.search = function(req, res){
     Item.find(
         { $text : { $search : req.query.field } },
@@ -92,6 +94,10 @@ exports.search = function(req, res){
     .exec(function(err, results) {
         return res.status(200).json(results)
     });
+};
+
+exports.get = function(req, res){
+    return res.status(200).json({}); 
 };
 
 function handleError(res, err) {

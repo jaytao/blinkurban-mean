@@ -44,3 +44,8 @@ exports.destroy = function(req, res) {
     });
   });
 };
+
+//handle error
+function handleError(res, err) {
+  return res.status(500).send(err);
+};

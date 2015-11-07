@@ -28,7 +28,7 @@ body {
   background-color: white;
   font-size:10px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 0px;
 }
 
 .header-social {
@@ -116,6 +116,11 @@ p, a, h4 {
 
 .somepadding{
     padding-left:0px;
+}
+
+.maincontainerpadding{
+  padding-bottom:150px;
+/*  fixed bottom main body cutting*/
 }
 
 .search-form{

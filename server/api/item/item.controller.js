@@ -13,7 +13,9 @@ exports.index = function(req, res) {
 
 // Get a single item
 exports.show = function(req, res) {
-  Item.findById(req.params.id, function (err, item) {
+  Item.findById(req.params.id)
+  .populate('metrics.colorId')
+  .exec(function (err, item) {
     if(err) { return handleError(res, err); }
     if(!item) { return res.status(404).send('Not Found'); }
     return res.json(item);

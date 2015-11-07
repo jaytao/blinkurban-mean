@@ -19,22 +19,24 @@ angular.module('blinkUrbanApp')
       $scope.availableSizes = _.pluck(_.uniq($scope.product.metrics, 'size'), 'size');
       $scope.allSizes = $scope.availableSizes;
       //filter unique colorname to available colors
-      $scope.availableColors = _.uniq($scope.product.metrics, 'colorname');
+      $scope.availableColors = _.uniq($scope.product.metrics, function(metric){
+        return metric.colorId._id;
+      });
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
         //get the index of the selected color from the availableColors list
         $scope.selectedColorIndex = _.findIndex($scope.availableColors, function(metric){
-          return metric.colorname === $stateParams.color;
+          return metric.colorId._id === $stateParams.color;
         });
         if($scope.selectedColorIndex !== -1){
           $scope.orderColor = $stateParams.color;
         }else{
           $scope.selectedColorIndex = 0; //by default go to the first color if the param color doesn't exist
-          $scope.orderColor = $scope.availableColors[0].colorname;
+          $scope.orderColor = $scope.availableColors[0].colorId._id;
         }
       }else{
         //default select the first color if no color is provided
-        $scope.orderColor = $scope.availableColors[0].colorname;
+        $scope.orderColor = $scope.availableColors[0].colorId._id;
       }
 
       $scope.updateAvailableQuantity($scope.orderColor);
@@ -43,11 +45,11 @@ angular.module('blinkUrbanApp')
       $location.path("/");
     });
     
-    //filter availableSizes everytime there's a change to ordeColor
+    //filter availableSizes everytime there's a change to orderColor
     $scope.$watch('orderColor', function(value){
     	$scope.availableSizes = [];
     	angular.forEach($scope.product.metrics, function(item){
-	      	if(item.colorname === value){
+	      	if(item.colorId._id === value){
 	      		$scope.availableSizes.push(item.size);
 	      	}
 	    });
@@ -79,13 +81,13 @@ angular.module('blinkUrbanApp')
     //get quantity of a product as an array of numbers
     $scope.updateAvailableQuantity = function(color, size){
       var quantity = 1;
-      if(size && size !== ""){
+      if(size){
         quantity = _.result(_.find($scope.product.metrics, function(metric){
-          return metric.colorname === color && metric.size === size;
+          return metric.colorId._id === color && metric.size === size;
         }), 'count');
       }else{
         quantity = _.result(_.find($scope.product.metrics, function(metric){
-          return metric.colorname === color;
+          return metric.colorId._id === color;
         }), 'count');
       }
       
@@ -107,6 +109,12 @@ angular.module('blinkUrbanApp')
     //submit order to be added 
     $scope.submit = function(){
       //TODO add item to order
+    };
+
+    $scope.getDisplayColorName = function(){
+      return _.find($scope.availableColors, function(color){
+        return color.colorId._id === $scope.orderColor;
+      });
     };
 
   });

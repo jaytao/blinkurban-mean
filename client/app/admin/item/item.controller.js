@@ -5,14 +5,49 @@ angular.module('blinkUrbanApp')
 
     //TODO: make socket io work 
 
-  	$scope.products = [];
+  	$scope.products = []; //list of all products
+    $scope.colors = []; //list of all available colors
+    $http.get('/api/colors').success(function(colors) {
+      $scope.colors = colors;
+      socket.syncUpdates('color', $scope.colors);
+    });
+
   	$http.get('/api/items').success(function(products) {
       $scope.products = products;
       socket.syncUpdates('item', $scope.products);
     });
 
+    $scope.openNewColorModal = function(colors){
+      $modal.open({
+        templateUrl: "app/admin/item/item.createcolor.html",
+        controller: function($scope, $modalInstance){
+          $scope.selectedColor = "";
+          $scope.colors = colors;
+          $scope.newColor = {}; //model for creating a new color
+          //add a color to the available colors 
+          $scope.addColor = function(){
+            if($scope.newColor){
+              $http.post('/api/colors', $scope.newColor).then(
+                function success(response){
+                  //reset form fields and validation
+                  $scope.newColor = {};
+                  $scope.form.$setUntouched();
+                  $scope.form.$setPristine()
+                }
+              );
+            }
+          };
+          //dismiss modal
+          $scope.cancel = function(){
+            $modalInstance.dismiss('cancel');
+          };
+        }
+
+      });
+    };
+
     // two differnt mode fo this modal 'Create', 'Update'
-    $scope.openItemModal = function(mode, item){
+    $scope.openItemModal = function(colors, mode, item){
     	$modal.open({
     		templateUrl: "app/admin/item/item.create.html",
     		size: "lg",
@@ -24,18 +59,16 @@ angular.module('blinkUrbanApp')
           $scope.item.materials = [];
 			  	$scope.metric = {};
     			$scope.categories = ["top", "bottom", "accessories"];
-			  	$scope.colors = ["Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Violet", 
-			  	"Purple", "Magenta", "Pink", "Brown", "White", "Gray", "Black"];
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
           $scope.material = "";
+          $scope.colors = colors;
 
           if(mode === 'Update'){
             $scope.item = item;
           }
-
+          
 			  	$scope.addMetric = function(){
-			    	if($scope.metric !== "" && typeof $scope.metric.colorname !== 'undefined' && typeof $scope.metric.colorhex !== 'undefined'
-			    		&& typeof $scope.metric.size !== 'undefined' && typeof $scope.metric.count !== 'undefined'){
+			    	if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
 			    		$scope.item.metrics.push($scope.metric);
 			    		$scope.metric = {};
 			    	}
@@ -70,7 +103,13 @@ angular.module('blinkUrbanApp')
           $scope.removeMaterial = function(material){
             var index = $scope.item.materials.indexOf(material);
             $scope.item.materials.splice(index,1);
-          }
+          };
+
+          $scope.getColorById = function(colorId){
+            return _.find($scope.colors, function(color){
+              return color._id === colorId;
+            });
+          };
 
     		}
     	});

@@ -75,7 +75,6 @@
 					<thead>
 						<tr>
 							<th>Color</th>
-							<th>Color Hex</th>
 							<th>Size</th>
 							<th>Count</th>
 							<th>Remove</th>
@@ -83,8 +82,10 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="metric in item.metrics">
-							<td>{{metric.colorname}}</td>
-							<td><span class="color-icon" ng-style="{'background-color': '#' + metric.colorhex}"></span></td>
+							<td ng-init="color = getColorById(metric.colorId)">
+								<span class="color-icon" ng-style="{'background-color': '#' + color.colorhex}"></span>
+								{{color.colorname}}
+							</td>
 							<td>{{metric.size}}</td>
 							<td>{{metric.count}}</td>
 							<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
@@ -92,13 +93,12 @@
 					</tbody>
 				</table>
 			</div>
- 			<div class="form-group">
-				<label for="metricColor">Color Name</label>
-				<input type="text" name="metricColor" class="form-control" ng-model="metric.colorname" placeholder="Color Name"/>
-			</div>
+
 			<div class="form-group">
-				<label for="metricColorHex">Color Hex</label>
-				<input maxlength="6" size="6" type="text" name="metricColorHex" class="form-control" ng-model="metric.colorhex" placeholder="Color Hex"/>
+				<label for="metricColor">Color</label>
+				<select id="metricColor" class="form-control" ng-model="metric.colorId">
+					<option ng-repeat="color in colors" value="{{color._id}}">{{color.colorname}}</option>
+				</select>
 			</div>
 
 			<div class="form-group">
@@ -138,8 +138,8 @@
 	</div>
 
 	<div class="modal-footer">
-		<button class="btn btn-default" type="button" ng-click="cancel()">CANCEL</button>
 		<button class="btn btn-primary" type="submit">{{mode}}</button>
+		<button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>		
 	</div>
 
 </form>

@@ -21,13 +21,13 @@ angular.module('blinkUrbanApp')
           $scope.mode = mode;
     			$scope.item = {};
 			  	$scope.item.metrics = [];
-          $scope.item.styles = [];
+          $scope.item.materials = [];
 			  	$scope.metric = {};
     			$scope.categories = ["top", "bottom", "accessories"];
 			  	$scope.colors = ["Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Violet", 
 			  	"Purple", "Magenta", "Pink", "Brown", "White", "Gray", "Black"];
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
-          $scope.style = "";
+          $scope.material = "";
 
           if(mode === 'Update'){
             $scope.item = item;
@@ -60,16 +60,16 @@ angular.module('blinkUrbanApp')
 			    	$modalInstance.dismiss('cancel');
 			    };
 
-          $scope.addStyle = function(){
-            if($scope.style !== "" && $scope.item.styles.indexOf($scope.style) === -1){
-              $scope.item.styles.push($scope.style);
-              $scope.style = "";
+          $scope.addMaterial = function(){
+            if($scope.material !== "" && $scope.item.materials.indexOf($scope.material) === -1){
+              $scope.item.materials.push($scope.material);
+              $scope.material = "";
             }
           };
 
-          $scope.removeStyle = function(style){
-            var index = $scope.item.styles.indexOf(style);
-            $scope.item.styles.splice(index,1);
+          $scope.removeMaterial = function(material){
+            var index = $scope.item.materials.indexOf(material);
+            $scope.item.materials.splice(index,1);
           }
 
     		}

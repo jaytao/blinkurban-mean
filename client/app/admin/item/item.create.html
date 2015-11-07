@@ -17,20 +17,25 @@
 			<input type="text" id="name" name="name" class="form-control" ng-model="item.name" required placeholder="ITEM NAME *"/>
 		</div>
 
-		<div class="form-group" ng-class="{ 'has-success': form.price.$valid && submitted, 'has-error': form.price.$invalid && submitted }">
-			<label for="price">Price *</label>
-			<small class="text-danger" ng-show="form.price.$error.required && form.$submitted">
-				Item price is required
-			</small>
-			<input type="number" id="price" name="price" class="form-control" ng-model="item.price" required placeholder="ITEM PRICE *"/>
-		</div>
-
-		<div class="form-group" ng-class="{ 'has-success': form.basecost.$valid && submitted,'has-error': form.basecost.$invalid && submitted }">
-			<label for="basecost">Base Cost *</label>
-			<small class="text-danger" ng-show="form.basecost.$error.required && form.$submitted">
-				Item base price is required
-			</small>
-			<input type="number" id="basecost" name="basecost" class="form-control" ng-model="item.basecost" required placeholder="ITEM BASE COST *"/>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<div class="form-group" ng-class="{ 'has-success': form.price.$valid && submitted, 'has-error': form.price.$invalid && submitted }">
+					<label for="price">Price *</label>
+					<small class="text-danger" ng-show="form.price.$error.required && form.$submitted">
+						Item price is required
+					</small>
+					<input type="number" id="price" name="price" class="form-control" ng-model="item.price" required placeholder="ITEM PRICE *"/>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div class="form-group" ng-class="{ 'has-success': form.basecost.$valid && submitted,'has-error': form.basecost.$invalid && submitted }">
+					<label for="basecost">Base Cost *</label>
+					<small class="text-danger" ng-show="form.basecost.$error.required && form.$submitted">
+						Item base price is required
+					</small>
+					<input type="number" id="basecost" name="basecost" class="form-control" ng-model="item.basecost" required placeholder="ITEM BASE COST *"/>
+				</div>
+			</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-success': form.description.$valid && submitted, 'has-error': form.description.$invalid && submitted }">
@@ -38,7 +43,8 @@
 			<small class="text-danger" ng-show="form.description.$error.required && form.$submitted">
 				Item description is required
 			</small>
-			<input type="text" id="description" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *"/>
+			<textarea id="description" rows="5" name="description" class="form-control" ng-model="item.description" required placeholder="ITEM DESCRIPTION *">
+			</textarea>
 		</div>
 
 		<div class="form-group">
@@ -109,20 +115,24 @@
  		</fieldset>
  		<br>
  		<fieldset class="form-inline">
- 			<legend>Product Styles: </legend>
- 			<ul class="list-group">
- 				<li ng-repeat="style in item.styles" class="list-group-item">
- 					<button ng-click="removeStyle(style)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
- 					{{style}}
+ 			<legend>Product Materials: </legend>
+ 			<ul ng-show="item.materials.length > 0" class="list-group">
+ 				<li ng-repeat="material in item.materials" class="list-group-item">
+ 					<button ng-click="removeMaterial(material)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+ 					{{material}}
  				</li>
  			</ul>
  			<div class="form-group">
-				<label class="sr-only" for="styles">STYLES</label>
-				<input type="text" id="styles" name="styles" class="form-control" ng-model="style" placeholder="ITEM STYLES *"/>
+				<label class="sr-only" for="materials">MATERIALS</label>
+				<input type="text" id="materials" name="materials" class="form-control" ng-model="material" placeholder="ITEM MATERIALS"/>
 			</div>
-			<button class="btn btn-default" type="button" ng-click="addStyle()">
+			<button class="btn btn-default" type="button" ng-click="addMaterial()">
 				<span class="glyphicon glyphicon-plus"></span>
 			</button>
+ 		</fieldset>
+ 		<br>
+ 		<fieldset>
+ 			<legend>Item Image:</legend>
  		</fieldset>
 
 	</div>

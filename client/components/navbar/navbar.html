@@ -13,9 +13,19 @@
     </div>  
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav somepadding">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+        <li dropdown on-toggle="toggled(open)">
+          <a dropdown-toggle>APPAREL</a>
+          <ul class="dropdown-menu">
+            <li>For Men:</li>
+            <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)} appareldropdown">
+                <a ng-href="{{item.link}}">{{item.title}}</a>
+            </li>
+          </ul>  
         </li>
+<!--         <li><a>|</a></li> -->
+        <li><a href="#">RUNWAY</a></li>
+<!--         <li><a>|</a></li> -->
+        <li><a href="#">MAGAZINE</a></li>             
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
           <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="admin-dropdown">

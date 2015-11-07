@@ -100,8 +100,14 @@ p, a, h4 {
 }   
 .navbar-nav li a{
     letter-spacing: .15em;
-    padding-left: 25px;
+    padding-left: 10px;
     font-size:14px;
+    padding-right:10px;
+}
+
+.appareldropdown {
+    color: #555 !important;
+    background-color: white !important;
 }
 
 .navbar-customborder{

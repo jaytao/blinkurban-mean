@@ -27,14 +27,16 @@ angular.module('blinkUrbanApp')
           //add a color to the available colors 
           $scope.addColor = function(){
             if($scope.newColor){
-              $http.post('/api/colors', $scope.newColor).then(
-                function success(response){
-                  //reset form fields and validation
-                  $scope.newColor = {};
-                  $scope.form.$setUntouched();
-                  $scope.form.$setPristine()
-                }
-              );
+              $http.post('/api/colors', $scope.newColor)
+              .then(function success(response){
+                //reset form fields and validation
+                $scope.newColor = {};
+                $scope.form.$setUntouched();
+                $scope.form.$setPristine()
+              })
+              .catch( function(err) {
+                //TODO do something with the error
+              });
             }
           };
           //dismiss modal

@@ -13,7 +13,7 @@ exports.index = function(req, res) {
 
 // Get a single item
 exports.show = function(req, res) {
-  Item.findById(req.params.id)
+  Item.findById(req.params.id, '-basecost')
   .populate('metrics.colorId')
   .exec(function (err, item) {
     if(err) { return handleError(res, err); }

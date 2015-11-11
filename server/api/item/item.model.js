@@ -10,6 +10,7 @@ var ItemSchema = new Schema({
   gender: String,
   categories: Array,
   materials: Array,
+  createdDate: { type: Date, default : Date.now },
   metrics: [{
     _id: String,
     colorId: { type: Schema.Types.ObjectId, ref: 'Color' },
@@ -19,4 +20,5 @@ var ItemSchema = new Schema({
 });
 ItemSchema.index({ name : 'text', categories: 'text', description : 'text' },
                  { weights: {name: 10, categories: 5, description: 3}, name: "textScore"});
+
 module.exports = mongoose.model('Item', ItemSchema);

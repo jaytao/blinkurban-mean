@@ -27,14 +27,16 @@ angular.module('blinkUrbanApp')
           //add a color to the available colors 
           $scope.addColor = function(){
             if($scope.newColor){
-              $http.post('/api/colors', $scope.newColor).then(
-                function success(response){
-                  //reset form fields and validation
-                  $scope.newColor = {};
-                  $scope.form.$setUntouched();
-                  $scope.form.$setPristine()
-                }
-              );
+              $http.post('/api/colors', $scope.newColor)
+              .then(function success(response){
+                //reset form fields and validation
+                $scope.newColor = {};
+                $scope.form.$setUntouched();
+                $scope.form.$setPristine()
+              })
+              .catch( function(err) {
+                //TODO do something with the error
+              });
             }
           };
           //dismiss modal
@@ -84,9 +86,7 @@ angular.module('blinkUrbanApp')
             }else if($scope.mode === 'Update'){
               $http.put('/api/items/' + $scope.item._id, $scope.item);
             }
-			      
-			      //force refresh
-			      location.reload();
+            $scope.cancel();
 			    };
 
 			    $scope.cancel = function(){
@@ -117,11 +117,10 @@ angular.module('blinkUrbanApp')
   	
     $scope.deleteItem = function(item) {
       $http.delete('/api/items/' + item._id);
-      //force refresh
-      location.reload();
     };
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('Item');
+      socket.unsyncUpdates('Color');
     });
 
   });

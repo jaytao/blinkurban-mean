@@ -6,6 +6,9 @@ Why is this here as default?
 */ 
 }
 
+a {
+  color:black;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -17,7 +20,7 @@ body {
   font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";    
   font-size: 18px;
   line-height: 1.45;
-  font-weight: 400;  
+  font-weight: 400; 
 }
 .footer {
   position: absolute;
@@ -105,11 +108,9 @@ p, a, h4 {
     padding-right:10px;
 }
 
-.appareldropdown {
-    color: #555 !important;
-    background-color: white !important;
+.navbar{
+      background-color: white;
 }
-
 .navbar-customborder{
   border-bottom: 1px solid #eee;
 }
@@ -130,7 +131,7 @@ p, a, h4 {
   color: #818285;
   font-weight: 300;
   outline: none;
-  border: 1px solid #00aeef;
+  border: 1px solid #777;
   margin-top: 10px;
   border-radius: 4px;
   width: 120px;

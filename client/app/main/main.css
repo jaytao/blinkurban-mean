@@ -26,6 +26,21 @@
     background: white;
 }
 
+.welcomemessage {
+    position: absolute;  z-index: 1; top: 100px; left: 180px; width:300px;
+    font-size:50px;
+    color: black;
+    background-color: white;
+    font-family: 'Schoolbell';
+}
+.welcomemessage1{
+    font-size:20px;
+}
+
+p{
+    margin: 0;
+}
+
 .navbar-text {
     margin-left: 15px;
 }

@@ -36,4 +36,16 @@ angular.module('blinkUrbanApp')
     };
   });
 
+angular.module('blinkUrbanApp')
+    .controller('NavbarSearchCtrl', ['$scope', function($scope) {
+      $scope.searchinput = [];
+      $scope.text = '';
+      $scope.submit = function() {
+        if ($scope.text) {
+          $scope.searchinput.push(this.text);
+          $scope.text = '';
+        }
+      };
+    }]);
+
   

@@ -37,12 +37,16 @@
       
 
       <ul class="nav navbar-nav navbar-right ngAnimate">
-       <li><input ng-model="query" ng-hide="clickedsearch" class="ng-hide search-form" type="text" placeholder="Search for..."></li>
+
+       <li>
+          <form ng-submit="submit()" ng-controller="NavbarSearchCtrl">
+            <input ng-model="text" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="text" placeholder="Search for...">
+              <a>searchinput={{searchinput}}</a>
+          </form>
+       </li>       
 
        <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
         
-       <!--  <li ng-hide="clickedsearch" <a class="nopadding"><input id="searchfield" style="display:none" type="text" class="search-form" placeholder="Search for..."></a></li> -->
-
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">LOGIN</a></li>
 
         <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">

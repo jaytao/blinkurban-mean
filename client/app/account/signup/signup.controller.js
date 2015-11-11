@@ -10,7 +10,8 @@ angular.module('blinkUrbanApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          firstname: $scope.user.firstname,
+          lastname: $scope.user.lastname,
           email: $scope.user.email,
           password: $scope.user.password
         })

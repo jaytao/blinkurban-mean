@@ -4,7 +4,10 @@
 	  <button ng-click="openNewColorModal(colors)" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Color</button>
 	  <button ng-click="openItemModal(colors,'Create')" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Item</button>
 	</div>
-	<table class="table table-striped">
+	<div ng-if="products.length <= 0">
+		<h3>There are no items available</h3>
+	</div>
+	<table ng-if="products.length > 0" class="table table-striped">
 		<thead>
 			<tr>
 				<th>Name</th>

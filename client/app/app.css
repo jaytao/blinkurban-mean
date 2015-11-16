@@ -110,6 +110,7 @@ p, a, h4 {
 
 .navbar{
       background-color: white;
+      margin-bottom:0px;
 }
 .navbar-customborder{
   border-bottom: 1px solid #eee;
@@ -244,6 +245,23 @@ p, a, h4 {
 
 
 /**
-**Practice CSS
+**NAVBAR LIST
 */
+.navbarlist{
+  font-size:12px;
+  padding-left:28px;
+    color:#eee;
+}
 
+.navbarlist ul{
+  margin-bottom: 0px;
+    color:#eee;
+}
+
+.navbarlist .list-inline > li {
+  padding-right:10px;
+}
+
+.navbarlist a{
+  color:#777;
+}

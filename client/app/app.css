@@ -22,6 +22,7 @@ body {
   line-height: 1.45;
   font-weight: 400; 
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -91,34 +92,10 @@ p, a, h4 {
  border-color: green; 
 }
 
-/*style navigation bar*/
-.navbar-brand {
-    position: absolute;
-    font: #8CC8E5;
-/*    left: 50%;*/
-/*    margin-left: -50px !important;*/ /* 50% of logo width */
-    display: block;
-    font-size:25px;
-    padding:11px 15px;
-}   
-.navbar-nav li a{
-    letter-spacing: .15em;
-    padding-left: 10px;
-    font-size:14px;
-    padding-right:10px;
-}
-
-.navbar{
-      background-color: white;
-      margin-bottom:0px;
-}
 .navbar-customborder{
   border-bottom: 1px solid #eee;
 }
 
-.somepadding{
-    padding-left:0px;
-}
 
 .maincontainerpadding{
   padding-bottom:150px;
@@ -265,3 +242,26 @@ p, a, h4 {
 .navbarlist a{
   color:#777;
 }
+
+@media (min-width: 768px) {
+  /**** make navbar dropdown on hover*****/
+  .nav > li.dropdown:hover {
+    position: static;
+  }
+  /**** make navbar dropdown extend to full width ****/
+  .nav > li.dropdown:hover .dropdown-menu {
+    display: block;
+    width: 100%; 
+    left:0; 
+    right:0;
+    padding: 20px 0px;
+    border-radius: 0px;
+  }
+  .nav .dropdown-menu>li {
+    display: block;
+  }
+  
+}
+
+
+

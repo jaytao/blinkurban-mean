@@ -84,6 +84,7 @@ angular.module('blinkUrbanApp')
             if($scope.mode === 'Create'){
               $http.post('/api/items', $scope.item);
             }else if($scope.mode === 'Update'){
+              //_.map($scope.item.metrics, _.partialRight(_.pick, "colorId", "count", "size"));
               $http.put('/api/items/' + $scope.item._id, $scope.item);
             }
             $scope.cancel();

@@ -1,5 +1,124 @@
+<nav class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+
+  <div class="text-right header-social">
+    <div class="container">
+      <p>OUR DEDICATION TO THE ONLINE FASHION EXPERIENCE</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/"><img class="img-rounded" src="assets/images/brand.png" width="120" height="50" alt="BLUR"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">APPAREL</a>
+          <ul class="dropdown-menu">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h5><strong>FEATURED</strong></h5>
+                  <li role="separator" class="divider"></li>
+                  <li><a href=""><strong>New Arrivals</strong></a></li>
+                  <li><a href=""><strong>Spring Collections</strong></a></li>
+                  <li><a href=""><strong>Clearance</strong></a></li>
+                </div>
+                <div class="col-sm-2">
+                  <h5><strong>TOPS</strong></h5>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="">Hoodies</a></li>
+                  <li><a href="">T-Shirts</a></li>
+                  <li><a href="">Shirts</a></li>
+                  <li><a href="">Polos</a></li>
+                  <li><a href="">Sweaters</a></li>
+                </div>
+                <div class="col-sm-2">
+                  <h5><strong>BOTTOMS</strong></h5>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="">Hoodies</a></li>
+                  <li><a href="">T-Shirts</a></li>
+                  <li><a href="">Shirts</a></li>
+                  <li><a href="">Polos</a></li>
+                  <li><a href="">Sweaters</a></li>
+                </div>
+                <div class="col-sm-2">
+                  <h5><strong>ACCESSORIES</strong></h5>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="">Hoodies</a></li>
+                  <li><a href="">T-Shirts</a></li>
+                  <li><a href="">Shirts</a></li>
+                  <li><a href="">Polos</a></li>
+                  <li><a href="">Sweaters</a></li>
+                </div>
+                <!--
+                <div class="col-sm-2">
+                  <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                    <a ng-href="{{item.link}}">{{item.title}}</a>
+                  </li>
+                </div>
+              -->
+              </div>
+            </div>
+          </ul>
+        </li>
+        <li><a href="/">RUNWAY</a></li>
+        <li><a href="/">MAGAZINE</a></li>
+        <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
+          <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="admin-dropdown">
+            <li><a href="/admin/users">MANAGE USERS</a></li>
+            <li><a href="/admin/items">MANAGE ITEMS</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right ngAnimate">
+        <li>
+          <form ng-submit="submit()" ng-controller="NavbarSearchCtrl">
+            <input ng-model="text" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="text" placeholder="Search for...">
+          </form>
+       </li>       
+
+       <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+        
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">LOGIN</a></li>
+
+        <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">
+          <a href id="user-dropdown" dropdown-toggle >Hey {{ getCurrentUser().name }}<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="user-dropdown">
+            <li><a href="/settings">CHANGE PASSWORD</a></li>
+          </ul>
+        </li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+          <a href="" ng-click="logout()">LOGOUT</a>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+      </ul>
+
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+
+
+<!--
 <div class="navbar navbar-custom navbar-static-top" ng-controller="NavbarCtrl">
-    <div class="text-right header-social">OUR DEDICATION TO THE ONLINE FASHION EXPERIENCE</div>
+
+  <div class="text-right header-social">
+    <div class="container">
+      <p>OUR DEDICATION TO THE ONLINE FASHION EXPERIENCE</p>
+    </div>
+  </div>
+
   <div class="container navbar-customborder">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -8,7 +127,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- <a href="/main/main.html" class="navbar-brand">BL.UR</a> -->
       <a href="/"><img class="img-rounded" src="assets/images/brand.png" width="120" height="50" alt="BLUR"></a>
     </div>  
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
@@ -16,15 +134,19 @@
         <li dropdown on-toggle="toggled(open)">
           <a dropdown-toggle>APPAREL</a>
           <ul class="dropdown-menu">
-            <li>For Men:</li>
-            <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-                <a ng-href="{{item.link}}">{{item.title}}</a>
-            </li>
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+              <div class="col-sm-3">
+                <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                  <a ng-href="{{item.link}}">{{item.title}}</a>
+                </li>
+              </div>
+            </div>
+            
           </ul>  
         </li>
-<!--         <li><a>|</a></li> -->
         <li><a href="#">RUNWAY</a></li>
-<!--         <li><a>|</a></li> -->
         <li><a href="#">MAGAZINE</a></li>             
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
           <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret"></span></a>
@@ -60,6 +182,9 @@
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
       </ul>  
+
     </div>
   </div>
 </div>
+
+-->

@@ -4,19 +4,19 @@ angular.module('blinkUrbanApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'NEW',
-      'link': '/'
+      'link': '/new'
     },{
       'title': 'TOPS',
-      'link': '/'
+      'link': '/tops'
     },{
       'title': 'BOTTOMS',
-      'link': '/'
+      'link': '/bottoms'
     },{
       'title': 'ACCESSORIES',
-      'link': '/'
+      'link': '/accessories'
     },{
       'title': 'SALE',
-      'link': '/'
+      'link': '/sale'
     }];
     // To hide the search icon and bring search bar
     $scope.clickedsearch=true;

@@ -5,9 +5,13 @@
 Why is this here as default? 
 */ 
 }
-
+/*** GLOBAL STYLING ****/
 a {
-  color:black;
+  color: #000;
+  text-decoration: none !important;
+}
+a:hover{
+  color: #996600;
 }
 html {
   position: relative;
@@ -220,28 +224,6 @@ p, a, h4 {
     padding: 0.2em 0;
 }
 
-
-/**
-**NAVBAR LIST
-*/
-.navbarlist{
-  font-size:12px;
-  padding-left:28px;
-    color:#eee;
-}
-
-.navbarlist ul{
-  margin-bottom: 0px;
-    color:#eee;
-}
-
-.navbarlist .list-inline > li {
-  padding-right:10px;
-}
-
-.navbarlist a{
-  color:#777;
-}
 
 @media (min-width: 768px) {
   /**** make navbar dropdown on hover*****/

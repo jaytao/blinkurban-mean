@@ -7,6 +7,8 @@
 	display: block;
 	width: 100%;
 	height: 100%;
+	padding: 3px !important;
+	background-clip: content-box;
 }
 
 
@@ -15,9 +17,10 @@
 	width:35px;
 	height:35px;
 	cursor: pointer;
-	padding: 3px !important;
-	margin-right: 5px;
+	padding: 0px !important;
+	/*margin-right: 5px;*/
 	margin-bottom: 5px;
+	overflow: hidden;
 }
 
 .product-color:hover{

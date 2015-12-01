@@ -5,9 +5,9 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 
 var UserSchema = new Schema({
-  firstname: String,
-  lastname: String,
-  email: { type: String, lowercase: true },
+  firstname: { type: String, maxlength: [128, "First name cannot exceed {MAXLENGTH} characters"], required: "First name is required"},
+  lastname: { type: String, maxlength: [128, "Last name cannot exceed {MAXLENGTH} characters"], required: "Last name is required"},
+  email: { type: String, maxlength: [256, "Email cannot exceed {MAXLENGTH} characters"], required: "Email is required", lowercase: true },
   createdDate: { type: Date, default : Date.now },
   role: {
     type: String,

@@ -5,8 +5,10 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 
 var UserSchema = new Schema({
-  name: String,
-  email: { type: String, lowercase: true },
+  firstname: { type: String, maxlength: [128, "First name cannot exceed {MAXLENGTH} characters"], required: "First name is required"},
+  lastname: { type: String, maxlength: [128, "Last name cannot exceed {MAXLENGTH} characters"], required: "Last name is required"},
+  email: { type: String, maxlength: [256, "Email cannot exceed {MAXLENGTH} characters"], required: "Email is required", lowercase: true },
+  createdDate: { type: Date, default : Date.now },
   role: {
     type: String,
     default: 'user'
@@ -35,7 +37,8 @@ UserSchema
   .virtual('profile')
   .get(function() {
     return {
-      'name': this.name,
+      'firstname': this.firstname,
+      'lastname': this.lastname,
       'role': this.role
     };
   });

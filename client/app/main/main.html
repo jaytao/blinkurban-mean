@@ -1,22 +1,37 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+<div class="jumbotron">
 
-<div class="row">
+<div class="container">
+	    <div class="welcomemessage2"><p> Hello Spring</p></div>
+	    <div class="welcomemessage3"><p1>Our Spring Collection is Here!</p></div>
+</div>
+</div>
+<div class="container">
+
 	<div class="hero-unit" id="banner">
-	  <div class="container col-md-6">
-	    <p class="lead">I still suck at coding - Deon</p>
-	    <img class="img-rounded" src="assets/images/PokemonSad.png" width="304" height="400" alt="Darn">
-	  </div>
-	</div>	
-	<div classs"container col-md-6" ng-controller="NavbarCtrl">
-		<ul>
-			<li ng-repeat="item in menu | filter:query" ng-class="{active: isActive(item.link)}">
-	            <a ng-href="{{item.link}}">{{item.title}}</a>
-	        </li>
-		</ul>
-	</div>	
+	    <div>
+	    <img class="img" src="assets/images/frontbanner.jpg" width="100%" height="" alt="Darn">
+		</div>
+	    <div class="welcomemessage"><p>Our Tops</p><p> Collection</p><p class="welcomemessage1"> Variety of warm outerwear to enjoy</p></div>
+	</div>
+	<div ng-style="{'margin-left':'37.5%','width':'25%','border-top':'solid 1px #d3d3d3', 'background-color':'#ff0000'}"></div>
+	<!-- margin-left is 50%-width/2 -->
+</div>
 </div>
 
-
-
+<div class="container">
+<div class="row">
+  <div class="stepprocess col-md-4">Design
+  	<img class="img" src="assets/images/design.jpg" width="100%" height="" alt="Darn">
+  </div>
+  <div class="stepprocess col-md-4">Manufacture
+	<img class="img" src="assets/images/manufacture.jpg" width="100%" height="" alt="Darn">
+  </div>
+  <div class="stepprocess col-md-4">Quality Assurance
+  	<img class="img" src="assets/images/quality.jpg" width="100%" height="" alt="Darn">
+  </div>
+</div>
+</div>
 
 <div ng-include="'components/footer/footer.html'"></div>

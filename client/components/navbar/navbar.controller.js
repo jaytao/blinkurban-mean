@@ -4,19 +4,19 @@ angular.module('blinkUrbanApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'NEW',
-      'link': '/'
+      'link': '/new'
     },{
       'title': 'TOPS',
-      'link': '/'
+      'link': '/tops'
     },{
       'title': 'BOTTOMS',
-      'link': '/'
+      'link': '/bottoms'
     },{
       'title': 'ACCESSORIES',
-      'link': '/'
+      'link': '/accessories'
     },{
       'title': 'SALE',
-      'link': '/'
+      'link': '/sale'
     }];
     // To hide the search icon and bring search bar
     $scope.clickedsearch=true;
@@ -35,5 +35,17 @@ angular.module('blinkUrbanApp')
       return route === $location.path();
     };
   });
+
+angular.module('blinkUrbanApp')
+    .controller('NavbarSearchCtrl', ['$scope', function($scope) {
+      $scope.searchinput = [];
+      $scope.text = '';
+      $scope.submit = function() {
+        if ($scope.text) {
+          $scope.searchinput.push(this.text);
+          $scope.text = '';
+        }
+      };
+    }]);
 
   

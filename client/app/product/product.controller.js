@@ -117,4 +117,13 @@ angular.module('blinkUrbanApp')
       });
     };
 
+    //tempColor is displayed only when users hover over a color. 
+    $scope.tempColor = "";
+    $scope.hoverColorIn = function(color){
+      $scope.tempColor = color;
+    };
+    $scope.hoverColorOut = function(){
+      $scope.tempColor = "";
+    };
+
   });

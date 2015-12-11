@@ -32,7 +32,7 @@ angular.module('blinkUrbanApp')
                 //reset form fields and validation
                 $scope.newColor = {};
                 $scope.form.$setUntouched();
-                $scope.form.$setPristine()
+                $scope.form.$setPristine();
               })
               .catch( function(err) {
                 //TODO do something with the error

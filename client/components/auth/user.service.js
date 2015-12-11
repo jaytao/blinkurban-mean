@@ -12,6 +12,12 @@ angular.module('blinkUrbanApp')
           controller:'password'
         }
       },
+      updateProfile: {
+        method: 'PUT',
+        params: {
+          controller:'profile'
+        }
+      },
       get: {
         method: 'GET',
         params: {

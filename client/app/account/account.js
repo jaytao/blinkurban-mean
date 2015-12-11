@@ -18,5 +18,17 @@ angular.module('blinkUrbanApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('settings.profile', {
+        url: '/profile',
+        templateUrl: 'app/account/settings/profile.html',
+        controller: 'SettingsCtrl',
+        authenticate: true
+      })
+      .state('settings.password', {
+        url: '/password',
+        templateUrl: 'app/account/settings/password.html',
+        controller: 'SettingsCtrl',
+        authenticate: true
       });
   });

@@ -93,6 +93,24 @@ angular.module('blinkUrbanApp')
       },
 
       /**
+       * Update profile
+       *
+       * @param  {Object}   profile        - user info
+       * @param  {Function} callback    - optional
+       * @return {Promise}
+       */
+      updateProfile: function(profile, callback) {
+        var cb = callback || angular.noop;
+
+        return User.updateProfile({ id: currentUser._id }, profile, 
+        function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
+      },
+
+      /**
        * Gets all available info on authenticated user
        *
        * @return {Object} user

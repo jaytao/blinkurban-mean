@@ -93,13 +93,13 @@
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">LOGIN</a></li>
 
         <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">
-          <a href id="user-dropdown" dropdown-toggle >Hey {{ getCurrentUser().name }}<span class="caret"></span></a>
+          <a href id="user-dropdown" dropdown-toggle >ACCOUNT <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="user-dropdown">
-            <li><a href="/settings">CHANGE PASSWORD</a></li>
+            <li><a href="/settings/profile">Profile</a></li>
           </ul>
         </li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
-          <a href="" ng-click="logout()">LOGOUT</a>
+          <a href="" ng-click="logout()">SIGN OUT</a>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
       </ul>

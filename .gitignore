@@ -31,3 +31,6 @@ dist
 bower_components
 
 .DS_Store
+
+# Swap files
+*.swp

@@ -85,6 +85,8 @@ exports.destroy = function(req, res) {
   });
 };
 
+
+// Search functionality
 exports.search = function(req, res){
     Item.find(
         { $text : { $search : req.query.field } },
@@ -93,6 +95,14 @@ exports.search = function(req, res){
     .sort({ score : { $meta : 'textScore' } })
     .exec(function(err, results) {
         return res.status(200).json(results)
+    });
+};
+
+//more directed pulling of items based on category
+exports.get = function(req, res){
+    Item.find ({categories:req.query.category}, function (err, docs) {
+        if(docs.length == 0) { return res.status(404).send('Not Found'); }
+        return res.status(200).json(docs); 
     });
 };
 

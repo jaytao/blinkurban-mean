@@ -38,14 +38,26 @@ angular.module('blinkUrbanApp')
 
 angular.module('blinkUrbanApp')
     .controller('NavbarSearchCtrl', ['$scope', function($scope) {
-      $scope.searchinput = [];
+      $scope.list = [];
       $scope.text = '';
       $scope.submit = function() {
         if ($scope.text) {
-          $scope.searchinput.push(this.text);
+          $scope.list.push(this.text);
           $scope.text = '';
         }
       };
     }]);
+
+// angular.module('blinkUrbanApp')
+//     .controller('NavbarSearchCtrl', ['$scope', function($scope) {
+//     $scope.searchinput = '';
+//     $scope.submit = function () {
+//       if($scope.searchinput) {
+//         $state.href('/api/items/search?field=' + $scope.searchinput);
+//       }
+//     }  
+//     }]);
+
+
 
   

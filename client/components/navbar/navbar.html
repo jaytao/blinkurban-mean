@@ -82,9 +82,8 @@
 
       <ul class="nav navbar-nav navbar-right ngAnimate">
         <li>
-          <form ng-submit="submit()" ng-controller="NavbarSearchCtrl">
-            <input ng-model="text" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="text" placeholder="Search for...">
-                        <pre>list={{list}}</pre>
+          <form name="form" ng-submit="form.$valid && search()" novalidate>
+            <input ng-model="searchQuey" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="searchQuery" placeholder="Search for..." required>
           </form>
        </li>       
 

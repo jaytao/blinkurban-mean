@@ -34,29 +34,16 @@ angular.module('blinkUrbanApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    $scope.searchQuey = '';
+    $scope.search = function() {
+      if ($scope.searchQuey) {
+        $location.path('/search/' + $scope.searchQuey);
+      }
+    };
+
   });
 
-angular.module('blinkUrbanApp')
-    .controller('NavbarSearchCtrl', ['$scope', function($scope) {
-      $scope.list = [];
-      $scope.text = '';
-      $scope.submit = function() {
-        if ($scope.text) {
-          $scope.list.push(this.text);
-          $scope.text = '';
-        }
-      };
-    }]);
-
-// angular.module('blinkUrbanApp')
-//     .controller('NavbarSearchCtrl', ['$scope', function($scope) {
-//     $scope.searchinput = '';
-//     $scope.submit = function () {
-//       if($scope.searchinput) {
-//         $state.href('/api/items/search?field=' + $scope.searchinput);
-//       }
-//     }  
-//     }]);
 
 
 

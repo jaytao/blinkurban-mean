@@ -1,0 +1,28 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<ul>
+				<li>Need this here to me a filtering/navigation option</li>
+				<li>Need to implement pagination system here. site wide pagination. may be able to release without one</li>
+			</ul>
+
+		</div>
+		<div class="col-sm-9">
+			<p>{{results.length}} RESULTS FOR "{{query | uppercase}}"</p> 
+			<hr>
+			<div ng-show="results.length <= 0" class="text-center">
+				<p>SORRY, WE COULDN'T FIND ANY MATCH FOR "<span>{{query | uppercase}}</span>".</p>
+				<p>PLEASE TRY A NEW SEARCH</p>
+			</div>
+			<ul  ng-repeat="item in results">
+				<li>{{item.name}}</li>
+			</ul>
+		</div>
+		
+	</div>
+	
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

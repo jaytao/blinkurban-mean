@@ -35,10 +35,10 @@ angular.module('blinkUrbanApp')
       return route === $location.path();
     };
 
-    $scope.searchQuey = '';
+    $scope.searchQuery = '';
     $scope.search = function() {
-      if ($scope.searchQuey) {
-        $location.path('/search/' + $scope.searchQuey);
+      if ($scope.searchQuery) {
+        $location.path('/search/' + $scope.searchQuery);
       }
     };
 

@@ -16,9 +16,11 @@
 				<p>SORRY, WE COULDN'T FIND ANY MATCH FOR "<span>{{query | uppercase}}</span>".</p>
 				<p>PLEASE TRY A NEW SEARCH</p>
 			</div>
-			<ul  ng-repeat="item in results">
-				<li>{{item.name}}</li>
-			</ul>
+			<div class="row">
+				<div ng-repeat="item in results">
+					<product-snapshot class="col-sm-3"></product-snapshot>
+				</div>
+			</div>
 		</div>
 		
 	</div>

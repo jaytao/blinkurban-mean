@@ -37,6 +37,19 @@ body {
   border-color: #000;
 }
 
+.form-control{
+  border-radius: 0px;
+}
+
+.nav-pills > li.active > a{
+  background-color: #000;
+  border-radius: 0px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #000;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

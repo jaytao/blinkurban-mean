@@ -67,9 +67,10 @@ body {
     font: 10px/20px ProximaNova,Arial,sans-serif;
     height: 20px;
     text-align: right;
-    background: black;
-    color:white;
+    background: #FFF;
+    color: #b5bbbd;
     padding-right: 10px;
+    border-top: 2px solid #ec0928;
 
 }    
 
@@ -141,6 +142,25 @@ p, a, h4 {
   border-radius: 4px;
   width: 120px;
 }
+.search-form1{
+  position:absolute;
+  padding-left: 10px;
+  height: 30px;
+  font-size: 14px;
+  color: #818285;
+  font-weight: 300;
+  outline: none;
+  border: 1px solid #777;
+  margin-top: 10px;
+  border-radius: 4px;
+  width: 120px;
+}
+
+.happ1{
+  height:40px !important;
+  position: relative;
+
+}
 
 /* title */
 .navbar-custom .navbar-brand {
@@ -149,6 +169,9 @@ p, a, h4 {
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
     color: #777;
+}
+.navbar-default {
+  background-color: #fff;
 }
 
 

@@ -10,7 +10,7 @@
 
 		</div>
 		<div class="col-sm-9">
-			<p>{{results.length}} RESULTS FOR "{{query | uppercase}}"</p> 
+			<p>{{resultCount}} RESULTS FOR "{{query | uppercase}}"</p> 
 			<hr>
 			<div ng-show="results.length <= 0" class="text-center">
 				<p>SORRY, WE COULDN'T FIND ANY MATCH FOR "<span>{{query | uppercase}}</span>".</p>
@@ -18,7 +18,9 @@
 			</div>
 			<div class="row">
 				<div ng-repeat="item in results">
-					<product-snapshot class="col-sm-3"></product-snapshot>
+					<div ng-repeat="metric in getUnique(item.metrics)">
+						<product-snapshot data="{item: item, metric: metric}" class="col-sm-3"></product-snapshot>
+					</div>
 				</div>
 			</div>
 		</div>

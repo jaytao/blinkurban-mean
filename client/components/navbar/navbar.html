@@ -19,12 +19,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/"><img class="img-rounded" src="assets/images/brand.png" width="120" height="50" alt="BLUR"></a>
+      <a href="/"><img class="img" src="assets/images/brand.png" width="120" height="" alt="BLUR"></a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="/apparel" role="button" aria-haspopup="true" aria-expanded="false">APPAREL</a>
+      <ul class="nav navbar-nav hvr-underline-reveal">
+        <li class="dropdown hvr-underline-hide">
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">APPAREL</a>
           <ul class="dropdown-menu">
             <div class="container">
               <div class="row">
@@ -85,18 +85,19 @@
         
       </ul>
 
-      <ul class="nav navbar-nav navbar-right ngAnimate">
-<!--        <li>
+      <ul class="nav navbar-nav navbar-right hvr-underline-reveal ngAnimate">
+       <li>
           <form name="form" ng-submit="form.$valid && search()" novalidate>
             <input ng-model="searchQuery" class="search-form" type="text" name="searchQuery" placeholder="Search for..." required>
           </form>
-       </li> -->       
-       <li>
+       </li>  
+       <!-- This creates icon search function  -->    
+<!--        <li>
           <form name="form" ng-submit="form.$valid && search()" novalidate>
             <input ng-model="searchQuery" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="searchQuery" autofocus placeholder="Search for..." required>
           </form>
        </li>  
-       <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+       <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li> -->
         
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">LOGIN</a></li>
 

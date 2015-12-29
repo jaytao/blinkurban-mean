@@ -191,7 +191,7 @@ p, a, h4 {
   height: 3px;
 }
 /* Underline From Center */
-.hvr-underline-reveal >li{
+.hvr-underline-reveal{
   display: inline-block;
   vertical-align: middle;
 /*  -webkit-transform: translateZ(0);
@@ -203,7 +203,7 @@ p, a, h4 {
   position: relative;
   overflow: hidden;
 }
-.hvr-underline-reveal >li:before {
+.hvr-underline-reveal:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -222,7 +222,7 @@ p, a, h4 {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-underline-reveal>li:hover:before, .hvr-underline-reveal>li:focus:before, .hvr-underline-reveal >li:active:before {
+.hvr-underline-reveal:hover:before, .hvr-underline-reveal:focus:before, .hvr-underline-reveal:active:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }

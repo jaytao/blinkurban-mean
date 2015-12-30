@@ -23,7 +23,7 @@
 
 			<div class="form-group" ng-class="{ 'has-success': form.name.$valid && form.$submitted, 'has-error': form.name.$invalid && form.$submitted }">
 				<label for="name">Category Name *</label>
-				<input id="name" type="text" name="name" class="form-control" ng-model="category.name" required  mongoose-error/>
+				<input id="name" type="text" name="name" class="form-control" placeholder="e.g. Outerwears, Tops, Bottoms" ng-model="category.name" required  mongoose-error/>
 				<p class="help-block" ng-show="form.name.$error.required && form.$submitted">
 					A category name is required
 				</p>
@@ -34,8 +34,9 @@
 
 			<div class="form-group">
 				<label for="productType">Product Types *</label>
+				<p>Each category should have at least one product type.</p>
 				<div class="input-group">
-		      <input ng-model="category.type" id="productType" name="type" type="text" class="form-control" placeholder="product category...">
+		      <input ng-model="category.type" id="productType" name="type" type="text" class="form-control" placeholder="e.g. Shirts, Sweaters...">
 		      <span class="input-group-btn">
 		        <button class="btn btn-default" type="button" ng-click="addCategoryType()">Add Product Type</button>
 		      </span>
@@ -48,7 +49,7 @@
 				</ul>
 			</div>
 
-			<button class="btn btn-primary" type="submit">Add</button>
+			<div ng-if="category.types.length > 0 && category.name"><button class="btn btn-primary btn-block" type="submit">Add</button></div>
 		</form>
 	</div>
 </div>

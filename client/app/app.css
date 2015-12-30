@@ -34,8 +34,9 @@ body {
 
 .btn-primary{
   background-color: #fff;
-  border-color: #404040; 
+  border-color: #000; 
 }
+
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #ee524a;

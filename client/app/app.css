@@ -7,7 +7,7 @@ Why is this here as default?
 }
 /*** GLOBAL STYLING ****/
 a {
-  color: #000;
+  color: #777;
   text-decoration: none !important;
 }
 a:hover{
@@ -21,10 +21,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 200px;
   font-style: normal;
-  font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";    
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;    
   font-size: 18px;
   line-height: 1.45;
-  font-weight: 400; 
+  font-weight: 200; 
 }
 
 .btn{
@@ -38,9 +38,10 @@ body {
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #4CC3D9;
-    color: #000;
-    border-color:#404040;
+    background: #ee524a;
+    color: #fff;
+    font-weight: 300;
+    border-color:transparent;
 }
 
 .form-control{
@@ -70,8 +71,9 @@ body {
 
 .header-social {
     cursor: default;
-    font: 10px/20px ProximaNova,Arial,sans-serif;
+    font: 10px/20px 'Gotham SSm A', 'Gotham SSm B', sans-serif;
     height: 20px;
+    font-weight: 200;
     text-align: right;
     background: #FFF;
     color: #b5bbbd;
@@ -113,11 +115,14 @@ code {
 }
 
 p, a, h4 {
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 200;
 }
 
+h4{
+    color: #ee524a;  
+}
 /*changing color of form fields to indicate validation result*/
 .ng-invalid.ng-touched{
  border-color:#ec0928;

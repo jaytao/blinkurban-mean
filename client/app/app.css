@@ -120,8 +120,12 @@ p, a, h4 {
 
 /*changing color of form fields to indicate validation result*/
 .ng-invalid.ng-touched{
- border-color:red; 
+ border-color:#ec0928;
 }
+.text-danger{
+ color:#ec0928;
+}
+
 .ng-valid.ng-touched{
  border-color: green; 
 }
@@ -179,17 +183,6 @@ p, a, h4 {
   color:#4CC3D9;
 }
 
-.hvr-underline-hide:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 25%;
-  width:50%;
-  right: 0;
-  top:-10px;
-  background: #FFF;
-  height: 3px;
-}
 /* Underline From Center */
 .hvr-underline-reveal{
   display: inline-block;

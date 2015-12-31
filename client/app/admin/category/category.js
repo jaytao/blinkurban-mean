@@ -6,6 +6,7 @@ angular.module('blinkUrbanApp')
       .state('admin.category', {
         url: '/category',
         templateUrl: 'app/admin/category/category.html',
-        controller: 'CategoryCtrl'
+        controller: 'CategoryCtrl',
+        admin: true
       });
   });

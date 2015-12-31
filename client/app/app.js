@@ -47,10 +47,14 @@ angular.module('blinkUrbanApp', [
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
-        if (next.authenticate && !loggedIn) {
+        if ((next.authenticate || next.admin) && !loggedIn) {
           //TODO: find out why this needs to be commented out, otherwise it won't redirect
           //event.preventDefault();
           $location.path('/login');
+        }
+        else if(next.admin && loggedIn && !Auth.isAdmin()){
+          //redirect to home page if user is login but is not an admin
+          $location.path('/');
         }
       });
     });

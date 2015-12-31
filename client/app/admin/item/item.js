@@ -6,6 +6,7 @@ angular.module('blinkUrbanApp')
       .state('admin.items', {
         url: '/items',
         templateUrl: 'app/admin/item/item.html',
-        controller: 'ItemCtrl'
+        controller: 'ItemCtrl',
+        admin: true
       });
   });

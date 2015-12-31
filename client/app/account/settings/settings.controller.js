@@ -48,8 +48,4 @@ angular.module('blinkUrbanApp')
       }
     };
 
-    $scope.isActive = function(route) {
-      return route === $location.path();
-    };
-
   });

@@ -48,7 +48,8 @@ angular.module('blinkUrbanApp', [
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
-          event.preventDefault();
+          //TODO: find out why this needs to be commented out, otherwise it won't redirect
+          //event.preventDefault();
           $location.path('/login');
         }
       });

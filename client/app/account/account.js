@@ -16,7 +16,11 @@ angular.module('blinkUrbanApp')
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsCtrl',
+        controller: function($scope, $location){
+          $scope.isActive = function(route) {
+            return route === $location.path();
+          };
+        },
         authenticate: true
       })
       .state('settings.profile', {

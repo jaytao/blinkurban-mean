@@ -5,7 +5,14 @@ angular.module('blinkUrbanApp')
     return {
       templateUrl: 'components/productSnapshot/productSnapshot.html',
       restrict: 'EA',
+      scope: {
+      	data: '='
+      },
       link: function (scope, element, attrs) {
+      	
+      },
+      controller: function($scope){
+
       }
     };
   });

@@ -1,0 +1,55 @@
+
+<div class="row">
+	<div class="col-sm-6">
+		<div ng-if="categories.length <= 0">
+			<h3>There are no categories available</h3>
+		</div>
+
+		<div ng-repeat="category in categories" class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">{{category.name}}</h3>
+		  </div>
+		  <ul class="list-group">
+		    <li ng-repeat="type in category.types" class="list-group-item">{{type}}</li>
+		  </ul>
+		</div>
+
+	</div>
+
+	<div class="col-sm-6">
+		<h3>Create a new category</h3>
+		<hr>
+		<form class="form" name="form" novalidate ng-submit="form.$valid && addCategory()">
+
+			<div class="form-group" ng-class="{ 'has-success': form.name.$valid && form.$submitted, 'has-error': form.name.$invalid && form.$submitted }">
+				<label for="name">Category Name *</label>
+				<input id="name" type="text" name="name" class="form-control" placeholder="e.g. Outerwears, Tops, Bottoms" ng-model="category.name" required  mongoose-error/>
+				<p class="help-block" ng-show="form.name.$error.required && form.$submitted">
+					A category name is required
+				</p>
+				<p class="help-block" ng-show="form.name.$error.mongoose">
+					{{ errors.name }}
+				</p>
+			</div>
+
+			<div class="form-group">
+				<label for="productType">Product Types *</label>
+				<p>Each category should have at least one product type.</p>
+				<div class="input-group">
+		      <input ng-model="category.type" id="productType" name="type" type="text" class="form-control" placeholder="e.g. Shirts, Sweaters...">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button" ng-click="addCategoryType()">Add Product Type</button>
+		      </span>
+		    </div>
+			</div>
+
+			<div class="form-group">
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="type in category.types track by $index" >{{type}}</li>
+				</ul>
+			</div>
+
+			<div ng-if="category.types.length > 0 && category.name"><button class="btn btn-primary btn-block" type="submit">Add</button></div>
+		</form>
+	</div>
+</div>

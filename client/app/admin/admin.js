@@ -5,11 +5,13 @@ angular.module('blinkUrbanApp')
     $stateProvider
       .state('admin', {
         url: '/admin',
-        templateUrl: 'app/admin/admin.html'
+        templateUrl: 'app/admin/admin.html',
+        admin: true
       })
       .state('admin.users', {
         url: '/users',
         templateUrl: 'app/admin/admin.users.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        admin: true
       });
   });

@@ -4,6 +4,11 @@
     <div class="container">
       <p>OUR DEDICATION TO THE ONLINE FASHION EXPERIENCE</p>
     </div>
+<!--     <div class="container">
+          <form name="form" ng-submit="form.$valid && search()" novalidate>
+            <input ng-model="searchQuery" class="search-form1" type="text" name="searchQuery" placeholder="Search for..." required>
+          </form>
+    </div> -->
   </div>
 
   <div class="container">
@@ -14,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/"><img class="img-rounded" src="assets/images/brand.png" width="120" height="50" alt="BLUR"></a>
+      <a href="/"><img class="img" src="assets/images/brand.png" width="120" height="" alt="BLUR"></a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -68,28 +73,34 @@
             </div>
           </ul>
         </li>
-        <li><a href="/">RUNWAY</a></li>
-        <li><a href="/">MAGAZINE</a></li>
+        <li class="hvr-underline-reveal"><a href="/">RUNWAY</a></li>
+        <li class="hvr-underline-reveal"><a href="/">MAGAZINE</a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
-          <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret"></span></a>
+          <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret "></span></a>
           <ul class="dropdown-menu" aria-labelledby="admin-dropdown">
             <li><a href="/admin/users">MANAGE USERS</a></li>
             <li><a href="/admin/items">MANAGE ITEMS</a></li>
+            <li><a href="/admin/category">MANAGE CATEGORIES</a></li>
           </ul>
         </li>
         
       </ul>
 
       <ul class="nav navbar-nav navbar-right ngAnimate">
-        <li>
+       <li>
           <form name="form" ng-submit="form.$valid && search()" novalidate>
-            <input ng-model="searchQuey" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="searchQuery" placeholder="Search for..." required>
+            <input ng-model="searchQuery" class="search-form" type="text" name="searchQuery" placeholder="Search for..." required>
           </form>
-       </li>       
-
-       <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+       </li>  
+       <!-- This creates icon search function  -->    
+<!--        <li>
+          <form name="form" ng-submit="form.$valid && search()" novalidate>
+            <input ng-model="searchQuery" ng-hide="clickedsearch" class="ng-hide search-form" type="text" name="searchQuery" autofocus placeholder="Search for..." required>
+          </form>
+       </li>  
+       <li ng-show="clickedsearch" ng-click="clickedsearch=false"><a id="searchicon" style="display: block" href=""><span id="myList" class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li> -->
         
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">LOGIN</a></li>
+        <li class="hvr-underline-reveal" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')} "><a href="/login">SIGN IN / JOIN</a></li>
 
         <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">
           <a href id="user-dropdown" dropdown-toggle >ACCOUNT <span class="caret"></span></a>
@@ -97,10 +108,10 @@
             <li><a href="/settings/profile">Profile</a></li>
           </ul>
         </li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+        <li class="hvr-underline-reveal" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
           <a href="" ng-click="logout()">SIGN OUT</a>
         </li>
-        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+        <li class="hvr-underline-reveal"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
       </ul>
 
     </div><!--/.nav-collapse -->

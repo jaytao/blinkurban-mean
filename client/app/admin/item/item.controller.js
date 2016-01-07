@@ -3,10 +3,10 @@
 angular.module('blinkUrbanApp')
   .controller('ItemCtrl', function ($scope, $http, socket, $modal) {
 
-    //TODO: make socket io work 
-
   	$scope.products = []; //list of all products
     $scope.colors = []; //list of all available colors
+    $scope.categories = []; //list of all available categories
+
     $http.get('/api/colors').success(function(colors) {
       $scope.colors = colors;
       socket.syncUpdates('color', $scope.colors);
@@ -57,16 +57,48 @@ angular.module('blinkUrbanApp')
 
           $scope.mode = mode;
     			$scope.item = {};
+          $scope.item.categories = [];
 			  	$scope.item.metrics = [];
           $scope.item.materials = [];
 			  	$scope.metric = {};
-    			$scope.categories = ["top", "bottom", "accessories"];
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
           $scope.material = "";
           $scope.colors = colors;
 
           if(mode === 'Update'){
             $scope.item = item;
+          }
+
+          $http.get('/api/categories').success(function(categories) {
+            $scope.categories = categories;
+            socket.syncUpdates('category', $scope.categories);
+          });
+
+          //add selected category to item category list
+          $scope.addCategory = function(){
+            if($scope.selectedType){
+              //check if the selected category has already been added
+              var category = _.find($scope.item.categories, {'name': $scope.selectedCategory.name});
+              if(category){
+                //add selected type from existing category if it doesn't exist
+                if(category.types.indexOf($scope.selectedType) === -1){
+                  category.types.push($scope.selectedType);
+                  //reset models for category form selection
+                  $scope.selectedType = "";
+                  $scope.selectedCategory = "";
+                }
+              }else{
+                //create new category to be added
+                $scope.item.categories.push({
+                  name: $scope.selectedCategory.name,
+                  types: [$scope.selectedType]
+                });
+                //reset models for category form selection
+                $scope.selectedType = "";
+                $scope.selectedCategory = "";
+              }
+              
+            }
           }
           
 			  	$scope.addMetric = function(){
@@ -82,7 +114,11 @@ angular.module('blinkUrbanApp')
 
 			    $scope.submit = function(){
             if($scope.mode === 'Create'){
-              $http.post('/api/items', $scope.item);
+              $http.post('/api/items', $scope.item).then(function success(response){
+
+              }, function error(response){
+
+              });
             }else if($scope.mode === 'Update'){
               //_.map($scope.item.metrics, _.partialRight(_.pick, "colorId", "count", "size"));
               $http.put('/api/items/' + $scope.item._id, $scope.item);
@@ -95,7 +131,7 @@ angular.module('blinkUrbanApp')
 			    };
 
           $scope.addMaterial = function(){
-            if($scope.material !== "" && $scope.item.materials.indexOf($scope.material) === -1){
+            if($scope.material && $scope.item.materials.indexOf($scope.material) === -1){
               $scope.item.materials.push($scope.material);
               $scope.material = "";
             }
@@ -122,6 +158,7 @@ angular.module('blinkUrbanApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('Item');
       socket.unsyncUpdates('Color');
+      socket.unsyncUpdates('Category');
     });
 
   });

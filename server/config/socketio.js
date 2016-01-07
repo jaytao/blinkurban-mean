@@ -21,7 +21,6 @@ function onConnect(socket) {
   require('../api/category/category.socket').register(socket);
   require('../api/color/color.socket').register(socket);
   require('../api/item/item.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
 }
 
 module.exports = function (socketio) {

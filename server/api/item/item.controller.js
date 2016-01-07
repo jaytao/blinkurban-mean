@@ -24,7 +24,6 @@ exports.show = function(req, res) {
 
 // Creates a new item in the DB.
 exports.create = function(req, res) {
-  req.body.categories = req.body.categories.map(function(x) { return x.toLowerCase(); });
   Item.create(req.body, function(err, item) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(item);

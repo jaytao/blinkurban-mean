@@ -2,13 +2,15 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+var category = require('../category/category.model');
+
 var ItemSchema = new Schema({
   name: String,
   description: String,
   basecost: Number,
   price: Number,
   gender: String,
-  categories: Array,
+  categories: [category],
   materials: Array,
   createdDate: { type: Date, default : Date.now },
   metrics: [{

@@ -10,7 +10,7 @@
 		    <h3 class="panel-title">{{category.name}}</h3>
 		  </div>
 		  <ul class="list-group">
-		    <li ng-repeat="type in category.types" class="list-group-item">{{type}}</li>
+		    <li ng-repeat="type in category.types track by $index" class="list-group-item">{{type}}</li>
 		  </ul>
 		</div>
 

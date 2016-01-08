@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-var category = require('../category/category.model');
+var CategorySchema = require('../category/category.model');
 
 var ItemSchema = new Schema({
   name: String,
@@ -10,7 +10,7 @@ var ItemSchema = new Schema({
   basecost: Number,
   price: Number,
   gender: String,
-  categories: [category],
+  categories: [CategorySchema.schema],
   materials: Array,
   createdDate: { type: Date, default : Date.now },
   metrics: [{

@@ -91,7 +91,8 @@ angular.module('blinkUrbanApp')
                 //create new category to be added
                 $scope.item.categories.push({
                   name: $scope.selectedCategory.name,
-                  types: [$scope.selectedType]
+                  types: [$scope.selectedType],
+                  _id: $scope.selectedCategory._id
                 });
                 //reset models for category form selection
                 $scope.selectedType = "";

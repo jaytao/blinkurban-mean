@@ -1,0 +1,22 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+		</div>
+		<div class="col-sm-9">
+			<h1>{{category}}</h1>
+			<p>all of our items are the shit. hands down</p>
+			<hr>
+			<div class="row">
+				<div ng-repeat="item in results">
+					<div ng-repeat="metric in getUnique(item.metrics)">
+						<product-snapshot data="{item: item, metric: metric}" class="col-sm-3"></product-snapshot>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

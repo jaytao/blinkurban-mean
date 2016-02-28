@@ -13,6 +13,7 @@ var ItemSchema = new Schema({
   categories: [CategorySchema.schema],
   materials: Array,
   createdDate: { type: Date, default : Date.now },
+  productImage: String,
   metrics: [{
     _id: String,
     colorId: { type: Schema.Types.ObjectId, ref: 'Color' },

@@ -153,7 +153,13 @@
  		</fieldset>
  		<br>
  		<fieldset>
- 			<legend>Item Image:</legend>
+ 			<legend>Main Item Picture URL:</legend>
+ 			<label class="sr-only" for="product-image-url">MATERIALS</label>
+			<input type="text" id="product-image-url" name="product-image-url" class="form-control" ng-model="item.productImage" placeholder="PRODUCT IMAGE URL"/>
+			<div ng-if="item.productImage">
+				<img ng-src="{{item.productImage}}" alt="Main product url" width="30%" height="30%">
+			</div>
+		  	
  		</fieldset>
 
 	</div>

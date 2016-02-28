@@ -4,7 +4,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
-			
+			<div class="row">
+				<div class="col-xs-4">
+					<img ng-src="{{product.productImage}}" class="img-responsive" alt="main product image">
+					<hr>
+					<img ng-src="{{product.productImage}}" class="img-responsive" alt="main product image">
+					<hr>
+					<img ng-src="{{product.productImage}}" class="img-responsive" alt="main product image">
+				</div>
+				<div class="col-xs-8">
+					<img ng-src="{{product.productImage}}" class="img-responsive" alt="main product image">
+				</div>
+			</div>
 		</div>
 		<div class="col-xs-12 col-md-4 product-form">
 			<form class="form" name="form" novalidate ng-submit="form.$valid && submit()">

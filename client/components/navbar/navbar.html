@@ -23,8 +23,10 @@
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
+        <!--
         <li class="dropdown">
           <a href="/apparel" role="button" aria-haspopup="true" aria-expanded="false">APPAREL</a>
+          
           <ul class="dropdown-menu">
             <div class="container">
               <div class="row">
@@ -62,17 +64,18 @@
                   <li><a href="">Polos</a></li>
                   <li><a href="">Sweaters</a></li>
                 </div>
-                <!--
+                
                 <div class="col-sm-2">
                   <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
                     <a ng-href="{{item.link}}">{{item.title}}</a>
                   </li>
                 </div>
-              -->
+              
               </div>
             </div>
-          </ul>
-        </li>
+          </ul> 
+        </li> -->
+        <li class="hvr-underline-reveal"><a href="/apparel">APPAREL</a></li>
         <li class="hvr-underline-reveal"><a href="/">RUNWAY</a></li>
         <li class="hvr-underline-reveal"><a href="/">MAGAZINE</a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">

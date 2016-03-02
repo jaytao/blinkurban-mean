@@ -18,7 +18,8 @@ var ItemSchema = new Schema({
     _id: String,
     colorId: { type: Schema.Types.ObjectId, ref: 'Color' },
     size: String,
-    count: Number 
+    count: Number,
+    images: [{type: String}] 
   }]
 });
 ItemSchema.index({ name : 'text', categories: 'text', description : 'text' },

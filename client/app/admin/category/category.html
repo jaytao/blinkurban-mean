@@ -8,9 +8,12 @@
 		<div ng-repeat="category in categories" class="panel panel-primary">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">{{category.name}}</h3>
+		   	<button type="button" class="btn btn-primary badge" ng-click="$parent.deleteCategory(category)">Remove</button>
 		  </div>
 		  <ul class="list-group">
-		    <li ng-repeat="type in category.types track by $index" class="list-group-item">{{type}}</li>
+		    <li ng-repeat="type in category.types track by $index" class="list-group-item">{{type}}
+		    	<button type="button" class="btn btn-primary badge" ng-click="$parent.removeType(type, category)">Remove</button>
+		    </li>
 		  </ul>
 		</div>
 

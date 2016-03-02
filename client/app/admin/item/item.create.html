@@ -115,24 +115,49 @@
 				</table>
 			</div>
 
-			<div class="form-group">
-				<label for="metricColor">Color</label>
-				<select id="metricColor" class="form-control" ng-model="metric.colorId">
-					<option ng-repeat="color in colors" value="{{color._id}}">{{color.colorname}}</option>
-				</select>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="input-group">
+						<label for="itemMetricPictureURL" class="sr-only">Picture URL</label>
+				      <input type="text" id="itemMetricPictureURL" name="metricURL" class="form-control" ng-model="metricURL" placeholder="URL"/>
+				      <span class="input-group-btn">
+				        <button ng-click="addMetricImage()" class="btn btn-default" type="button">Add Picture URL</button>
+				      </span>
+				    </div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="row">
+					<div ng-repeat="img in metric.images track by $index" class="col-sm-3">
+						<img ng-src="{{img}}" class="img-responsive" alt="item image">
+					</div>
+				</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="metricColor">Color</label>
+						<select id="metricColor" class="form-control" ng-model="metric.colorId">
+							<option ng-repeat="color in colors" value="{{color._id}}">{{color.colorname}}</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="metricSize">Size</label>
+						<select id="metricSize" class="form-control" ng-options="size for size in sizes" ng-model="metric.size"></select>
+					</div>
+
+					<div class="form-group">
+						<label for="metricCount">Count</label>
+						<input type="number" min="0" name="metricCount" class="form-control" ng-model="metric.count" placeholder="Count"/>
+					</div>
+
+					<button class="btn btn-primary" type="button" ng-click="addMetric()"><span class="glyphicon glyphicon-plus"></span></button>
+				</div>
+				
 			</div>
 
-			<div class="form-group">
-				<label for="metricSize">Size</label>
-				<select id="metricSize" class="form-control" ng-options="size for size in sizes" ng-model="metric.size"></select>
-			</div>
-
-			<div class="form-group">
-				<label for="metricCount">Count</label>
-				<input type="number" min="0" name="metricCount" class="form-control" ng-model="metric.count" placeholder="Count"/>
-			</div>
-
-			<button class="btn btn-default" type="button" ng-click="addMetric()"><span class="glyphicon glyphicon-plus"></span></button>
+			
  		</fieldset>
  		<br>
  		<fieldset class="form-inline">

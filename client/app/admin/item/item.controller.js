@@ -56,14 +56,16 @@ angular.module('blinkUrbanApp')
     		controller: function($scope, $modalInstance){
 
           $scope.mode = mode;
-    			$scope.item = {};
-          $scope.item.categories = [];
-			  	$scope.item.metrics = [];
-          $scope.item.materials = [];
-			  	$scope.metric = {};
+    			$scope.item = {
+            categories: [],
+            metrics: [],
+            materials: []
+          };
+			  	$scope.metric = { images: []};
 			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
           $scope.material = "";
           $scope.colors = colors;
+          $scope.metricURL = ""; //url for item metric images
 
           if(mode === 'Update'){
             $scope.item = item;
@@ -105,7 +107,7 @@ angular.module('blinkUrbanApp')
 			  	$scope.addMetric = function(){
 			    	if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
 			    		$scope.item.metrics.push($scope.metric);
-			    		$scope.metric = {};
+			    		$scope.metric = { images : []};
 			    	}
 			    };
 			    $scope.removeMetric = function(metric){
@@ -147,6 +149,14 @@ angular.module('blinkUrbanApp')
             return _.find($scope.colors, function(color){
               return color._id === colorId;
             });
+          };
+
+          //add metricURL image to item metric images
+          $scope.addMetricImage = function(){
+            if($scope.metricURL){
+              $scope.metric.images.push($scope.metricURL);
+              $scope.metricURL = "";
+            }
           };
 
     		}

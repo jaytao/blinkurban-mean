@@ -14,7 +14,7 @@
 			</div>
 
 			<div ng-repeat="category in categories">
-				<h4><strong>{{category.name}}</strong></h4>
+				<h4><strong>{{category.name | uppercase}}</strong></h4>
 				<ul class="nav nav-sidebar">
 					<li ng-repeat="type in category.types track by $index"><a ng-href="/apparel/{{type}}">{{type}}</a></li>
 				</ul>

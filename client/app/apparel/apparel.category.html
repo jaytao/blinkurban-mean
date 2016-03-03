@@ -3,15 +3,34 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-3">
+			<h4><strong>COLORS</strong></h4>
+			<div ng-repeat="color in filters.colors" class="checkbox">
+			  <label>
+					<input ng-click="color.selected = color.selected ? !color.selected : true" ng-value="color._id" type="checkbox" >{{color.colorname}}
+				</label>
+			</div>
+			<h4><strong>SIZES</strong></h4>
+			<div ng-repeat="size in filters.sizes" class="checkbox">
+				<label>
+					<input ng-click="size.selected = size.selected ? !size.selected: true" ng-value="size.size" type="checkbox">{{size.size}}
+				</label>
+			</div>
+			
 		</div>
 		<div class="col-sm-9">
-			<h1>{{category}}</h1>
-			<p>all of our items are the shit. hands down</p>
+			<ol class="breadcrumb">
+			  <li><a href="/">BLINK URBAN</a></li>
+			  <li><a href="/apparel">APPAREL</a></li>
+			  <li class="active">{{category | uppercase}}</li>
+			</ol>
+			<h1>{{category | uppercase}}</h1>
 			<hr>
 			<div class="row">
 				<div ng-repeat="item in results">
 					<div ng-repeat="metric in getUnique(item.metrics)">
-						<product-snapshot data="{item: item, metric: metric}" class="col-sm-4"></product-snapshot>
+						<div ng-show="$parent.show(metric.colorId, metric.size)">
+							<product-snapshot data="{item: item, metric: metric}" class="col-sm-4"></product-snapshot>
+						</div>
 					</div>
 				</div>
 			</div>

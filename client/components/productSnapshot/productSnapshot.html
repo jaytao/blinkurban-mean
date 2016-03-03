@@ -1,3 +1,6 @@
 <a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.metric.images[0]}}" class="img-responsive"></a>
-<p class="snapshot-price"><small>{{data.item.price | currency:"$"}}</small></p>
-<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}">{{data.item.name}}</a>
+<div class="text-center">
+	<p class="snapshot-price"><small>{{data.item.price | currency:"$"}}</small></p>
+	<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}">{{data.item.name}}</a>
+</div>
+

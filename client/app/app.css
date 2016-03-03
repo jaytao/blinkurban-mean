@@ -336,6 +336,10 @@ h4{
     padding: 0.2em 0;
 }
 
+.breadcrumb{
+  background-color: transparent;
+  padding: 8px 0px;
+}
 
 @media (min-width: 768px) {
   /**** make navbar dropdown on hover*****/

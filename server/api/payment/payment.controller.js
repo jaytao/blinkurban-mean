@@ -30,3 +30,28 @@ exports.payment = function(req, res){
         //return res.status(200).json(token);
     });
 };
+
+/*
+
+//Real version
+//Needs work
+
+exports.payment = function(req, res){
+    var stripeToken = req.body.stripeToken;
+    var cart = req.body.cart;
+
+    var charge = stripe.charges.create({
+        amount: 1000, // amount in cents, again
+        currency: "usd",
+        source: stripeToken,
+        description: "Example charge"
+    }, function(err, charge) {
+        if (err && err.type === 'StripeCardError') {
+            // The card has been declined
+        }
+    });
+
+}
+
+
+*/

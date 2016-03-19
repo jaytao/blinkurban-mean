@@ -9,14 +9,14 @@ exports.show = function(req, res) {
     Cart.findOne({'userId': req.params.id}, 'items', function(err,cart){
         if (err) { return res.status(404).json({})};
         
-        return res.status(200).json(cart)
+        return res.status(200).json(cart);
     });
 };
 
 exports.update = function(req, res) {
     Cart.findOneAndUpdate({'userId': req.body.userId}, req.body, {"upsert":true, "new":true}, function(err,cart){
         if (err) { return handleError(res, err); }
-        return res.status(200).json(cart)
+        return res.status(200).json(cart);
     });
 }
 

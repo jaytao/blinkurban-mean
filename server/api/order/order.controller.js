@@ -32,7 +32,7 @@ exports.create = function(req, res) {
     
   Cart.findOne({'userId': req.body.userId}, 'items', function(err, cart){
     console.log(cart.items);
-    var total = 0
+    var total = 0;
     if(err) { return handleError(res, err); }
     async.each(cart.items, function(item, callback){
         Item.findById(item.itemId, function (err, i) {
@@ -42,6 +42,12 @@ exports.create = function(req, res) {
         });
     },
     function(error) {
+      
+      //clear cart after order
+      cart.items = [];
+      cart.save(function(err, x){
+        if(err) { return handleError(res, err); }
+      }); 
       if (total > 0) {
           chargeStripe(total);
       } else {

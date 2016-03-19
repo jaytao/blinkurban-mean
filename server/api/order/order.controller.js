@@ -5,6 +5,7 @@ var async = require('async');
 var _ = require('lodash');
 var Order = require('./order.model');
 var Item = require('../item/item.model');
+var Cart = require('../cart/cart.model');
 
 // Get list of orders
 exports.index = function(req, res) {
@@ -28,11 +29,12 @@ exports.create = function(req, res) {
 
   //TODO - Query db to see if all the items and metrics are still available
   //       and if so, decrement the count in those metrics 
-
-  Order.create(req.body, function(err, order) {
+    
+  Cart.findOne({'userId': req.body.userId}, 'items', function(err, cart){
+    console.log(cart.items);
     var total = 0
     if(err) { return handleError(res, err); }
-    async.each(order.items, function(item, callback){
+    async.each(cart.items, function(item, callback){
         Item.findById(item.itemId, function (err, i) {
             total = total + (i.price * item.count);
             console.log("Total: " + total);
@@ -40,7 +42,11 @@ exports.create = function(req, res) {
         });
     },
     function(error) {
-      chargeStripe(total);
+      if (total > 0) {
+          chargeStripe(total);
+      } else {
+        return res.status(500).send(err);
+      }
       return res.status(201).json({total: total});
     });
   });

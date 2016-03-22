@@ -22,18 +22,19 @@ var OrderSchema = new Schema({
         colorname: String,
         count: Number
     }], 
+    total: Number
 }, opts);
 
 //Virtuals
-OrderSchema
-    .virtual("total")
-    .get(function() {
-        var total = 0;
-        var count = 0;
-        this.items.forEach(function(entry) {
-            total += (entry.purchasePrice*entry.count);
-        });
-        return total;
-    });
+//OrderSchema
+//    .virtual("total")
+//    .get(function() {
+//        var total = 0;
+//        var count = 0;
+//        this.items.forEach(function(entry) {
+//            total += (entry.purchasePrice*entry.count);
+//        });
+//        return total;
+//    });
 
 module.exports = mongoose.model('Order', OrderSchema);

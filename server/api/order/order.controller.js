@@ -15,9 +15,9 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single order
+// Get orders for user by id
 exports.show = function(req, res) {
-  Order.findById(req.params.id, function (err, order) {
+  Order.find({userId: req.params.id}, function (err, order) {
     if(err) { return handleError(res, err); }
     if(!order) { return res.status(404).send('Not Found'); }
     return res.json(order);
@@ -25,6 +25,11 @@ exports.show = function(req, res) {
 };
 
 // Creates a new order in the DB.
+// 1) Find cart for user
+// 2) Calculate total
+// 3) Make new order object
+// 4) Clear old cart
+// 5) Charge stripe
 exports.create = function(req, res) {
 
   //TODO - Query db to see if all the items and metrics are still available
@@ -42,12 +47,23 @@ exports.create = function(req, res) {
         });
     },
     function(error) {
-      
-      //clear cart after order
-      cart.items = [];
-      cart.save(function(err, x){
+      if(error) { return handleError(res, err); }
+
+      var newOrder = new Order({
+        userId: req.body.userId,
+        total: total,
+        items: cart.items 
+      });
+
+      newOrder.save(function(err, y){
         if(err) { return handleError(res, err); }
+          //clear cart after order
+          cart.items = [];
+          cart.save(function(err, x){
+            if(err) { return handleError(res, err); }
+          }); 
       }); 
+
       if (total > 0) {
           chargeStripe(total);
       } else {

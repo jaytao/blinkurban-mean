@@ -15,4 +15,12 @@ h4 small{
 
 .btn-primarylogin{
 	border-color:transparent; 
+	width: 75%;
+	left:12.5%;
+	position: relative;
+}
+
+.btn-primarylogin1{
+	border-color:transparent; 
+	width: 75%;
 }

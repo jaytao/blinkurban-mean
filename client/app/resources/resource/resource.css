@@ -17,7 +17,7 @@ of those sections to manage the look and feel of the site. */
     padding-bottom:50px; 
 }
 
-.faq-section {
+.faqs-section {
     height: 100%;
     padding-top: 100px;
     background: #eee;
@@ -54,4 +54,23 @@ of those sections to manage the look and feel of the site. */
 
 .nopadding{
     padding-left: 0px;
+}
+
+.floatcenter{
+    float: none;
+    text-align: center;
+    margin-left: 25%;
+    margin-top:-1px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.floatcenter > li > a{
+    float: none;
+    text-align: center;
+    padding-left: 40px;
+    margin-top:-3px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #000 !important;
 }

@@ -11,6 +11,10 @@ angular.module('blinkUrbanApp')
         url: '/resources/commitment',
         templateUrl: 'app/resources/commitment/commitment.html'
       })
+      .state('resource', {
+        url: '/resources/resource',
+        templateUrl: 'app/resources/resource/resource.html'
+      })      
       .state('contact', {
         url: '/resources/contact',
         templateUrl: 'app/resources/contact/contact.html'

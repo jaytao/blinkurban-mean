@@ -1,0 +1,176 @@
+<!-- <div class="container">
+  <header class="page-header">
+    <h1 href="/"><b>BLINK URBAN</b></h1>
+  </header>
+</div> -->
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top container1" role="navigation">
+        <div class="container">
+            <!-- Collect the nav links, foenterms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#commitment">Commitment</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#shipping">Shipping</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#support">Support</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<section id="about" class="about-section">
+<div class="container">
+	<div class="row">
+		<div class="box">
+		    <div class="col-md-1"></div>
+		    <div class="col-md-5 resource-font">
+		    	<br></br>
+		        <h2 class="intro-text">Hi! We're Blink Urban</h2>		    	
+		        <p><i>Why did the two programmers and an engineer cross the road?</p> 
+		        <p>To Sell CLOTHES! Ahhaha~</p>
+		        <br></br>
+		        <p>We are three guys who woke up one night with a vision that one day all guys will be able to wear good fitting stylish clothing. As we woke up, we noticed this was not happening. Digging deeper, we derived at one culprint. There simply was not enough clean, fitted clothing in the low-end fashion market and we want to change that. We believe that every guy should be able to find affordable good clothing in today’s market instead of heading to Walmart because he is money-conscious. </p>
+		        <br></br>
+		        <p>We noticed that the proportion of guys who dress themselves well is just too low. Thats a shame and we want to change that. We want to make men’s fashion simple and easy to get into. By providing clothes that people will compliment and alone makes you feel good, we want to instill confidence and joy in men as they head out into the world looking like kings. We want to make men realize that fashion isn’t all that bad but its actually fun. And that’s what we are about – fun.  </p>
+		    </div>
+		    <div class="col-md-6">
+		        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+		    </div>		    
+		    <div class="clearfix"></div>
+		</div>
+    </div>
+</div>
+</section>
+
+<section id="commitment" class="commitment-section">
+<div class="container">
+	 <div class="row">
+        <div class="box">
+            <div class="col-md-7">
+                <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+            </div>
+            <div class="col-md-5 resource-font">
+                <h2 class="intro-text">Our Commitment</h2>
+                <p><i>promises & goals</p> 
+                <br></br>                
+                <p>We are here to elevate men’s fashion in America by providing great clothes. This does not mean that our clothes is just simple clothing that you can find at Costco or Walmart, but clothing with some extra flair and personality to them. We believe that every guy is different and that by allowing him to play with their clothes, they can express themselves more uniquely. </p>
+                <br></br>
+                <p>We are aware that the market is saturated with clothing. However compared to women’s fashion, the amount of fashionable clothes for men in the low-end market is minimum. We want to change that. Because women dominate the fashion market, the supply of men’s clothing is disproportionally low causing a missing niche of quality low cost clothing. Men thus have to settle for what he has and men’s fashion can’t elevate. We will commit to changing that. </p>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="faq" class="faq-section">
+<div class="container" ng-controller="FaqCtrl">
+     <div class="row">
+        <div class="box">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="text-left resource-font">
+                    <h2 class="intro-text">FAQ</h2>
+                    <p><i>Frequently Asked Questions</p>  
+                    <br></br>               
+                    <ul class="list-unstyled">
+                        <li ng-repeat="faq in faqs">
+                          <span>{{faq.question}}</span>
+                          <p>{{faq.answer}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>        
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="shipping" class="shipping-section">
+<div class="container">
+	 <div class="row">
+        <div class="box">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">            
+                <div class="resource-font">
+                    <h2 class="intro-text">Shipping
+                    </h2>                
+                    <p>Shipping Info</p>
+                </div>
+            </div>    
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="support" class="support-section">
+<div class="container resource-font" ng-controller='ContactCtrl'>
+    <div class="row">
+        <div class="box">
+            <div class="col-md-1"></div>           
+            <div class="col-md-11">
+                <h2 class="intro-text">What's On Your Mind?</h2> 
+                <br></br>               
+                <p>Want to share a thought? We'd love to hear from you. You can use this form to address any of the concerns you may have. You can also use it to provide us with suggestions on how to make our business better. And if thats the case, we'd like to thank you. Every submission will be carefully reviewed since you put in the effort to write it.</p>
+                <br></br>
+                <form class="form" name="form" ng-submit="contact(form)">
+                  <div class="form-group col-lg-4">
+                      <label>Name</label>
+                      <input type="name" name="name" class="form-control" ng-model="user.name">
+                  </div>
+                  <div class="form-group col-lg-4">
+                      <label>Email Address</label>
+                      <input type="email" name='email' class="form-control" ng-model="user.email" required>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group col-lg-8">
+                      <label>Message</label>
+                      <textarea class="form-control" rows="6" required></textarea>
+                  </div>
+                  <div class="form-group col-lg-8">
+                      <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container"
+    <div class="row">
+        <div class="box">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h2 class="intro-text">For Direct Contact Method:
+                </h2>                
+                <p>Email:
+                    <strong><a href="mailto:blinkurban@gmail.com">blinkurban@gmail.com</a></strong>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>        
+</section>
+

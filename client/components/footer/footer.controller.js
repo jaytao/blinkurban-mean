@@ -8,7 +8,11 @@ angular.module('blinkUrbanApp')
     },{
       'title': 'OUR COMMITMENT',
       'link': '/resources/commitment'
+    },{
+      'title': 'RESOURCES',
+      'link': '/resources/resource'
     }];
+
 
     $scope.help = [{
       'title': 'CONTACT US',

@@ -40,5 +40,18 @@ of those sections to manage the look and feel of the site. */
 
 .container1{
     text-align: center;
-    height:50px;
+    height: 50px;
+}
+
+.quotes {
+    vertical-align: middle;
+    padding-top: 50px;
+}
+
+.form-group{
+    padding-left: 0px;
+}
+
+.nopadding{
+    padding-left: 0px;
 }

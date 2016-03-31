@@ -10,4 +10,10 @@ angular.module('blinkUrbanApp')
       });
   });
 
-  
+
+// Attempting to switch quotes
+$(function() {
+    $('#c1').on('click', function() {
+        $('#welcome').show('fast');
+    });
+});

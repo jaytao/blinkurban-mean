@@ -2,25 +2,110 @@ a{
 	letter-spacing: .00005em;
 }
 
-h4 small{
-	font-weight:300;
-	letter-spacing: 1.5px;
-}
-.btnlogin{
-  border-radius: 0px;
-  color: #ee524a;
-  font-size:20px;
-  font-weight: 300;
+/*template*/
+
+.login{
+	z-index: 2;
 }
 
-.btn-primarylogin{
-	border-color:transparent; 
-	width: 75%;
-	left:12.5%;
-	position: relative;
+.loginheader{
+	border-bottom: 1px solid #000;
 }
 
-.btn-primarylogin1{
+.login input[type=email]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border:1px solid rgba(255,255,255,0.6); 
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;	
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border:1px solid rgba(255,255,255,0.6); 
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=submit]{
+	width: 250px;
+	height: 40px;
+	background: #fff;
+	border: 1px solid #000;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #000;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=submit]:hover{
+	background: #ee524a;	
+	color:#fff;
+	border-radius: 0px;
 	border-color:transparent; 
-	width: 75%;
+}
+
+.login input[type=submit]:active{
+	background: #ee524a;
+	border-radius: 0px;
+	border-color:transparent; 
+}
+
+.login input[type=email]:focus{
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.9);
+}
+
+.login input[type=submit]:focus{
+	outline: none;
+	background: #ee524a;
+	border-radius: 0px;
+	border-color:transparent; 
+}
+
+::-webkit-input-placeholder{
+   color: rgba(0,0,0,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(0,0,0,0.6);
+}
+
+.login label{
+	font-weight: 500;
+	padding-top:15px;
+}
+
+.formpadding{
+	padding-top: 5px;
+}
+
+.login > a{
+	font-size:14px;
+}
+
+.formpadding > a{
+	font-size:14px;
 }

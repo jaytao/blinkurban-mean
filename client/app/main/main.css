@@ -1,85 +1,146 @@
-.thing-form {
-    margin: 20px 0;
-}
 
-.lead {
-    color:black;
-}
-
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
-}
-
-#banner h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
-.hero-unit {
+/*QUOTES CSS*/
+.grid-1,.grid-2,.grid-3,.grid-4,.grid-5,.grid-6,.grid-7,.grid-8,.grid-9,.grid-10,.grid-11,.grid-12,.grid-13,.grid-14,.grid-15,.grid-16 {
+    float: left;
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
     position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: white;
+    max-width: 100%;
 }
-.jumbotron {
-    position: relative; 
-    background: white url("/assets/images/hellospring1.jpg") center center;
+
+.grid-1.alpha,.grid-2.alpha,.grid-3.alpha,.grid-4.alpha,.grid-5.alpha,.grid-6.alpha,.grid-7.alpha,.grid-8.alpha,.grid-9.alpha,.grid-10.alpha,.grid-11.alpha,.grid-12.alpha,.grid-13.alpha,.grid-14.alpha,.grid-15.alpha,.grid-16.alpha {
+    margin-left: 0;
+}
+.grid-1.omega,.grid-2.omega,.grid-3.omega,.grid-4.omega,.grid-5.omega,.grid-6.omega,.grid-7.omega,.grid-8.omega,.grid-9.omega,.grid-10.omega,.grid-11.omega,.grid-12.omega,.grid-13.omega,.grid-14.omega,.grid-15.omega,.grid-16.omega {
+    margin-right: 0;
+}
+.grid-1.center,.grid-2.center,.grid-3.center,.grid-4.center,.grid-5.center,.grid-6.center,.grid-7.center,.grid-8.center,.grid-9.center,.grid-10.center,.grid-11.center,.grid-12.center,.grid-13.center,.grid-14.center,.grid-15.center,.grid-16.center {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.customerquotes{
+  word-spacing: 1px;
+}
+
+.customerquotes > h2 {
+  font-size: 24px;
+  word-spacing: 1px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-family: "freightsans_regular",sans-serif;
+  color: #181818;
+}
+
+blockquote {
+    font-size: 28px;
+    word-spacing: 1px;
+    line-height: 36px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+q, blockquote {
+    quotes: none;
+}
+
+h6, .h6 {
+    font-size: 12px;
+    word-spacing: 1px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: "freightsans_regular",sans-serif;
+    font-weight: 300;
+    color: #181818;
+}
+
+cite {
+    display: block;
+    clear: both;
+    color: #aaaaaa!important;
+}
+
+.bodyquote{
+font-size:18px;
+word-spacing:1px;
+line-height:26px;
+font-family:"freightsans_regular","Helvetica Neue","Helvetica","Arial",sans-serif;
+font-weight:300;
+text-transform:none;
+letter-spacing:0;
+color:#6b6b6b;
+-webkit-tap-highlight-color:transparent;
+-webkit-font-smoothing:antialiased;
+}
+
+.list-inline-block>li {
+    margin-top: 0;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    vertical-align: top;
+}
+
+.slider-wrap .loading {
+    height: 42px;
+    font-size: 50px;
+    line-height: 55.5px;
+    top: 30%;
+}
+
+.slider {
+    position: relative;
+}
+.slider>li {
+    display: none;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-font-smoothing: antialiased;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 580px;
-    background-size: cover;
-    overflow:visible;
-    margin-top:-40px;
 }
-
-.welcomemessage {
-    position: absolute;  z-index: 1; top: 68.9%; left: 44.5%; width:300px 100%;
-    font-size:50px;
-    color: black;
-    background-color: #eee;
-    font-weight:bold;
-    height:auto;
+.slider>li cite {
+    font-weight: 400;
 }
-.welcomemessage1{
-    font-size:18px;
+.slider>li:first-child {
+    display: block;
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
 }
-.welcomemessage2 {
-    position: absolute;  z-index: 1; top: 50%; left: 5%;
+.slider-markers a {
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+    display: block;
+    background-color: #C5C5C5;
+    border: none;
 }
-
-.welcomemessage3 {
-    position: absolute;  z-index: 1; top: 92%; left: 55%;
-    font-size:30px !important;
-    color:white;
-    font-weight:bold;
+.slider-markers a:hover,
+.slider-markers a:active,
+.slider-markers a:focus {
+    border: none;
+    background-color: #16a6b6;
 }
-
-p{
-    margin: 0;
+.slider-markers a.active {
+    border: 3px solid #ee6557;
+    background: none;
 }
-
-.jumbotron p {
-    font-size:190px;
-    font-family: Arial;
-    color:orange;
+.slider-regular li {
+    background-color: #F5F5F5;
 }
-
-.navbar-text {
-    margin-left: 15px;
-}
-
-/*--------------
-step process
---------------*/
-.stepprocess{
-    height:400px;
-    padding: 10px 10px;
-    text-align: center;
-    font-weight:bold;
-}
-.stepprocess img{
-    padding:20px;
-}
+/*QUOTES CSS*/

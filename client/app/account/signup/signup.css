@@ -1,0 +1,45 @@
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border:1px solid rgba(255,255,255,0.6); 
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;	
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.9);
+}
+
+.signupheader h1{
+	color:#fff;
+}
+
+.signupboxshadow{
+/*	border: 1px solid #777;
+	box-shadow: 1.5px 1.5px 1.5px 1.5px #777;
+	padding:30px 70px;
+	border-radius: 10px;
+	background-image: url(/assets/images/signupbackground.jpg);
+	background-size: cover;
+	z-index: 0;	*/
+}
+
+.signupbackground{
+/*	background-color: black;
+	background-size: cover;
+	z-index: 0;		*/
+	border: 1px solid #777;
+	box-shadow: 1.5px 1.5px 1.5px 1.5px #777;
+	padding:30px 70px;
+	border-radius: 10px;
+	background-image: url(/assets/images/signupbackground.jpg);
+	background-size: cover;
+	z-index: 0;		
+}

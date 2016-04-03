@@ -2,13 +2,27 @@
 
 <div class="container">
   <div class="row">
-    
-    <div class="col-sm-6 border-right">
+
+    <div class="col-sm-6">
       <div class="col-xs-12 col-md-8 col-md-offset-2 content-block">
-        <div class="text-left">
-          <h2 class="loginheader"><strong>EXISTING CUSTOMERS</strong></h2>
+        <div class="login">
+          <h2 class="loginheader"><strong>NEW CUSTOMERS</strong></h2>
+          <a>Create an account to transform the online experience!</a>    
+          <form action="/signup" class="formpadding text-center" method="get">
+              <input type="submit" value="SIGN UP"/>
+          </form>          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-sm-6 border-left">
+<!--       <br></br> -->
+      <div class="col-xs-12 col-md-8 col-md-offset-2 content-block">
+        <div class="text-left"> 
           <form class="form formpadding" name="form" ng-submit="login(form)" novalidate>
-            <a>Log in to enhance the shopping experience!</a>
+            <br></br>
+            <a><strong>Log in</strong> to enhance the shopping experience!</a>
             <div class="login">
               <label class="formpadding">EMAIL ADDRESS:</label>
               <input type="email" name="email" ng-model="user.email" required>
@@ -29,20 +43,8 @@
             <div><a href="" class="text-center">Forgot your password?</a>
             </div>                
             </div>            
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-sm-6">
-      <div class="col-xs-12 col-md-8 col-md-offset-2 content-block">
-        <div class="text-left login">
-          <h2 class="loginheader"><strong>CREATE AN ACCOUNT</strong></h2>
-          <a>Create an account to transform your online experience!</a>    
-          <form action="/signup" class="formpadding" method="get">
-              <input type="submit" value="SIGN UP"/>
-          </form>          
+          </form>        
+          <h2 class="loginheader text-right"><strong>EXISTING CUSTOMERS</strong></h2>          
         </div>
       </div>
     </div>

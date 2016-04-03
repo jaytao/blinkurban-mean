@@ -8,10 +8,6 @@ a{
 	z-index: 2;
 }
 
-.loginheader{
-	border-bottom: 1px solid #000;
-}
-
 .login input[type=email]{
 	width: 250px;
 	height: 30px;
@@ -98,14 +94,22 @@ a{
 	padding-top:15px;
 }
 
-.formpadding{
-	padding-top: 5px;
-}
-
 .login > a{
 	font-size:14px;
 }
 
+.loginheader{
+	border-bottom: 1px solid #000;
+}
+
+.formpadding{
+	padding-top: 5px;
+}
+
 .formpadding > a{
 	font-size:14px;
+}
+
+.border-left{
+    border-left: 1px solid #000000;
 }

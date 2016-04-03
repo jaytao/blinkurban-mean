@@ -47,6 +47,7 @@ body {
 
 .form-control{
   border-radius: 0px;
+
 }
 
 .nav-pills > li.active > a{
@@ -86,6 +87,8 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 
+
+
 body > .container {
   padding: 60px 15px 0;
 }
@@ -109,10 +112,6 @@ body > .container {
 
 code {
   font-size: 80%;
-}
-
-.border-right{
-    border-right: 1px solid #000000;
 }
 
 p, a, h4 {
@@ -158,19 +157,6 @@ h4{
 /*  border-radius: 0px;*/
 /*  width: 120px;*/
 }
-/*.search-form1{
-  position:absolute;
-  padding-left: 10px;
-  height: 30px;
-  font-size: 14px;
-  color: #818285;
-  font-weight: 300;
-  outline: none;
-  border: 1px solid #777;
-  margin-top: 10px;
-  border-radius: 4px;
-  width: 120px;
-}*/
 
 .resource-font{
   font-size: 13px;
@@ -395,8 +381,12 @@ h4{
   transition: width .55s ease;
 }
 
+/*There is an error with the search font not disappearing.
+One workaround is to pad the Search Text to the right but 
+that make it looks weird when it is active*/
+
 .container-2 input#search::-webkit-input-placeholder {
-   color: #777;
+   color: #777;  
 }
  
 .container-2 input#search:-moz-placeholder { /* Firefox 18- */
@@ -435,8 +425,7 @@ background-color: #f8f8f8;
   color: #4CC3D9;
 }
 
-/*Change background gray*/
-.backgroundgray{
-  background-color: #eee;
+.labelfont label{
+  font-weight: 400;
+  color: #777;
 }
-

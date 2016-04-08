@@ -1,7 +1,8 @@
 .frontbanner{
   background-image: url(/assets/images/frontbanner.jpg);
-  background-size: cover;
-  height:400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:600px;
   width:auto;
   position: relative;
   display: block;
@@ -271,9 +272,14 @@ color:#6b6b6b;
   max-width: 100%;
 }
 
+/*END OF BLOG CODE*/
+
 .sectionpadding{
-  padding:100px; /*Where you change the width of the blog section padding*/
+ /* padding:100px;*/ /*Where you change the width of the blog section padding*/
 }
 
-
+.qualitysection{
+  background-color: #f1f1f1;
+  height: 200px;
+}
 

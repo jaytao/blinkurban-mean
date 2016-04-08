@@ -102,6 +102,15 @@ a{
 	border-bottom: 1px solid #000;
 }
 
+.loginseparator{
+	background-color: #f1f1f1;
+	height:40px;	
+	width: auto;
+	display: block;
+	margin-top:20px;
+	margin-bottom: 10px;
+}
+
 .formpadding{
 	padding-top: 5px;
 }

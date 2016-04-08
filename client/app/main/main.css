@@ -1,3 +1,14 @@
+.frontbanner{
+  background-image: url(/assets/images/frontbanner.jpg);
+  background-size: cover;
+  height:400px;
+  width:auto;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+
 
 /*QUOTES CSS*/
 .grid-1,.grid-2,.grid-3,.grid-4,.grid-5,.grid-6,.grid-7,.grid-8,.grid-9,.grid-10,.grid-11,.grid-12,.grid-13,.grid-14,.grid-15,.grid-16 {
@@ -143,4 +154,126 @@ color:#6b6b6b;
 .slider-regular li {
     background-color: #F5F5F5;
 }
-/*QUOTES CSS*/
+/*END OF QUOTES CSS*/
+
+/*BLOG CSS*/
+  .image {
+    -moz-transition: opacity 0.25s ease-in-out;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -ms-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+    display: inline-block;
+    border: solid 6px #ebebeb !important;
+  }
+
+    .image:hover {
+      opacity: 0.9;
+    }
+
+    .image img {
+      display: block;
+      width: 100%;
+    }
+
+    .image.fit {
+      display: block;
+      width: 100%;
+    }
+
+    .image.featured {
+      display: block;
+      width: 100%;
+      margin: 0 0 3.5em 0;
+    }
+
+    .image.left {
+      float: left;
+      margin: 0 1.5em 1.5em 0;
+      position: relative;
+      top: 0.5em;
+    }
+
+    .image.centered {
+      display: block;
+      margin: 0 0 2em 0;
+    }
+
+      .image.centered img {
+        margin: 0 auto;
+        width: auto;
+      }
+
+  #features-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+  }
+
+    #features-wrapper p {
+      text-align: center;
+    }
+
+    #features-wrapper .actions {
+      margin-top: 1.25em;
+    }
+
+/*BLOG CODE*/
+
+.blogstuff{
+  padding:0px;
+}
+
+.blogstuff1{
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  margin:10px;  
+}
+
+.blogstuff1 h4{
+  color:#000; 
+}
+
+.blogpanel{
+  padding:20px;
+  height:420px;   /*#this is where you change the height of the paragraph to make it consistent*/ 
+}
+
+.blogpanel p{
+  font-size:14px;
+}
+.panel-header{
+  padding:0px;
+  padding-bottom: 8px;
+  margin: 0px;
+  border-bottom:1px solid #e6e6e6;
+  margin-bottom: 10px;
+}
+
+.blogbutton{
+  padding:10px 20px 10px 20px;
+}
+.blogbutton a{
+  color:#00965e;
+  padding-top:8px;
+}
+.blogbutton:before {
+    content: "";
+    border-top: 1px solid #e6e6e6;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.blogpicture{
+  width;
+  margin-bottom: 15px;
+  text-align: center;
+  max-width: 100%;
+}
+
+.sectionpadding{
+  padding:100px; /*Where you change the width of the blog section padding*/
+}
+
+
+

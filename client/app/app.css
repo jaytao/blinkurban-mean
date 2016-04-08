@@ -10,9 +10,7 @@ a {
   color: #777;
   text-decoration: none !important;
 }
-a:hover{
-  color: #996600;
-}
+
 html {
   position: relative;
   min-height: 100%;
@@ -59,18 +57,6 @@ body {
   background-color: #000;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 245px;
-  background-color: white;
-  font-size:10px;
-  text-align: center;
-  margin-top: 0px;
-}
-
 .header-social {
     cursor: default;
     font: 10px/20px 'Gotham SSm A', 'Gotham SSm B', sans-serif;
@@ -82,18 +68,20 @@ body {
     padding-right: 10px;
     border-top: 2px solid #ec0928;
 
-}    
+} 
 
-/* Custom page CSS
--------------------------------------------------- */
+/*footer section CSS
+--------------------------------------------------*/
 
-
-
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 245px;
+  background-color: white;
+  font-size:10px;
+  margin-top: 0px;
 }
 
 .footer > .container {
@@ -108,6 +96,33 @@ body > .container {
 .footer > .footerborder2 {
  border-top: 1px solid black;
  margin-top:50px;
+}
+
+.blurb{
+  padding:10px;
+}
+
+.blurfooter{
+  margin-top:-10px;
+/*  position: relative;*/
+}
+
+.norotate{
+  float: left;
+}
+/*END footer section CSS
+--------------------------------------------------*/   
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
 }
 
 code {
@@ -143,6 +158,14 @@ h4{
 .maincontainerpadding{
   padding-bottom:150px;
 /*  fixed bottom main body cutting*/
+}
+
+.nopaddingright{
+  padding-right:0px;
+}
+
+.nopaddingleft{
+  padding-left:0px;
 }
 
 .search-form{
@@ -367,12 +390,13 @@ h4{
   background: #FFF;
   border: none;
   font-size: 10pt;
-  float: right;
+  float: left;
   padding-left: 15px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 0px;
   color: #777;
+  padding-right: 30px;
  
   -webkit-transition: width .55s ease;
   -moz-transition: width .55s ease;
@@ -380,10 +404,6 @@ h4{
   -o-transition: width .55s ease;
   transition: width .55s ease;
 }
-
-/*There is an error with the search font not disappearing.
-One workaround is to pad the Search Text to the right but 
-that make it looks weird when it is active*/
 
 .container-2 input#search::-webkit-input-placeholder {
    color: #777;  

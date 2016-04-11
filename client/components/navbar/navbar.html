@@ -12,6 +12,7 @@
   </div>
 
   <div class="container">
+    <div class="row">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -114,13 +115,13 @@
           <a href="" ng-click="logout()">SIGN OUT</a>
         </li>
         <li>
-  <div class="container-2">
-      <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
-      <form name="form" ng-submit="form.$valid && search()" novalidate>
-        <input type="text" ng-model="searchQuery" id="search" class="search-form" placeholder="Search..." name="searchQuery" required/>
-      </form> 
-  </div>       
-</li>        
+          <div class="container-2">
+              <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+              <form name="form" ng-submit="form.$valid && search()" novalidate>
+                <input type="text" ng-model="searchQuery" id="search" class="search-form" placeholder="Search..." name="searchQuery" required/>
+              </form> 
+          </div>       
+        </li>        
         <li class="hvr-underline-reveal"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
       </ul>
 

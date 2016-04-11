@@ -21,25 +21,20 @@
 	color:#fff;
 }
 
-.signupboxshadow{
-/*	border: 1px solid #777;
-	box-shadow: 1.5px 1.5px 1.5px 1.5px #777;
-	padding:30px 70px;
-	border-radius: 10px;
-	background-image: url(/assets/images/signupbackground.jpg);
-	background-size: cover;
-	z-index: 0;	*/
-}
-
 .signupbackground{
-/*	background-color: black;
-	background-size: cover;
-	z-index: 0;		*/
-	border: 1px solid #777;
-	box-shadow: 1.5px 1.5px 1.5px 1.5px #777;
 	padding:30px 70px;
-	border-radius: 10px;
 	background-image: url(/assets/images/signupbackground.jpg);
 	background-size: cover;
 	z-index: 0;		
+}
+
+.signupbox{
+	background-color: #262626;
+	padding-left:25px;
+	padding-right:25px;
+}
+
+.signupbox a{
+	color:#8c8c8c;
+	font-size:13px;
 }

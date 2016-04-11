@@ -1,10 +1,55 @@
+<!-- 
+<div ng-include="'components/navbar/navbar.html'"></div> -->
+<div class="header2"> 
+	<div class="containermod text-left">
+		<div class="row">
+			<div class="col-sm-4">
+			<ul class="list-inline apparelpadding">
+				<li>
+					<a href="/"><img class="img" src="assets/images/logowhite.png" width="25" height="" alt="BLUR"></a>
+				</li>	
+				<li style="padding-left:10px">
+					<a>APPAREL OUTLET</a>	
+				</li>
+			</div>
+		</ul>
+			<div class="col-sm-4 text-center" style="padding-top:5px">
+				<a style="color:#fff;font-size:24px;font-weight:400">BLINK URBAN</a>
+			</div>
+			<div class="col-sm-4">
+	      <ul class="nav navbar-nav navbar-right ngAnimate" style="color:white">
+	        <li class="hvr-underline-reveal" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')} "><a href="/login">LOGIN / JOIN</a></li>
 
-<div ng-include="'components/navbar/navbar.html'"></div>
+	        <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">
+	          <a href id="user-dropdown" dropdown-toggle >ACCOUNT <span class="caret"></span></a>
+	          <ul class="dropdown-menu" aria-labelledby="user-dropdown">
+	            <li><a href="/settings/profile">Profile</a></li>
+	          </ul>
+	        </li>
+	        <li class="hvr-underline-reveal" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+	          <a href="" ng-click="logout()">SIGN OUT</a>
+	        </li>
+	        <li>
+	          <div class="container-2">
+	              <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+	              <form name="form" ng-submit="form.$valid && search()" novalidate>
+	                <input type="text" ng-model="searchQuery" id="search" class="search-form" placeholder="Search..." name="searchQuery" required/>
+	              </form> 
+	          </div>       
+	        </li>        
+	        <li class="hvr-underline-reveal"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+	      </ul>			
+			</div>
+		</div>
+
+	</div>
+</div>
+
 <section>
-	<div class="productheader" style="height:150px;background-color:#fff">
+	<div class="productheader">
 		<div class="productunderline">
 			<h1>Product Page</h1>
-		<a href="/apparel"><b>Return to entire collection</a>
+		<a href="/apparel" style="color:#2a6496"><b>Return to entire collection</a>
 		</div>		
 	</div>
 </section>

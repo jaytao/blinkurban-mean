@@ -107,8 +107,20 @@ a{
 	height:40px;	
 	width: auto;
 	display: block;
-	margin-top:20px;
+	margin-top:10px;
 	margin-bottom: 10px;
+	border-top:3px solid #836953;	
+}
+
+
+.loginseparatorbottom{
+	background-color: #f1f1f1;
+	height:40px;	
+	width: auto;
+	display: block;
+	margin-top:10px;
+	margin-bottom: 10px;	
+	border-bottom:3px solid #000;	
 }
 
 .formpadding{

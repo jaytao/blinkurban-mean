@@ -2,8 +2,8 @@
   background-image: url(/assets/images/frontbanner.jpg);
   background-size: contain;
   background-repeat: no-repeat;
-  height:600px;
-  width:auto;
+  height:675px;
+  width: auto;
   position: relative;
   display: block;
   overflow: hidden;
@@ -86,7 +86,7 @@ font-family:"freightsans_regular","Helvetica Neue","Helvetica","Arial",sans-seri
 font-weight:300;
 text-transform:none;
 letter-spacing:0;
-color:#6b6b6b;
+color:#2a6496;
 -webkit-tap-highlight-color:transparent;
 -webkit-font-smoothing:antialiased;
 }
@@ -153,7 +153,7 @@ color:#6b6b6b;
     background: none;
 }
 .slider-regular li {
-    background-color: #F5F5F5;
+    background-color: #d2b486;
 }
 /*END OF QUOTES CSS*/
 
@@ -255,7 +255,7 @@ color:#6b6b6b;
   padding:10px 20px 10px 20px;
 }
 .blogbutton a{
-  color:#00965e;
+  color:#2a6496;
   padding-top:8px;
 }
 .blogbutton:before {
@@ -274,12 +274,23 @@ color:#6b6b6b;
 
 /*END OF BLOG CODE*/
 
-.sectionpadding{
- /* padding:100px;*/ /*Where you change the width of the blog section padding*/
+.qualitysection1{
+  background-color: #d2b486;
+  height: 150px;
 }
 
 .qualitysection{
   background-color: #f1f1f1;
-  height: 200px;
+  height: 175px;
+}
+
+.welcomemessage h1{
+  margin:0;
+  height:75px;
+}
+
+.containermain{
+  margin-left:13%;
+  margin-right:13%;
 }
 

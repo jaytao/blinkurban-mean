@@ -138,28 +138,3 @@
 	width: 100%; 
 	display: block; 
 }
-
-.header2{
-/*  background-color: #000	;*/
-	background-image: url(/assets/images/signupbackground.jpg);
-  padding-top:5px;
-}
-
-/*.header2 img{
-	padding-bottom:5px;
-}*/
-
-.apparelpadding{
-	padding-top:10px;
-}
-
-.containermod{
-/*	left:26px;*/
-	padding-left: 26px;
-	padding-right:26px;	
-}
-
-.containermod a{
-	font-size:16px;
-	color:#fff;
-}

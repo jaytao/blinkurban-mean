@@ -52,14 +52,14 @@ a{
 }
 
 .login input[type=submit]:hover{
-	background: #ee524a;	
+	background: #2a6496;	
 	color:#fff;
 	border-radius: 0px;
 	border-color:transparent; 
 }
 
 .login input[type=submit]:active{
-	background: #ee524a;
+	background: #2a6496;
 	border-radius: 0px;
 	border-color:transparent; 
 }
@@ -76,7 +76,7 @@ a{
 
 .login input[type=submit]:focus{
 	outline: none;
-	background: #ee524a;
+	background: #2a6496;
 	border-radius: 0px;
 	border-color:transparent; 
 }
@@ -120,7 +120,7 @@ a{
 	display: block;
 	margin-top:10px;
 	margin-bottom: 10px;	
-	border-bottom:3px solid #000;	
+	border-bottom:3px solid #836953;	
 }
 
 .formpadding{

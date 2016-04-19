@@ -10,24 +10,7 @@
   max-width: 100%;
 }
 
-.qualitysection1 span{
-  position: relative;
-  display: block;
-  z-index:1;
-  left:35%;
-  top:25%;  
-}
 
-.qualitysection1 a{
-  color:#222;
-  font-size: 70px;  
-  font-weight: 400;
-  background-color: #777;
-  padding:30px;
-  border-radius: 15px;
-  opacity: 60%;
-  box-shadow: 2px 2px 2px 2px #444;
-}
 /*BLOG CSS*/
   .image {
     -moz-transition: opacity 0.25s ease-in-out;
@@ -141,6 +124,26 @@
   height: 200px;
 }
 
+.qualitysection1 span{
+  position: relative;
+  display: block;
+  max-width: 500px;
+  z-index:1;
+  left:35%;
+  top:25%;  
+}
+
+.qualitysection1 a{
+  color:#222;
+  font-size: 70px;  
+  font-weight: 400;
+  background-color: #999;
+  padding:30px;
+  border-radius: 15px;
+  opacity: 60%;
+  box-shadow: 2px 2px 2px 2px #444;
+}
+
 .welcomemessage h1{
   margin:0;
   height:75px;
@@ -153,11 +156,12 @@
 
 /*INSTAGRAM CSS*/
 .igsection{
-  padding:20px;
+  padding:25px;
   background-color: #333;
   color: #fff;
+  width: 100%
 }
 
 .igsection h1{
-  padding-bottom:15px;
+  padding-bottom:20px;
 }

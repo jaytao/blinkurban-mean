@@ -3,40 +3,71 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 nopaddingright">
-			<div style="width:100%;height:350px;background-color:#222;margin-bottom:30px;margin-top:50px;padding-top:30%">	
+			<div style="width:100%;height:400px;background-color:#222;margin-bottom:30px;margin-top:50px;padding-top:30%">	
 				<h2 class="text-center" style="color:#f5f5f5;margin:0px"><strong>Our Main Collection</strong></h2>
 			</div>		
 		</div>
 		<div class="col-sm-6 nopaddingleft">
-			<div style="width:100%;height:350px;background-color:#f5f5f5;margin-bottom:30px;margin-top:50px"></div>			
+			<div style="width:100%;height:400px;background-color:#f5f5f5;margin-bottom:30px;margin-top:50px">
+				<div class="productbanner"></div>
+			</div>			
 		</div>
 	</div>
 
+	<hr>
+
 	<div class="row">
+
 		<div class="col-sm-3">
 
-			<div class="sidebar">
-				<h4><strong>FEATURED</strong></h4>
-				<ul class="nav nav-sidebar">
+			<div class="apparel-sidebarheader">
+				<h2 href="">Show All</h2>
+			</div>				
+
+			<div class="apparel-sidebar">				
+				<h4>FEATURED</h4>
+				<ul class="list-unstyled">
 					<li><a href="">New Arrivals</a></li>
 					<li><a href="">Spring Collections</a></li>
 					<li><a href="">Clearance</a></li>
 				</ul>
 			</div>
 
-			<div ng-repeat="category in categories">
-				<h4><strong>{{category.name | uppercase}}</strong></h4>
-				<ul class="nav nav-sidebar">
-					<li ng-repeat="type in category.types track by $index"><a ng-href="/apparel/{{type}}">{{type}}</a></li>
+			<div class="apparel-sidebar" ng-repeat="category in categories">
+				<span><h4>{{category.name | uppercase}}</h4><span>
+				<ul class="list-unstyled">
+					<li style="text-transform: capitalize" ng-repeat="type in category.types track by $index"><a ng-href="/apparel/{{type}}">{{type}}</a></li>
 				</ul>
-			</div>
+			</div>	
+
+			<div class="apparel-sidebar">
+				<h4>MODEL FILTER</h4>				
+				<ul class="list-unstyled">
+					<li><a href="">Antonio</a></li>
+					<li><a href="">Luke</a></li>
+					<li><a href="">Ken</a></li>				
+					<li><a href="">Troy</a></li>					
+				</ul>
+			</div>		
 
 		</div>
-		<div class="col-sm-9">
-			<div style="width:100%;height:400px;background-color:grey;margin-bottom:30px;"></div>
-			<div style="width:100%;height:400px;background-color:grey;margin-bottom:30px;"></div>
-			<div style="width:100%;height:400px;background-color:grey;margin-bottom:30px;"></div>
-			<div style="width:100%;height:400px;background-color:grey;margin-bottom:30px;"></div>
+		<div class="col-sm-3">
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+		</div>
+		<div class="col-sm-3">
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+		</div>
+		<div class="col-sm-3">
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
+			<div style="width:100%;height:350px;background-color:grey;margin-bottom:30px;"></div>
 		</div>
 	</div>
 </div>

@@ -1,162 +1,33 @@
 .frontbanner{
   background-image: url(/assets/images/frontbanner.jpg);
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  height:675px;
+  height:655px;
   width: auto;
   position: relative;
   display: block;
   overflow: hidden;
+  max-width: 100%;
 }
 
-
-
-/*QUOTES CSS*/
-.grid-1,.grid-2,.grid-3,.grid-4,.grid-5,.grid-6,.grid-7,.grid-8,.grid-9,.grid-10,.grid-11,.grid-12,.grid-13,.grid-14,.grid-15,.grid-16 {
-    float: left;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
-    max-width: 100%;
+.qualitysection1 span{
+  position: relative;
+  display: block;
+  z-index:1;
+  left:35%;
+  top:25%;  
 }
 
-.grid-1.alpha,.grid-2.alpha,.grid-3.alpha,.grid-4.alpha,.grid-5.alpha,.grid-6.alpha,.grid-7.alpha,.grid-8.alpha,.grid-9.alpha,.grid-10.alpha,.grid-11.alpha,.grid-12.alpha,.grid-13.alpha,.grid-14.alpha,.grid-15.alpha,.grid-16.alpha {
-    margin-left: 0;
+.qualitysection1 a{
+  color:#222;
+  font-size: 70px;  
+  font-weight: 400;
+  background-color: #777;
+  padding:30px;
+  border-radius: 15px;
+  opacity: 60%;
+  box-shadow: 2px 2px 2px 2px #444;
 }
-.grid-1.omega,.grid-2.omega,.grid-3.omega,.grid-4.omega,.grid-5.omega,.grid-6.omega,.grid-7.omega,.grid-8.omega,.grid-9.omega,.grid-10.omega,.grid-11.omega,.grid-12.omega,.grid-13.omega,.grid-14.omega,.grid-15.omega,.grid-16.omega {
-    margin-right: 0;
-}
-.grid-1.center,.grid-2.center,.grid-3.center,.grid-4.center,.grid-5.center,.grid-6.center,.grid-7.center,.grid-8.center,.grid-9.center,.grid-10.center,.grid-11.center,.grid-12.center,.grid-13.center,.grid-14.center,.grid-15.center,.grid-16.center {
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.customerquotes{
-  word-spacing: 1px;
-}
-
-.customerquotes > h2 {
-  font-size: 24px;
-  word-spacing: 1px;
-  line-height: 30px;
-  font-weight: 300;
-  letter-spacing: 3px;
-  font-family: "freightsans_regular",sans-serif;
-  color: #181818;
-}
-
-blockquote {
-    font-size: 28px;
-    word-spacing: 1px;
-    line-height: 36px;
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
-}
-
-q, blockquote {
-    quotes: none;
-}
-
-h6, .h6 {
-    font-size: 12px;
-    word-spacing: 1px;
-    line-height: 14px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: "freightsans_regular",sans-serif;
-    font-weight: 300;
-    color: #181818;
-}
-
-cite {
-    display: block;
-    clear: both;
-    color: #aaaaaa!important;
-}
-
-.bodyquote{
-font-size:18px;
-word-spacing:1px;
-line-height:26px;
-font-family:"freightsans_regular","Helvetica Neue","Helvetica","Arial",sans-serif;
-font-weight:300;
-text-transform:none;
-letter-spacing:0;
-color:#2a6496;
--webkit-tap-highlight-color:transparent;
--webkit-font-smoothing:antialiased;
-}
-
-.list-inline-block>li {
-    margin-top: 0;
-    display: inline-block;
-    vertical-align: middle;
-    *vertical-align: auto;
-    *zoom: 1;
-    *display: inline;
-    vertical-align: top;
-}
-
-.slider-wrap .loading {
-    height: 42px;
-    font-size: 50px;
-    line-height: 55.5px;
-    top: 30%;
-}
-
-.slider {
-    position: relative;
-}
-.slider>li {
-    display: none;
-    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-    -webkit-font-smoothing: antialiased;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-.slider>li cite {
-    font-weight: 400;
-}
-.slider>li:first-child {
-    display: block;
-    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-}
-.slider-markers a {
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 35px;
-    height: 35px;
-    margin: 0 10px;
-    display: block;
-    background-color: #C5C5C5;
-    border: none;
-}
-.slider-markers a:hover,
-.slider-markers a:active,
-.slider-markers a:focus {
-    border: none;
-    background-color: #16a6b6;
-}
-.slider-markers a.active {
-    border: 3px solid #ee6557;
-    background: none;
-}
-.slider-regular li {
-    background-color: #d2b486;
-}
-/*END OF QUOTES CSS*/
-
 /*BLOG CSS*/
   .image {
     -moz-transition: opacity 0.25s ease-in-out;
@@ -164,7 +35,8 @@ color:#2a6496;
     -ms-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
     display: inline-block;
-    border: solid 6px #ebebeb !important;
+    max-width: 100%;
+    height: 300px;
   }
 
     .image:hover {
@@ -203,21 +75,6 @@ color:#2a6496;
         margin: 0 auto;
         width: auto;
       }
-
-  #features-wrapper {
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-    text-align: center;
-  }
-
-    #features-wrapper p {
-      text-align: center;
-    }
-
-    #features-wrapper .actions {
-      margin-top: 1.25em;
-    }
 
 /*BLOG CODE*/
 
@@ -265,23 +122,23 @@ color:#2a6496;
     margin-bottom: 10px;
 }
 
-.blogpicture{
+/*.image{
   width;
   margin-bottom: 15px;
   text-align: center;
   max-width: 100%;
-}
+}*/
 
 /*END OF BLOG CODE*/
 
-.qualitysection1{
-  background-color: #d2b486;
-  height: 150px;
-}
-
 .qualitysection{
   background-color: #f1f1f1;
-  height: 175px;
+  height: 100px;
+}
+
+.qualitysection1{
+  background-color: #f1f1f1;
+  height: 200px;
 }
 
 .welcomemessage h1{
@@ -294,3 +151,13 @@ color:#2a6496;
   margin-right:13%;
 }
 
+/*INSTAGRAM CSS*/
+.igsection{
+  padding:20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.igsection h1{
+  padding-bottom:15px;
+}

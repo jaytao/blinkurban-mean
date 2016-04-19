@@ -138,3 +138,40 @@
 	width: 100%; 
 	display: block; 
 }
+
+
+.apparel-sidebar li{
+	font-size:14px;
+	margin: 0 0 5px 0;
+}
+
+.apparel-sidebar h4{
+	padding-top: 15px;
+	padding-bottom:10px;
+
+}
+
+.apparel-sidebarheader{
+	padding-bottom: 5px;
+}
+
+.productbanner{
+  background-image: url(/assets/images/productheader.jpg);
+  background-size: cover;
+  height:400px;
+  width: auto;
+  position: relative;
+  display: block;
+}
+
+.messagebanner{
+/*	background-color:#f5f5f5;*/
+	background-color: #ee524a;
+	padding:10px;
+}
+
+.messagebanner a{
+	color:#fff;
+	font-weight: 300;
+	font-style: italic;		
+}

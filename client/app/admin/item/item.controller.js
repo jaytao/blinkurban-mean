@@ -39,6 +39,9 @@ angular.module('blinkUrbanApp')
               });
             }
           };
+          $scope.deleteColor = function(color){
+            $http.delete('/api/colors/' + color._id); 
+          };
           //dismiss modal
           $scope.cancel = function(){
             $modalInstance.dismiss('cancel');

@@ -10,10 +10,21 @@
 		<ul class="list-unstyled list-inline">
 			<li class="product-color" ng-repeat="color in colors" ng-class="{selected: $index == selectedColorIndex}">
 				<label class="radio-inline" for="color-{{color.colorhex}}-{{$index}}" ng-style="{'background-color': '#' + color.colorhex}">
-					<input type="radio" id="color-{{color.colorhex}}-{{$index}}" name="color" ng-model="$parent.selectedColor" ng-value="color.colorname" class="ng-hide">
+					<input type="radio-inline" id="color-{{color.colorhex}}-{{$index}}" name="color" ng-model="$parent.selectedColor" ng-value="color.colorname" class="ng-hide">
 				</label>
 			</li>
 		</ul>
+
+		<p>Delete Colors: <small>{{selectedColor}}</small></p>
+
+		<ul class="list-unstyled list-inline">
+			<li class="product-color" ng-repeat="color in colors" ng-class="{selected: $index == selectedColorIndex}">
+				<label class="radio-inline" for="color-{{color.colorhex}}-{{$index}}" ng-style="{'background-color': '#' + color.colorhex}" ng-click="deleteColor(color)">
+					<input type="radio-inline" id="color-{{color.colorhex}}-{{$index}}" name="color" ng-model="$parent.selectedColor" ng-value="color.colorname" class="ng-hide">
+				</label>
+			</li>
+		</ul>
+
 
 		<hr>
 

@@ -75,6 +75,8 @@
   color:#000; 
 }
 
+
+
 .blogpanel{
   padding:20px;
   height:420px;   /*#this is where you change the height of the paragraph to make it consistent*/ 
@@ -129,8 +131,8 @@
   display: block;
   max-width: 500px;
   z-index:1;
-  left:35%;
-  top:25%;  
+  left:35%; 
+  padding-top:4%;
 }
 
 .qualitysection1 a{
@@ -139,9 +141,7 @@
   font-weight: 400;
   background-color: #999;
   padding:30px;
-  border-radius: 15px;
   opacity: 60%;
-  box-shadow: 2px 2px 2px 2px #444;
 }
 
 .welcomemessage h1{
@@ -154,6 +154,10 @@
   margin-right:13%;
 }
 
+.mainbanner{
+  margin:0px;
+}
+
 /*INSTAGRAM CSS*/
 .igsection{
   padding:25px;
@@ -162,6 +166,7 @@
   width: 100%
 }
 
-.igsection h1{
+.igsection h2{
   padding-bottom:20px;
+
 }

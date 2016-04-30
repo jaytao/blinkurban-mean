@@ -16,7 +16,7 @@
                 <a href="/"><img class="img" src="assets/images/logowhite.png" width="25" height="" alt="BLUR"></a>
               </li> 
         
-            <li class="dropdown">
+            <li class="hvr-underline-from-center1 dropdown">
               <a href="/apparel" role="button" aria-haspopup="true" aria-expanded="false">APPAREL OUTLET</a>
               
               <ul class="dropdown-menu">
@@ -67,8 +67,8 @@
                 </div>
               </ul> 
             </li> 
-    <!--          <li class="hvr-underline-reveal"><a href="/">RUNWAY</a></li>
-              <li class="hvr-underline-reveal"><a href="/">MAGAZINE</a></li> -->
+    <!--          <li><a href="/">RUNWAY</a></li>
+              <li><a href="/">MAGAZINE</a></li> -->
               <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
                 <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret "></span></a>
                 <ul class="dropdown-menu" aria-labelledby="admin-dropdown">
@@ -85,7 +85,7 @@
 
           <div class="col-sm-5">
             <ul class="nav navbar-nav navbar-right ngAnimate" style="color:white">
-              <li class="hvr-underline-reveal" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')} "><a href="/login">LOGIN / JOIN</a></li>
+              <li class="hvr-underline-from-center" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')} "><a href="/login">LOGIN / JOIN</a></li>
 
               <li ng-show="isLoggedIn()" dropdown on-toggle="toggled(open)">
                 <a href id="user-dropdown" dropdown-toggle >ACCOUNT <span class="caret"></span></a>
@@ -93,10 +93,10 @@
                   <li><a href="/settings/profile">Profile</a></li>
                 </ul>
               </li>
-              <li class="hvr-underline-reveal" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+              <li class="hvr-underline-from-center" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
                 <a href="" ng-click="logout()">SIGN OUT</a>
               </li>
-              <li class="hvr-underline-reveal"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>          
+              <li class="hvr-underline-from-center"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>          
               <li>
                 <div class="container-2">
                     <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>

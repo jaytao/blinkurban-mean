@@ -6,6 +6,7 @@ angular.module('blinkUrbanApp')
       .state('cart', {
         url: '/cart',
         templateUrl: 'app/cart/cart.html',
-        controller: 'CartCtrl'
+        controller: 'CartCtrl',
+        authenticate: true
       });
   });

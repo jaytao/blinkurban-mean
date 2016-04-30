@@ -23,6 +23,12 @@ angular.module('blinkUrbanApp')
         params: {
           id:'me'
         }
+      },
+      getCart: {
+        method: 'GET',
+        params: {
+          id:'me'
+        }
       }
 	  });
   });

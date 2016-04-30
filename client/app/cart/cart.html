@@ -4,14 +4,36 @@
 	<h1>MY SHOPPING CART</h1>
 	<hr>
 	<div class="row">
-		<div class="col-sm-7">
+    <h3 ng-repeat="c in items">
+        Name: {{c.itemId.name}}
+        <br>
+        Description: {{c.itemId.description}}
+        <br>
+        Price: {{c.itemId.price}}
+        <br>
+        Image Url: {{c.itemId.productImage}}
+        <br>
+        <li ng-repeat="m in c.itemId.metrics">
+            Color: {{m.colorId}} Size: {{m.size}} Count: {{m.count}}     
+        </li>
+    </h3>
+		<div class="col-sm-7" ng-if="items.length == 0">
 			<p>There are no items in your cart</p>
-			
 		</div>
 		<div class="col-sm-5">
 		</div>
 	</div>
-	
+	<form action="" method="POST">
+    <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+      data-amount="999"
+      data-name="Stripe.com"
+      data-description="Checkout"
+      data-image="assets/images/brand.png"
+      data-locale="auto">
+  </script>
+</form> 
 </div>
 
 <div ng-include="'components/footer/footer.html'"></div>

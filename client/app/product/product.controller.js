@@ -108,7 +108,12 @@ angular.module('blinkUrbanApp')
     };
     //submit order to be added 
     $scope.submit = function(){
-      //TODO add item to order
+        var colorname = $scope.getDisplayColorName().colorId.colorname;
+        var count = $scope.orderQuantity;
+        var size = $scope.orderSize;
+        
+        $http.post("/api/cart", {items: [{colorname: colorname, count: count, size: size, itemId: $scope.product._id}]}).then(function success(response){
+        });
     };
 
     $scope.getDisplayColorName = function(){

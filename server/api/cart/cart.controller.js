@@ -6,7 +6,8 @@ var User = require('./cart.model');
 var Item = require('../item/item.model');
 
 exports.show = function(req, res) {
-    Cart.findOne({'userId': req.params.id}, "items").populate('items.itemId', "-basecost -createdDate -__v").exec(function(err,cart){
+    var userId = req.user._id;
+    Cart.findOne({'userId': userId}, "items").populate('items.itemId', "name price description").exec(function(err,cart){
         if (err) { return res.status(404).json({})};
         
         return res.status(200).json(cart);
@@ -14,7 +15,8 @@ exports.show = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    Cart.findOneAndUpdate({'userId': req.body.userId}, req.body, {"upsert":true, "new":true}, function(err,cart){
+    var userId = req.user._id;
+    Cart.findOneAndUpdate({'userId': userId}, req.body, {"upsert":true, "new":true}, function(err,cart){
         if (err) { return handleError(res, err); }
         return res.status(200).json(cart);
     });

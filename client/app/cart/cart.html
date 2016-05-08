@@ -13,9 +13,12 @@
         <br>
         Image Url: {{c.itemId.productImage}}
         <br>
-        <li ng-repeat="m in c.itemId.metrics">
-            Color: {{m.colorId}} Size: {{m.size}} Count: {{m.count}}     
-        </li>
+        Color: {{c.colorname}}
+        <br>
+        Size: {{c.size}}
+        <br>
+        Count: {{c.count}}     
+        <br>
     </h3>
 		<div class="col-sm-7" ng-if="items.length == 0">
 			<p>There are no items in your cart</p>

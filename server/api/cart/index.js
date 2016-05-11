@@ -8,6 +8,7 @@ var router = express.Router();
 
 router.get('/', auth.isAuthenticated(), controller.show);
 router.post('/', auth.isAuthenticated(), controller.update);
+router.put('/', auth.isAuthenticated(), controller.updateOne);
 //router.delete('/:id', controller.destroy);
 
 module.exports = router

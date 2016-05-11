@@ -112,7 +112,7 @@ angular.module('blinkUrbanApp')
         var count = $scope.orderQuantity;
         var size = $scope.orderSize;
         
-        $http.post("/api/cart", {items: [{colorname: colorname, count: count, size: size, itemId: $scope.product._id}]}).then(function success(response){
+        $http.put("/api/cart", {colorname: colorname, count: count, size: size, itemId: $scope.product._id}).then(function success(response){
         });
     };
 

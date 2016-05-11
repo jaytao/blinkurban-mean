@@ -20,7 +20,30 @@ exports.update = function(req, res) {
         if (err) { return handleError(res, err); }
         return res.status(200).json(cart);
     });
-}
+};
+
+exports.updateOne = function(req, res) {
+    var userId = req.user._id;
+    Cart.findOne({'userId': userId},function(err,cart){
+        if (err) { return handleError(res,err); }
+        if (!cart) {
+            var newCart = new Cart({
+                userId: userId,
+                items: [req.body]
+            });
+            Cart.create(newCart, function(err, cart) {
+                if (err) { return handleError(res,err);} 
+                return res.status(200).json(newCart);
+            });
+        } else {
+            cart.items.push(req.body);
+            cart.save(function(err){
+                if (err) { return handleError(res,err);} 
+                return res.status(200).json(cart);
+            })
+        }
+    }); 
+};
 
 //handle error
 function handleError(res, err) {

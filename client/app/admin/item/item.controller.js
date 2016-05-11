@@ -3,7 +3,7 @@
 angular.module('blinkUrbanApp')
   .controller('ItemCtrl', function ($scope, $http, socket, $modal) {
 
-  	$scope.products = []; //list of all products
+    $scope.products = []; //list of all products
     $scope.colors = []; //list of all available colors
     $scope.categories = []; //list of all available categories
 
@@ -12,7 +12,7 @@ angular.module('blinkUrbanApp')
       socket.syncUpdates('color', $scope.colors);
     });
 
-  	$http.get('/api/items').success(function(products) {
+    $http.get('/api/items').success(function(products) {
       $scope.products = products;
       socket.syncUpdates('item', $scope.products);
     });
@@ -53,19 +53,19 @@ angular.module('blinkUrbanApp')
 
     // two differnt mode fo this modal 'Create', 'Update'
     $scope.openItemModal = function(colors, mode, item){
-    	$modal.open({
-    		templateUrl: "app/admin/item/item.create.html",
-    		size: "lg",
-    		controller: function($scope, $modalInstance){
+        $modal.open({
+            templateUrl: "app/admin/item/item.create.html",
+            size: "lg",
+            controller: function($scope, $modalInstance){
 
           $scope.mode = mode;
-    			$scope.item = {
+                $scope.item = {
             categories: [],
             metrics: [],
             materials: []
           };
-			  	$scope.metric = { images: []};
-			  	$scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
+                $scope.metric = { images: []};
+                $scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
           $scope.material = "";
           $scope.colors = colors;
           $scope.metricURL = ""; //url for item metric images
@@ -107,34 +107,34 @@ angular.module('blinkUrbanApp')
             }
           }
           
-			  	$scope.addMetric = function(){
-			    	if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
-			    		$scope.item.metrics.push($scope.metric);
-			    		$scope.metric = { images : []};
-			    	}
-			    };
-			    $scope.removeMetric = function(metric){
-			    	var index = $scope.item.metrics.indexOf(metric);
-			    	$scope.item.metrics.splice(index,1);
-			    };
+          $scope.addMetric = function(){
+            if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
+                $scope.item.metrics.push($scope.metric);
+                $scope.metric = { images : []};
+            }
+          };
 
-			    $scope.submit = function(){
+          $scope.removeMetric = function(metric){
+            var index = $scope.item.metrics.indexOf(metric);
+            $scope.item.metrics.splice(index,1);
+          };
+
+          $scope.submit = function(){
             if($scope.mode === 'Create'){
-              $http.post('/api/items', $scope.item).then(function success(response){
+                $http.post('/api/items', $scope.item).then(function success(response){
 
-              }, function error(response){
+                }, function error(response){
 
-              });
-            }else if($scope.mode === 'Update'){
+                });
+            } else if($scope.mode === 'Update'){
               //_.map($scope.item.metrics, _.partialRight(_.pick, "colorId", "count", "size"));
               $http.put('/api/items/' + $scope.item._id, $scope.item);
             }
             $scope.cancel();
-			    };
-
-			    $scope.cancel = function(){
-			    	$modalInstance.dismiss('cancel');
-			    };
+          };
+          $scope.cancel = function(){
+            $modalInstance.dismiss('cancel');
+          };
 
           $scope.addMaterial = function(){
             if($scope.material && $scope.item.materials.indexOf($scope.material) === -1){
@@ -162,10 +162,10 @@ angular.module('blinkUrbanApp')
             }
           };
 
-    		}
-    	});
+            }
+        });
     }
-  	
+    
     $scope.deleteItem = function(item) {
       $http.delete('/api/items/' + item._id);
     };

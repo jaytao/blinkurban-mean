@@ -22,23 +22,25 @@
         <br>
         <hr>
     </div>
-		<div class="col-sm-7" ng-if="items.length == 0">
-			<p>There are no items in your cart</p>
-		</div>
-		<div class="col-sm-5">
-		</div>
-	</div>
-	<form action="" method="POST">
-    <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-      data-amount="999"
-      data-name="Stripe.com"
-      data-description="Checkout"
-      data-image="assets/images/brand.png"
-      data-locale="auto">
-  </script>
-</form> 
+    <div class="col-sm-7" ng-if="items.length == 0">
+        <p>There are no items in your cart</p>
+    </div>
+    <div class="col-sm-5">
+    <p>Total: {{cartTotal}}</p>
+    <div class="col-sm-7" ng-if="items.length == 0">
+        <p>There are no items in your cart</p>
+    </div>
+    <form action="" method="POST">
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+            data-amount="{{items.total}}"
+            data-name="Stripe.com"
+            data-description="Checkout"
+            data-image="assets/images/brand.png"
+            data-locale="auto">
+        </script>
+    </form> 
 </div>
 
 <div ng-include="'components/footer/footer.html'"></div>

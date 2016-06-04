@@ -13,7 +13,9 @@
 <section>
 	<div class="row">
 		<div class="col-sm-6 nopaddinggeneral">
-			<img src="assets/images/sample1.jpg" width="auto" height="736px">
+			<div ng-repeat="img in product.metrics[selectedColorIndex].images track by $index">
+					<img ng-src="{{img}}" class="img-responsive" alt="main product image">
+				</div>
 		</div>
 		<div class="col-sm-6 nopaddinggeneral">
 			<div class="productlisting">
@@ -74,7 +76,7 @@
 <section style="background-color:#fff;height:500px"></section>
 <section style="background-color:#F2EFE6;height:500px"></section>
 
-<!-- <div class="container">
+<div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
 			<div class="row">
@@ -133,7 +135,7 @@
 
 				<h4>MATERIALS</h4>
 				<ul class="list-unstyled">
-					<li ng-repeat="material in product.materials"><small>- {{material}}</small></li>
+					<li ng-repeat="material in product.materials"><small>- {{material}}</small></li>	
 				</ul>
 
 			</form>
@@ -141,6 +143,6 @@
 
 		</div>
 	</div>
-</div> -->
+</div>
 
 <div ng-include="'components/footer/footer.html'"></div>

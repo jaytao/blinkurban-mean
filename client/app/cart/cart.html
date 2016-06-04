@@ -4,14 +4,15 @@
 	<h1>MY SHOPPING CART</h1>
 	<hr>
 	<div class="row">
-    <h3 ng-repeat="c in items">
+    <div ng-repeat="c in items">
         Name: {{c.itemId.name}}
         <br>
         Description: {{c.itemId.description}}
         <br>
         Price: {{c.itemId.price}}
         <br>
-        Image Url: {{c.itemId.productImage}}
+<!--         Image Url: {{c.itemId.productImage}} -->
+        <img ng-src="{{c.itemId.productImage}}" class="img-responsive" alt="main product image">
         <br>
         Color: {{c.colorname}}
         <br>
@@ -19,7 +20,8 @@
         <br>
         Count: {{c.count}}     
         <br>
-    </h3>
+        <hr>
+    </div>
 		<div class="col-sm-7" ng-if="items.length == 0">
 			<p>There are no items in your cart</p>
 		</div>

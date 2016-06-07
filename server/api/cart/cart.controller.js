@@ -40,9 +40,25 @@ exports.updateOne = function(req, res) {
             cart.save(function(err){
                 if (err) { return handleError(res,err);} 
                 return res.status(200).json(cart);
-            })
+            });
         }
     }); 
+};
+
+exports.destroy = function(req, res) {
+    var userId = req.user._id;
+    
+    Cart.findOne({'userId': userId},function(err,cart){
+        if (err) { return handleError(res,err); }
+        if (cart) {
+            cart.items = []
+            cart.save(function(err){
+                if (err) { return handleError(res,err);} 
+                return res.status(200).json({});
+            });
+        }
+    });
+
 };
 
 //handle error

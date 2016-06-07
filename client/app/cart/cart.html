@@ -27,6 +27,7 @@
     </div>
     <div class="col-sm-5">
     <p>Total: {{cartTotal}}</p>
+    <button class="btn btn-primary" type="submit" ng-click="cartDeleteAll()">DELETE ALL ITEMS</button>
     <div class="col-sm-7" ng-if="items.length == 0">
         <p>There are no items in your cart</p>
     </div>

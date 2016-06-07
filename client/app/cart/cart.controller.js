@@ -12,7 +12,6 @@ angular.module('blinkUrbanApp')
     });
     
     $scope.addToCart = function() {
-
-
     };
+
   });

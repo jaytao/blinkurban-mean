@@ -58,12 +58,12 @@ angular.module('blinkUrbanApp')
             size: "lg",
             controller: function($scope, $modalInstance){
 
-          $scope.mode = mode;
-                $scope.item = {
-            categories: [],
-            metrics: [],
-            materials: []
-          };
+            $scope.mode = mode;
+            $scope.item = {
+                categories: [],
+                metrics: [],
+                materials: []
+            };
                 $scope.metric = { images: []};
                 $scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
           $scope.material = "";

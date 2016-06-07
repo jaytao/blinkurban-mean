@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blinkUrbanApp')
-  .controller('ProductCtrl', function ($scope, $stateParams, $http, $location) {
+  .controller('ProductCtrl', function ($scope, $stateParams, $http, $location, $modal) {
 
     $scope.product = {};
     $scope.availableSizes = [];
@@ -111,9 +111,33 @@ angular.module('blinkUrbanApp')
         var colorname = $scope.getDisplayColorName().colorId.colorname;
         var count = $scope.orderQuantity;
         var size = $scope.orderSize;
-        
-        $http.put("/api/cart", {colorname: colorname, count: count, size: size, itemId: $scope.product._id}).then(function success(response){
+        var message; 
+        if (count && size) {
+            $http.put("/api/cart", {colorname: colorname, count: count, size: size, itemId: $scope.product._id}).then(function success(response){
+                $scope.openAddToCartModal("Successfully Added Item To Cart");
+            }, function error(response){
+                $scope.openAddToCartModal("Error!");
+            });
+        } else {
+            $scope.openAddToCartModal("Please Select Color and Size");
+        }
+    };
+    
+    $scope.openAddToCartModal = function(message){
+        $modal.open({
+            templateUrl: "app/product/popup.html",
+            controller: function($scope, $modalInstance){
+                $scope.message = message
+                $scope.cancel = function(){
+                    $modalInstance.dismiss('cancel');
+                };
+            }
         });
+
+    };
+
+    $scope.cancel = function(){
+        $modalInstance.dismiss('cancel');
     };
 
     $scope.getDisplayColorName = function(){

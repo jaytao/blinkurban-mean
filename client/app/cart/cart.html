@@ -20,6 +20,7 @@
         <br>
         Count: {{c.count}}     
         <br>
+        <button class="btn btn-primary" type="submit" ng-click="cartDeleteOne($index)">DELETE {{$index}}</button>
         <hr>
     </div>
     <div class="col-sm-7" ng-if="items.length == 0">

@@ -54,9 +54,9 @@ angular.module('blinkUrbanApp')
     // two differnt mode fo this modal 'Create', 'Update'
     $scope.openItemModal = function(colors, mode, item){
         $modal.open({
-            templateUrl: "app/admin/item/item.create.html",
-            size: "lg",
-            controller: function($scope, $modalInstance){
+          templateUrl: "app/admin/item/item.create.html",
+          size: "lg",
+          controller: function($scope, $modalInstance){
 
             $scope.mode = mode;
             $scope.item = {
@@ -64,105 +64,104 @@ angular.module('blinkUrbanApp')
                 metrics: [],
                 materials: []
             };
-                $scope.metric = { images: []};
-                $scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
-          $scope.material = "";
-          $scope.colors = colors;
-          $scope.metricURL = ""; //url for item metric images
+            $scope.metric = { images: []};
+            $scope.sizes = ["XXS","XS","S","M","L","XL", "XXL"];
+            $scope.material = "";
+            $scope.colors = colors;
+            $scope.metricURL = ""; //url for item metric images
 
-          if(mode === 'Update'){
-            $scope.item = item;
-          }
+            if(mode === 'Update'){
+              $scope.item = item;
+            }
 
-          $http.get('/api/categories').success(function(categories) {
-            $scope.categories = categories;
-            socket.syncUpdates('category', $scope.categories);
-          });
+            $http.get('/api/categories').success(function(categories) {
+              $scope.categories = categories;
+              socket.syncUpdates('category', $scope.categories);
+            });
 
-          //add selected category to item category list
-          $scope.addCategory = function(){
-            if($scope.selectedType){
-              //check if the selected category has already been added
-              var category = _.find($scope.item.categories, {'name': $scope.selectedCategory.name});
-              if(category){
-                //add selected type from existing category if it doesn't exist
-                if(category.types.indexOf($scope.selectedType) === -1){
-                  category.types.push($scope.selectedType);
+            //add selected category to item category list
+            $scope.addCategory = function(){
+              if($scope.selectedType){
+                //check if the selected category has already been added
+                var category = _.find($scope.item.categories, {'name': $scope.selectedCategory.name});
+                if(category){
+                  //add selected type from existing category if it doesn't exist
+                  if(category.types.indexOf($scope.selectedType) === -1){
+                    category.types.push($scope.selectedType);
+                    //reset models for category form selection
+                    $scope.selectedType = "";
+                    $scope.selectedCategory = "";
+                  }
+                }else{
+                  //create new category to be added
+                  $scope.item.categories.push({
+                    name: $scope.selectedCategory.name,
+                    types: [$scope.selectedType],
+                    _id: $scope.selectedCategory._id
+                  });
                   //reset models for category form selection
                   $scope.selectedType = "";
                   $scope.selectedCategory = "";
                 }
-              }else{
-                //create new category to be added
-                $scope.item.categories.push({
-                  name: $scope.selectedCategory.name,
-                  types: [$scope.selectedType],
-                  _id: $scope.selectedCategory._id
-                });
-                //reset models for category form selection
-                $scope.selectedType = "";
-                $scope.selectedCategory = "";
+                
               }
-              
             }
+            
+            $scope.addMetric = function(){
+              if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
+                  $scope.item.metrics.push($scope.metric);
+                  $scope.metric = { images : []};
+              }
+            };
+
+            $scope.removeMetric = function(metric){
+              var index = $scope.item.metrics.indexOf(metric);
+              $scope.item.metrics.splice(index,1);
+            };
+
+            $scope.submit = function(){
+              if($scope.mode === 'Create'){
+                  $http.post('/api/items', $scope.item).then(function success(response){
+
+                  }, function error(response){
+
+                  });
+              } else if($scope.mode === 'Update'){
+                //_.map($scope.item.metrics, _.partialRight(_.pick, "colorId", "count", "size"));
+                $http.put('/api/items/' + $scope.item._id, $scope.item);
+              }
+              $scope.cancel();
+            };
+            $scope.cancel = function(){
+              $modalInstance.dismiss('cancel');
+            };
+
+            $scope.addMaterial = function(){
+              if($scope.material && $scope.item.materials.indexOf($scope.material) === -1){
+                $scope.item.materials.push($scope.material);
+                $scope.material = "";
+              }
+            };
+
+            $scope.removeMaterial = function(material){
+              var index = $scope.item.materials.indexOf(material);
+              $scope.item.materials.splice(index,1);
+            };
+
+            $scope.getColorById = function(colorId){
+              return _.find($scope.colors, function(color){
+                return color._id === colorId;
+              });
+            };
+
+            //add metricURL image to item metric images
+            $scope.addMetricImage = function(index,metricURL){
+              if(metricURL){
+                $scope.item.metrics[index].images.push(metricURL);
+              }
+            };
+
           }
-          
-          $scope.addMetric = function(){
-            if($scope.metric && $scope.metric.colorId && $scope.metric.size && $scope.metric.count ){
-                $scope.item.metrics.push($scope.metric);
-                $scope.metric = { images : []};
-            }
-          };
-
-          $scope.removeMetric = function(metric){
-            var index = $scope.item.metrics.indexOf(metric);
-            $scope.item.metrics.splice(index,1);
-          };
-
-          $scope.submit = function(){
-            if($scope.mode === 'Create'){
-                $http.post('/api/items', $scope.item).then(function success(response){
-
-                }, function error(response){
-
-                });
-            } else if($scope.mode === 'Update'){
-              //_.map($scope.item.metrics, _.partialRight(_.pick, "colorId", "count", "size"));
-              $http.put('/api/items/' + $scope.item._id, $scope.item);
-            }
-            $scope.cancel();
-          };
-          $scope.cancel = function(){
-            $modalInstance.dismiss('cancel');
-          };
-
-          $scope.addMaterial = function(){
-            if($scope.material && $scope.item.materials.indexOf($scope.material) === -1){
-              $scope.item.materials.push($scope.material);
-              $scope.material = "";
-            }
-          };
-
-          $scope.removeMaterial = function(material){
-            var index = $scope.item.materials.indexOf(material);
-            $scope.item.materials.splice(index,1);
-          };
-
-          $scope.getColorById = function(colorId){
-            return _.find($scope.colors, function(color){
-              return color._id === colorId;
-            });
-          };
-
-          //add metricURL image to item metric images
-          $scope.addMetricImage = function(){
-            if($scope.metricURL){
-              $scope.metric.images.push($scope.metricURL);
-              $scope.metricURL = "";
-            }
-          };
-
-            }
         });
     }
     

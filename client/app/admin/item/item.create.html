@@ -109,6 +109,16 @@
 							</td>
 							<td>{{metric.size}}</td>
 							<td>{{metric.count}}</td>
+                            <td>
+                              <span class="input-group-btn">
+                                <div class="input-group">
+                                  <label for="itemMetricPictureURL" class="sr-only">Picture URL</label>
+                                  <input type="text" id="itemMetricPictureURL" name="metricURL" class="form-control" ng-model="metricURL" placeholder="URL"/>
+                                </div>
+                                <button ng-click="addMetricImage($index,metricURL)" class="btn btn-default" type="button">Add Picture URL</button>
+                              </span>
+                            </td>
+                            <td ng-repeat="url in metric.images">{{url}}</td>
 							<td><button ng-click="removeMetric(metric)" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
 						</tr>
 					</tbody>
@@ -116,15 +126,6 @@
 			</div>
 
 			<div class="row">
-				<div class="col-sm-12">
-					<div class="input-group">
-						<label for="itemMetricPictureURL" class="sr-only">Picture URL</label>
-				      <input type="text" id="itemMetricPictureURL" name="metricURL" class="form-control" ng-model="metricURL" placeholder="URL"/>
-				      <span class="input-group-btn">
-				        <button ng-click="addMetricImage()" class="btn btn-default" type="button">Add Picture URL</button>
-				      </span>
-				    </div>
-				</div>
 
 				<div class="col-sm-12">
 					<div class="row">

@@ -7,7 +7,7 @@ var Item = require('../item/item.model');
 
 exports.show = function(req, res) {
     var userId = req.user._id;
-    Cart.findOne({'userId': userId}, "items").populate('items.itemId', "name price description").exec(function(err,cart){
+    Cart.findOne({'userId': userId}, "items").populate('items.itemId', "name price description productImage").exec(function(err,cart){
         if (err) { return res.status(404).json({})};
         
         return res.status(200).json(cart);

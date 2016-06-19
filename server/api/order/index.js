@@ -2,12 +2,12 @@
 
 var express = require('express');
 var controller = require('./order.controller');
+var auth = require('../../auth/auth.service');   
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
-router.post('/', controller.create);
-router.delete('/:id', controller.destroy);
+router.get('/', auth.isAuthenticated(), controller.show);
+router.get('/all', auth.hasRole('admin'), controller.index);
+router.post('/', auth.isAuthenticated(), controller.create);
 
 module.exports = router

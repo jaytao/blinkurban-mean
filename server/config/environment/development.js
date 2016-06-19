@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/blinkurban-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

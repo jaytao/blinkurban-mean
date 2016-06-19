@@ -22,7 +22,15 @@ var OrderSchema = new Schema({
         colorname: String,
         count: Number
     }], 
-    total: Number
+    total: Number,
+    shippingAddress: {
+        street: String,
+        state: String,
+        city: String,
+        zip: String,
+        country: String
+    },
+    orderDate : { type: Date, default : Date.now } 
 }, opts);
 
 //Virtuals

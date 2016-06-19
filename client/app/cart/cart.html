@@ -31,17 +31,9 @@
     <div class="col-sm-7" ng-if="items.length == 0">
         <p>There are no items in your cart</p>
     </div>
-    <form action="" method="POST">
-        <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-            data-amount="{{cartTotal*100}}"
-            data-name="Stripe.com"
-            data-description="Checkout"
-            data-image="assets/images/brand.png"
-            data-locale="auto">
-        </script>
-    </form> 
+    <br>
+    <button type="stripe-button" ng-click="placeOrder()">Purchase</button>
+
 </div>
 
 <div ng-include="'components/footer/footer.html'"></div>

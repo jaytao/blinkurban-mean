@@ -34,25 +34,33 @@ exports.create = function(req, res) {
 
   //TODO - Query db to see if all the items and metrics are still available
   //       and if so, decrement the count in those metrics 
-    
-  Cart.findOne({'userId': req.body.userId}, 'items', function(err, cart){
-    console.log(cart.items);
+  var userId = req.user._id;
+  var shippingAddress = {
+    street: req.body.args.shipping_address_line1,
+    state: req.body.args.shipping_address_state,
+    city: req.body.args.shipping_address_city,
+    zip: req.body.args.shipping_address_zip,
+    country: req.body.args.shipping_address_country_code
+  };
+  var tokenId = req.body.token.id
+  Cart.findOne({'userId': userId}, 'items', function(err, cart){
     var total = 0;
     if(err) { return handleError(res, err); }
     async.each(cart.items, function(item, callback){
-        Item.findById(item.itemId, function (err, i) {
-            total = total + (i.price * item.count);
-            console.log("Total: " + total);
-            callback();
-        });
+      Item.findById(item.itemId, function (err, i) {
+        total = total + (i.price * item.count);
+        console.log("Total: " + total);
+        callback();
+      });
     },
     function(error) {
       if(error) { return handleError(res, err); }
 
       var newOrder = new Order({
-        userId: req.body.userId,
+        userId: userId,
         total: total,
-        items: cart.items 
+        items: cart.items,
+        shippingAddress: shippingAddress
       });
 
       newOrder.save(function(err, y){
@@ -65,42 +73,24 @@ exports.create = function(req, res) {
       }); 
 
       if (total > 0) {
-          chargeStripe(total);
+        stripe.charges.create({
+          amount: total*100, // amount in cents, again
+          currency: "usd",
+          source: tokenId,
+          description: "Bl.Ur"
+        }, function(err, charge) {
+          if (err) {
+            handleError(res,err);
+          } else {
+            return res.status(200).send({id: newOrder._id});
+          }
+        });
       } else {
         return res.status(500).send(err);
       }
-      return res.status(201).json({total: total});
     });
   });
 }
-
-var chargeStripe = function(amount){
-    stripe.tokens.create({
-        card: {
-            "number": '4242424242424242',
-            "exp_month": 12,
-            "exp_year": 2017,
-            "cvc": '123'
-        }
-    }, function(error, token) {
-        if (error) {return res.status(404)};
-        var cents = amount * 100
-        stripe.charges.create({
-            amount: cents, // amount in cents, again
-            currency: "usd",
-            source: token.id,
-            description: "Example charge"
-        }, function(err, charge) {
-            if (err) {
-                console.log("ERROR: " + err)
-            } else {
-                console.log("Strip Charged $" + amount.toFixed(2))
-            }
-        });
-    });
-};
-
-
 
 //remove order
 exports.destroy = function(req, res) {
@@ -116,5 +106,6 @@ exports.destroy = function(req, res) {
 
 //handle error
 function handleError(res, err) {
+  console.log(err);
   return res.status(500).send(err);
 };

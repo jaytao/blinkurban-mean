@@ -30,7 +30,8 @@ var OrderSchema = new Schema({
         zip: String,
         country: String
     },
-    orderDate : { type: Date, default : Date.now } 
+    orderDate : { type: Date, default : Date.now },
+    status: {type: String, default: "Processed"}
 }, opts);
 
 //Virtuals

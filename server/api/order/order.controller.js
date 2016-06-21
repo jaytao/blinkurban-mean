@@ -17,11 +17,19 @@ exports.index = function(req, res) {
 
 // Get orders for user by id
 exports.show = function(req, res) {
-  Order.find({userId: req.params.id}, function (err, order) {
-    if(err) { return handleError(res, err); }
-    if(!order) { return res.status(404).send('Not Found'); }
-    return res.json(order);
-  });
+  var userId = req.user._id;
+  var year = req.headers.year;
+  var start = new Date(year, 1, 1);
+  var end = new Date(year, 12, 31);  
+
+  Order.find({userId: userId, orderDate: {$gte: start, $lt: end}})
+    .select("-userId -__v")
+    .populate("items.itemId", "name price description productImage")
+    .sort("-orderDate").exec(function (err, order) {
+      if(err) { return handleError(res, err); }
+      if(!order) { return res.status(404).send('Not Found'); }
+      return res.json(order);
+    });
 };
 
 // Creates a new order in the DB.
@@ -65,11 +73,11 @@ exports.create = function(req, res) {
 
       newOrder.save(function(err, y){
         if(err) { return handleError(res, err); }
-          //clear cart after order
-          cart.items = [];
-          cart.save(function(err, x){
-            if(err) { return handleError(res, err); }
-          }); 
+        //clear cart after order
+        cart.items = [];
+        cart.save(function(err, x){
+          if(err) { return handleError(res, err); }
+        }); 
       }); 
 
       if (total > 0) {

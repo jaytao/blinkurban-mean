@@ -9,18 +9,29 @@ var Cart = require('../cart/cart.model');
 
 // Get list of orders
 exports.index = function(req, res) {
-  Order.find(function (err, orders) {
-    if(err) { return handleError(res, err); }
-    return res.status(200).json(orders);
-  });
+  var year = req.headers.year;
+  var month = req.headers.month;
+  month = month - 1;
+  var start = new Date(year,month,1);
+  var end = new Date(year,month,31);
+
+  Order.find({orderDate: { $gte: start, $lt: end}})
+    .populate("userId", "email -_id")
+    .select("-__v")
+    .populate("items.itemId", "name price description productImage")
+    .sort("-orderDate").exec(function (err, orders) {
+        if(err) { return handleError(res, err); }
+        if(!orders) { return res.status(404).send('Not Found'); }
+        return res.status(200).json(orders);
+    });
 };
 
 // Get orders for user by id
 exports.show = function(req, res) {
   var userId = req.user._id;
   var year = req.headers.year;
-  var start = new Date(year, 1, 1);
-  var end = new Date(year, 12, 31);  
+  var start = new Date(year, 0, 1);
+  var end = new Date(year, 11, 31);  
 
   Order.find({userId: userId, orderDate: {$gte: start, $lt: end}})
     .select("-userId -__v")

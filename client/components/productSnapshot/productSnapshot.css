@@ -1,3 +1,7 @@
 .snapshot-price{
 	border-bottom: 1px solid #eee;
 }
+.img-responsive{
+    width:  200px;
+    height: 200px;
+}

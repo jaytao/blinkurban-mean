@@ -1,0 +1,8 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+    <div class="col-sm-7" ng-if="model == null">
+        <div ng-include="'components/404/404.html'"></div>
+    </div>
+    <div class="col-sm-7" ng-if="model != null">
+          <pre>user = {{model | json}}</pre>
+    </div>
+<div ng-include="'components/footer/footer.html'"></div>

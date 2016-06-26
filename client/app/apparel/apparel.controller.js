@@ -8,6 +8,13 @@ angular.module('blinkUrbanApp')
       socket.syncUpdates('category', $scope.categories);
     });
 
+    $http.get('/api/models').success(function (response){
+        if (response){
+            $scope.modelList = response;
+        }
+    }, function error(response){
+
+    });
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('Category');
     });
@@ -22,7 +29,6 @@ angular.module('blinkUrbanApp')
       colors: [],
       sizes: []
     };
-
     $http.get('/api/items/get?category=' + $scope.category).success(function(data) {
       $scope.results = data;
 

@@ -2,11 +2,68 @@
 <div class="container">
 	<h1>MY ORDERS</h1>
 	<hr>
-    <div class="row">
-        <div ng-repeat="o in orders">
-            {{o}}
-            <hr>
+    <div ng-repeat="o in orders | filter:{ status: 'Processed' }">
+    <h>Order Status: {{o.status}}</h>
+    <br> 
+    <h>Shipment will be sent to {{o.shippingAddress.street}}, {{o.shippingAddress.city}}, {{o.shippingAddress.state}} {{o.shippingAddress.zip}}, {{o.shippingAddress.country}}</h>       
+    <hr>  
+       <div class="row">
+            <div class="col-sm-3">
+                <img ng-src="{{o.items[0].itemId.productImage}}" class="img-responsive-2" alt="main product image"/> 
+            </div>
+            <div class="col-sm-8"> 
+                Name: {{o.items[0].itemId.name}}
+                <br>
+                Price: {{o.items[0].itemId.price}}
+                <br>
+                Color: {{o.items[0].colorname}}
+                <br>
+                Size: {{o.items[0].size}}
+                <br>
+            </div>
         </div>
+        <hr>            
+    </div>
+    <div ng-repeat="o in orders | filter:{ status: 'Shipped' }">
+    <h>Order Status: {{o.status}}</h>
+    Shipped to {{o.shippingAddress.street}}, {{o.shippingAddress.city}}, {{o.shippingAddress.state}} {{o.shippingAddress.zip}}, {{o.shippingAddress.country}}     
+    <hr>
+       <div class="row">
+            <div class="col-sm-3">
+                <img ng-src="{{o.items[0].itemId.productImage}}" class="img-responsive-2" alt="main product image"/> 
+            </div>
+            <div class="col-sm-8"> 
+                Name: {{o.items[0].itemId.name}}
+                <br>
+                Price: {{o.items[0].itemId.price}}
+                <br>
+                Color: {{o.items[0].colorname}}
+                <br>
+                Size: {{o.items[0].size}}
+                <br>
+            </div>
+        </div>
+        <hr>            
+    </div>    
+    <div ng-repeat="o in orders | filter:{ status: 'Delivered' }">
+    <h>Order Status: {{o.status}}</h> 
+    <hr>
+       <div class="row">
+            <div class="col-sm-3">
+                <img ng-src="{{o.items[0].itemId.productImage}}" class="img-responsive-2" alt="main product image"/> 
+            </div>
+            <div class="col-sm-8"> 
+                Name: {{o.items[0].itemId.name}}
+                <br>
+                Price: {{o.items[0].itemId.price}}
+                <br>
+                Color: {{o.items[0].colorname}}
+                <br>
+                Size: {{o.items[0].size}}
+                <br>
+            </div>
+        </div>
+        <hr>            
     </div>
     <button ng-click="getOrders(2016)">2016</button>
     <button ng-click="getOrders(2015)">2015</button>

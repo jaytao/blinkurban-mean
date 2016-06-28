@@ -29,4 +29,15 @@ angular.module('blinkUrbanApp')
 
     $scope.months= ["1","2","3","4","5","6","7","8","9","10","11","12"];
     $scope.monthIndex = dateObj.getUTCMonth();
+
+    $scope.updateShipped = function(index, tracking){
+        var orderId = $scope.orders[index]._id;
+        $http.post('/api/orders/updateShipped', {orderId: orderId, trackingNumber: tracking}).then(function success(response){
+            $scope.orders[index].status = "Shipped";
+            $scope.orders[index].trackingNumber = tracking;
+        }, function error(response) {
+        
+        });
+    }
+
   });

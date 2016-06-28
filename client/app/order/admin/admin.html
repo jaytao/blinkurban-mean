@@ -22,7 +22,9 @@
 	<hr>
     <div class="row">
         <div ng-repeat="o in orders">
-            {{o}}
+            Tracking Number: <input ng-model="trackingNumber"/>
+            <button ng-click="updateShipped($index, trackingNumber)">Shipped</button>
+            <pre>{{o | json}}</pre>
             <hr>
         </div>
     </div>

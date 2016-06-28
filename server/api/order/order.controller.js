@@ -39,10 +39,30 @@ exports.show = function(req, res) {
     .sort("-orderDate").exec(function (err, order) {
       if(err) { return handleError(res, err); }
       if(!order) { return res.status(404).send('Not Found'); }
-      return res.json(order);
+      return res.status(200).json(order);
     });
 };
 
+exports.updateDelivered = function(req,res) {
+    var orderId = req.body.orderId;
+    var newStatus = "Delivered";
+    Order.findOneAndUpdate({ _id: orderId}, {status: newStatus}, function (err, order){
+        if(!order) { return res.status(404).send('Not Found'); }
+        return res.status(204).json({}); 
+    });
+};
+
+exports.updateShipped = function(req,res){
+    var orderId = req.body.orderId;
+    var newStatus = "Shipped";
+    var tracking = req.body.trackingNumber;
+    
+    Order.findOneAndUpdate({ _id: orderId}, {status: newStatus, trackingNumber: tracking, shippingDate: Date.now()}, function (err, order){
+        if(!order) { return res.status(404).send('Not Found'); }
+        return res.status(204).json({});
+    });
+
+}
 // Creates a new order in the DB.
 // 1) Find cart for user
 // 2) Calculate total
@@ -82,15 +102,6 @@ exports.create = function(req, res) {
         shippingAddress: shippingAddress
       });
 
-      newOrder.save(function(err, y){
-        if(err) { return handleError(res, err); }
-        //clear cart after order
-        cart.items = [];
-        cart.save(function(err, x){
-          if(err) { return handleError(res, err); }
-        }); 
-      }); 
-
       if (total > 0) {
         stripe.charges.create({
           amount: total*100, // amount in cents, again
@@ -101,6 +112,16 @@ exports.create = function(req, res) {
           if (err) {
             handleError(res,err);
           } else {
+
+            newOrder.save(function(err, y){
+              if(err) { return handleError(res, err); }
+              //clear cart after order
+              cart.items = [];
+              cart.save(function(err, x){
+                if(err) { return handleError(res, err); }
+              }); 
+            }); 
+
             return res.status(200).send({id: newOrder._id});
           }
         });

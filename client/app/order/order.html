@@ -1,6 +1,16 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
 	<h1>MY ORDERS</h1>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{years[yearIndex]}}
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="year in years"><a ng-click="setYear($index)">{{year}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <button ng-click="getOrders()">Submit</button>
 	<hr>
     <div ng-repeat="o in orders | filter:{ status: 'Processed' }">
     <h>Order Status: {{o.status}}</h>
@@ -65,7 +75,5 @@
         </div>
         <hr>            
     </div>
-    <button ng-click="getOrders(2016)">2016</button>
-    <button ng-click="getOrders(2015)">2015</button>
 </div>
 <div ng-include="'components/footer/footer.html'"></div>

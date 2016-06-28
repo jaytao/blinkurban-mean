@@ -31,6 +31,8 @@ var OrderSchema = new Schema({
         country: String
     },
     orderDate : { type: Date, default : Date.now },
+    trackingNumber: String,
+    shippingDate: {type: Date},
     status: {type: String, default: "Processed"}
 }, opts);
 

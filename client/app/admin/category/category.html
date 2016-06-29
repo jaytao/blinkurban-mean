@@ -22,7 +22,7 @@
 	<div class="col-sm-6">
 		<h3>Create a new category</h3>
 		<hr>
-		<form class="form" name="form" novalidate ng-submit="form.$valid && addCategory()">
+		<form class="form" name="form" novalidate ng-submit="form.$valid && process()">
 
 			<div class="form-group" ng-class="{ 'has-success': form.name.$valid && form.$submitted, 'has-error': form.name.$invalid && form.$submitted }">
 				<label for="name">Category Name *</label>

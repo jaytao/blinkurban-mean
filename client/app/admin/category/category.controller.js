@@ -14,8 +14,9 @@ angular.module('blinkUrbanApp')
 
   	$scope.addCategoryType = function(){
   		if($scope.category.type){
-  			$scope.category.types.push($scope.category.type);
-  			$scope.category.type = "";
+            if ($scope.category.types.indexOf($scope.category.type) < 0) {
+                $scope.category.types.push($scope.category.type);
+            }
   		}
   	};
 
@@ -27,14 +28,30 @@ angular.module('blinkUrbanApp')
       $http.delete('/api/categories/'+category._id);
     };
 
+    $scope.process = function() {
+      var found = false;
+      for (var x = 0; x < $scope.categories.length; x++) {
+        var c = $scope.categories[x];
+        if (c.name == $scope.category.name){
+          c.types.push.apply(c.types,$scope.category.types);
+          $scope.updateCategory(c);
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        $scope.addCategory();
+      }
+      $scope.category = {};
+      $scope.category.types = [];
+      $scope.form.$setUntouched();
+      $scope.form.$setPristine();
+    };
+
   	$scope.addCategory = function() {
   		$http.post('/api/categories', {name: $scope.category.name, types: $scope.category.types})
   		.then(function success(response){
         //reset form fields and validation
-        $scope.category = {};
-        $scope.category.types = [];
-        $scope.form.$setUntouched();
-        $scope.form.$setPristine();
       })
   		.catch( function(err) {
         //TODO do something with the error

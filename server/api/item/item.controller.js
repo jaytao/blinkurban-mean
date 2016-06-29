@@ -5,10 +5,36 @@ var Item = require('./item.model');
 
 // Get list of items
 exports.index = function(req, res) {
-  Item.find(function (err, items) {
-    if(err) { return handleError(res, err); }
-    return res.status(200).json(items);
-  });
+  query = {}
+  var limit = 25;
+  if (req.headers.category) {
+    query.categories = { $elemMatch: { types: searchCategory }};
+  }
+  if (req.headers.gender) {
+    query.gender = req.headers.gender;
+  }
+  if (req.headers.priceLowerThan && req.headers.priceHigherThan){
+    query.price = { $gte : req.headers.priceHigherThan, $lte : req.headers.priceLowerThan};
+  } else if (req.headers.priceLowerThan){
+    query.price = { $lte: req.headers.priceLowerThan };
+  } else if (req.headers.priceHigherThan){
+    query.price = { $gte: req.headers.priceHigherThan };
+  }
+  
+  var finder = Item.find(query);
+  
+  if (req.headers.latest != null && req.headers.latest) {
+    finder.sort("-createdDate"); 
+  }
+  if (req.headers.limit) {
+    finder.limit(req.headers.limit);
+  }
+
+  finder.populate('metrics.colorId').select('-basecost -__v').exec(function (err, items) {
+    if (err) { return handleError(res, err); }
+    if (!order) {return res.status(404).send("No items match")};
+    return res.status(200).json(items)
+  }); 
 };
 
 // Get a single item

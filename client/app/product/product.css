@@ -67,7 +67,7 @@
 	right:0;
 	display: block;
 	float: left;
-	height:736px;
+	height:600px; /*From 736px*/
 	overflow: hidden;	
 	padding:40px;
 }
@@ -108,7 +108,7 @@
 
 .productinfo {
 	max-width:450px;
-	padding:20% 0 0 0;
+	padding:15% 0 0 0; /*changed from 20 to 15 from 736px*/
 }
 
 .productinfo p{
@@ -155,12 +155,14 @@
 	padding-bottom: 5px;
 }
 
-.productbanner{
-  background-image: url(/assets/images/productheader.jpg);
-  background-size: cover;
-  height:400px;
-  width: auto;
-  position: relative;
-  display: block;
-}
+.product-image {
+    position: relative;
 
+}
+.product-image img {
+    display: block;
+    width: 100%;
+    max-width: 1200px; /* corresponds to max height of 450px */
+    margin: 0 auto;
+    height:600px; /*from 736px*/
+}

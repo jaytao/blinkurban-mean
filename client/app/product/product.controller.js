@@ -22,6 +22,25 @@ angular.module('blinkUrbanApp')
       $scope.availableColors = _.uniq($scope.product.metrics, function(metric){
         return metric.colorId._id;
       });
+
+          //Create main product filter
+      $scope.list=[{item:"http://www.patagonia.com/tsimages/55180_FGE.fpx?ftr=8&cvt=jpeg,scans=progressive", category:'1'},
+                  {item:"http://www.511tactical.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/74290/055/74290_055_01.jpg", category:'2'},
+                  {item: $scope.product.productImage, category:'3'},
+                  {item:"test 4", category:'4'},
+                  {item:"test 3", category:'5'},
+                   {item:"test 4", category:'6'}                 
+                  ]
+      $scope.filter="3"
+      $scope.isDisplayed=function(item, filter){
+       if(filter!="")
+       {
+           if(item.category==filter)
+               return true;
+           return false;
+       }
+          return true;
+      }
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
         //get the index of the selected color from the availableColors list
@@ -154,5 +173,10 @@ angular.module('blinkUrbanApp')
     $scope.hoverColorOut = function(){
       $scope.tempColor = "";
     };
+
+    $scope.pro1 = "";
+    $scope.pro = function(productImage){
+      $scope.pro1 = productImage;
+    }
 
   });

@@ -13,12 +13,15 @@
 <section>
 	<div class="row">
 		<div class="col-sm-6 nopaddinggeneral">
-            <div class="col-xs-6">
-                <img ng-src="{{product.productImage}}" class="img-responsive" alt="main product image">
+            <div class="product-image" >
+<!--                 <img ng-src="{{product.productImage}}" alt="main product image"> -->
+		       <li ng-repeat="li in list" ng-show="isDisplayed(li, filter)">
+                	<img ng-src="{{li.item}}" alt="main product image">		           
+		        </li>                        
             </div>
-			<div ng-repeat="img in product.metrics[selectedColorIndex].images track by $index" class="col-xs-6">
+<!-- 			<div ng-repeat="img in product.metrics[selectedColorIndex].images track by $index" class="col-xs-6">
 				<img ng-src="{{img}}" class="img-responsive" alt="main product image">
-			</div>
+			</div> -->
 		</div>
 		<div class="col-sm-6 nopaddinggeneral">
 			<div class="productlisting">
@@ -73,7 +76,10 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="row">
+	    <input type='button' value='Filter 1' ng-click='filter="1"' />
+        <input type='button' value='Filter 2' ng-click='filter="2"' /></div>
+        <input type='button' value='Filter 3' ng-click='filter="3"' /></div>        
 </section>
 
 <section style="background-color:#fff;height:500px"></section>

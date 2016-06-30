@@ -23,6 +23,11 @@ angular.module('blinkUrbanApp')
 angular.module('blinkUrbanApp')
   .controller('ApparelCategoryCtrl', function ($scope, $http, socket, $stateParams) {
     //TODO implement socket for items
+    $scope.categories = [];
+    $http.get('/api/categories').success(function(categories) {
+      $scope.categories = $scope.categories.concat(categories);
+      socket.syncUpdates('category', $scope.categories);
+    });
     $scope.results = [];
     $scope.category = $stateParams.category;
     $scope.filters = {
@@ -56,7 +61,7 @@ angular.module('blinkUrbanApp')
       });
     };
 
-    $scope.show = function(color, size){
+    $scope.show = function(color, size, price){
       
       var colorSelected = false;
       var colorMatch = false;
@@ -80,6 +85,29 @@ angular.module('blinkUrbanApp')
         }
       });
 
+      var maxSelected = false;
+      var maxMatch = false;
+      if ($scope.priceMax) {
+        var maxSelected = true;
+        if (price <= $scope.priceMax) { 
+          var maxMatch = true;
+        }
+      }
+
+      var minSelected = false;
+      var minMatch = false;
+      if ($scope.priceMin) {
+        var minSelected = true;
+        if (price >= $scope.priceMin) {
+          var minMatch = true;
+        }
+      }
+
+      var colorBool = !colorSelected || colorMatch;
+      var sizeBool = !sizeSelected || sizeMatch;
+      var minBool = !minSelected || minMatch;
+      var maxBool = !maxSelected || maxMatch;
+/*
       if(colorSelected && sizeSelected){
         return colorMatch && sizeMatch;
       }else if(colorSelected){
@@ -87,8 +115,8 @@ angular.module('blinkUrbanApp')
       }else if(sizeSelected){
         return sizeMatch;
       }
-
       return true;
+*/
+      return colorBool && sizeBool && minBool && maxBool;
     };
-
   });

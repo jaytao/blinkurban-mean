@@ -16,7 +16,8 @@ var CartSchema = new Schema({
         },
         size: String,
         colorname: String,
-        count: Number
+        count: Number,
+        image: String
     }], 
 });
 

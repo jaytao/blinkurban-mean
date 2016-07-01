@@ -20,7 +20,8 @@ var OrderSchema = new Schema({
         },
         size: String,
         colorname: String,
-        count: Number
+        count: Number,
+        image: String
     }], 
     total: Number,
     shippingAddress: {

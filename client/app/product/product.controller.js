@@ -130,9 +130,17 @@ angular.module('blinkUrbanApp')
         var colorname = $scope.getDisplayColorName().colorId.colorname;
         var count = $scope.orderQuantity;
         var size = $scope.orderSize;
+        var image;
         var message; 
+
+        for (var i = 0; i < $scope.product.metrics.length; i++){
+            var x = $scope.product.metrics[i];
+            if (x.colorId.colorname == colorname && x.size == size){
+                image = x.images[0];
+            }
+        }
         if (count && size) {
-            $http.put("/api/cart", {colorname: colorname, count: count, size: size, itemId: $scope.product._id}).then(function success(response){
+            $http.put("/api/cart", {colorname: colorname, count: count, size: size, itemId: $scope.product._id, image: image}).then(function success(response){
                 $scope.openAddToCartModal("Successfully Added Item To Cart");
             }, function error(response){
                 $scope.openAddToCartModal("Error!");

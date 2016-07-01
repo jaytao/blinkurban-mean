@@ -5,7 +5,7 @@ var Item = require('./item.model');
 
 // Get list of items
 exports.index = function(req, res) {
-  query = {}
+  var query = {}
   var limit = 25;
   if (req.headers.category) {
     query.categories = { $elemMatch: { types: searchCategory }};
@@ -32,7 +32,7 @@ exports.index = function(req, res) {
 
   finder.populate('metrics.colorId').select('-basecost -__v').exec(function (err, items) {
     if (err) { return handleError(res, err); }
-    if (!order) {return res.status(404).send("No items match")};
+    if (!items) {return res.status(404).send("No items match")};
     return res.status(200).json(items)
   }); 
 };

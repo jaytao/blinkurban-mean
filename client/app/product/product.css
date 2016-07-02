@@ -67,7 +67,7 @@
     right:0;
     display: block;
     float: left;
-    height:600px; /*From 736px*/
+    height:50vw; 
     overflow: hidden;   
     padding:40px;
 }
@@ -164,5 +164,15 @@
     width: 100%;
     max-width: 1200px; /* corresponds to max height of 450px */
     margin: 0 auto;
-    height:600px; /*from 736px*/
+    height:50vw; 
+}
+
+.productimglist img:hover{
+    opacity: 0.5;
+}
+
+.productimglist img{
+    height:16.666666vw;
+    width:16.6666666vw;
+    cursor:pointer;
 }

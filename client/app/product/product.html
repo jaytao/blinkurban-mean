@@ -69,15 +69,20 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-2" ng-repeat="li in imageList">
-            <img style="height:16vw;width:16vw" ng-src="{{li.url}}" alt="product image" ng-click=  "selectImage($index)">
+
+    <hr>
+    
+    <div class="row productimglist">
+        <div class="col-xs-2" ng-repeat="li in imageList">
+            <img ng-src="{{li.url}}" alt="product image" ng-click=  "selectImage($index)">
+            <hr>
         </div>    
     </div>
 
+<!--     <hr> -->
+
 </section>
-<pre> {{imageList | json}} </pre>
-<section style="background-color:#fff;height:500px"></section>
+
 <section style="background-color:#F2EFE6;height:500px"></section>
 
 <div ng-include="'components/footer/footer.html'"></div>

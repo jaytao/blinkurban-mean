@@ -176,3 +176,31 @@
     width:16.6666666vw;
     cursor:pointer;
 }
+
+.product-image p img{
+    height:3vw;
+    width:3vw;
+    cursor:pointer;
+}
+
+.modal-dialog {
+    width: 70% !important; /* respsonsive width */
+}
+
+.maximizeImg{
+    position: absolute; 
+    visibility: hidden;
+    opacity: 0;
+    bottom: 0;
+    right: 0;    
+    height: 3.5em;
+    font:30px;
+    font-weight: 500;
+    background-color: white;
+}
+
+.product-image:hover .maximizeImg{
+    visibility: visible;
+    opacity: 1;    
+
+}

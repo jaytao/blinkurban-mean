@@ -14,7 +14,8 @@
     <div class="row">
         <div class="col-sm-6 nopaddinggeneral">
             <div class="product-image" >
-                 <img ng-src="{{imageList[imageIndex].url}}"> 
+                 <img ng-click="openPictureModal()" ng-src="{{imageList[imageIndex].url}}">
+                 <p class="maximizeImg">Click Image to Expand<img src="http://icongal.com/gallery/download/6028/512/png"></p> 
             </div>
         </div>
         <div class="col-sm-6 nopaddinggeneral">

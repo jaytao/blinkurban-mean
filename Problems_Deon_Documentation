@@ -1,6 +1,11 @@
 Product Page
 
 There is a problem with how the The Main Image Division is set up, it, it runs well on large screens, but once the window is reduced, the division starts to hide product description information. The height is currently set to be 50 percent of viewport viewport.{height:50vw}
+	Difficulty: Complicated
 	Ways to fix: 
 		1. Set the height declaration to be different for various screen dimensions so that once it drops off where the screen size is to small, a different height assignment activates. 
 		2. Find a different way to set the corresponding height without using CSS Units (vw) for Viewport width.
+
+There is a problem with how the prorduct description is displayed when the product only has one color and size, if there is only one color and size, the choices should be pretty selected.
+	Difficulty: Simple
+	Way to fix: Set condition for this case

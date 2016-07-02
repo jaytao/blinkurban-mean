@@ -1,0 +1,14 @@
+<div class="" ng-controller="ProductCtrl">
+	<div style="position:relative">
+		<img style="cursor:pointer;opacity:.1;position:absolute;top:40%;width:5vw;height:5vw" src="http://publicdomainvectors.org/photos/aiga_left_arrow.png">
+		<img style="width:70vw;height:70vw" ng-src="{{imageList[imageIndex].url}}">
+		<img ng-click="rightarrow" style="cursor:pointer;opacity:.1;position:absolute;top:40%;right:0;width:5vw;height:5vw" src="http://publicdomainvectors.org/tn_img/aiga_right_arrow.png">
+	</div>
+	<hr>
+	<div class="row productimglist">
+	    <div class="col-xs-2" ng-repeat="li in imageList">
+	        <img ng-src="{{li.url}}" alt="product image" ng-click=  "selectImage($index)">
+	        <hr>
+	    </div>    
+	</div>
+</div>

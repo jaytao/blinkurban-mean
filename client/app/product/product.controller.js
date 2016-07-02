@@ -24,6 +24,7 @@ angular.module('blinkUrbanApp')
         return metric.colorId._id;
       });
       
+      //Clicking subset image will change main image
       $scope.imageList = [{url: $scope.product.productImage, color: null, size: null}];
 
       for (var i = 0; i < $scope.product.metrics.length; i++) {
@@ -32,6 +33,11 @@ angular.module('blinkUrbanApp')
           $scope.imageList.push({url: metric.images[j], color: metric.colorId._id, size: metric.size});
         }
       }
+
+      //clicking right arrow will change main Image on productImgPreview
+      $scope.rightarrow= function(imageList, imageIndex){
+          return imageList[imageIndex]=imageList[imageIndex+1];
+      };
 
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
@@ -62,13 +68,13 @@ angular.module('blinkUrbanApp')
     
     //filter availableSizes everytime there's a change to orderColor
     $scope.$watch('orderColor', function(value){
-    	$scope.availableSizes = [];
-    	angular.forEach($scope.product.metrics, function(item){
-	      	if(item.colorId._id === value){
-	      		$scope.availableSizes.push(item.size);
-	      	}
-	    });
-	    //reset order size if it isn't available for the new selected color
+      $scope.availableSizes = [];
+      angular.forEach($scope.product.metrics, function(item){
+          if(item.colorId._id === value){
+            $scope.availableSizes.push(item.size);
+          }
+      });
+      //reset order size if it isn't available for the new selected color
       if($scope.hasSize($scope.orderSize)){
         $scope.orderSize = "";
         $scope.selectedSizeIndex = -1;
@@ -112,15 +118,15 @@ angular.module('blinkUrbanApp')
     };
     //check if there's an available size for this product
     $scope.hasSize = function(size){
-    	return $scope.availableSizes.indexOf(size) >= 0 ? false : true;
+      return $scope.availableSizes.indexOf(size) >= 0 ? false : true;
     };
     //store selected color index to property highlight selected color
     $scope.selectColor = function(index){
-    	$scope.selectedColorIndex = index;
+      $scope.selectedColorIndex = index;
     };
     //store selected size index to property highlight selected size
     $scope.selectSize = function(index){
-    	$scope.selectedSizeIndex = index;
+      $scope.selectedSizeIndex = index;
     };
     $scope.selectImage = function(index){
       $scope.imageIndex = index;
@@ -182,9 +188,9 @@ angular.module('blinkUrbanApp')
       $scope.tempColor = "";
     };
 
-    $scope.pro1 = "";
-    $scope.pro = function(productImage){
-      $scope.pro1 = productImage;
-    }
-
+    $scope.openPictureModal = function (){
+      $modal.open({
+        templateUrl: "app/product/productImgPreview.html"
+      });
+    };
   });

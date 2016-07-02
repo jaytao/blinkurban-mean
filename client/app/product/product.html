@@ -15,8 +15,9 @@
 		<div class="col-sm-6 nopaddinggeneral">
             <div class="product-image" >
 <!--                 <img ng-src="{{product.productImage}}" alt="main product image"> -->
-		       <li ng-repeat="li in list" ng-show="isDisplayed(li, filter)">
-                	<img ng-src="{{li.item}}" alt="main product image">		           
+               <li><img ng-src="{{imageList[imageIndex].url}}"></li>
+		       <li ng-repeat="li in imageList">
+                	<img ng-src="{{li.url}}" alt="product image" ng-click="selectImage($index)">		           
 		        </li>                        
             </div>
 <!-- 			<div ng-repeat="img in product.metrics[selectedColorIndex].images track by $index" class="col-xs-6">
@@ -31,7 +32,7 @@
 						<!-- <div class="col-sm-4 text-right"><h3>{{product.price | currency:"$"}}</h3></div> -->
 						<div class="col-sm-4 text-right"><h3>{{product.price}}</h3></div>
 					</div>				
-					<p>This product is amazing. Please check the wonders of the product by exploring the finer details. bsjdkaks dadsada sdas asd</p>	
+					<p>{{product.description}}</p>	
 					<fieldset>
 						<h4><small>COLOR: {{tempColor || getDisplayColorName().colorId.colorname}}</small></h4>
 						<ul class="list-unstyled list-inline">
@@ -81,7 +82,7 @@
         <input type='button' value='Filter 2' ng-click='filter="2"' /></div>
         <input type='button' value='Filter 3' ng-click='filter="3"' /></div>        
 </section>
-<pre> {{product.metrics | json}} </pre>
+<pre> {{imageList | json}} </pre>
 <section style="background-color:#fff;height:500px"></section>
 <section style="background-color:#F2EFE6;height:500px"></section>
 

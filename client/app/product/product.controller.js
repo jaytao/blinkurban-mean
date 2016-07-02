@@ -11,6 +11,7 @@ angular.module('blinkUrbanApp')
     $scope.orderQuantity = "1"; //by default, 1 item quantity is selected
     $scope.selectedColorIndex = 0; //by default, the first color is selected
     $scope.selectedSizeIndex = -1;
+    $scope.imageIndex = 0;
 
     //get the product that matches the provided id
     $http.get('/api/items/' + $stateParams.id).then(function successCallback(response) {
@@ -22,41 +23,36 @@ angular.module('blinkUrbanApp')
       $scope.availableColors = _.uniq($scope.product.metrics, function(metric){
         return metric.colorId._id;
       });
+      
+      $scope.imageList = [{url: $scope.product.productImage, color: null, size: null}];
 
-          //Create main product filter
-      $scope.list=[{item:"http://www.patagonia.com/tsimages/55180_FGE.fpx?ftr=8&cvt=jpeg,scans=progressive", category:'1'},
-                  {item:"http://www.511tactical.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/74290/055/74290_055_01.jpg", category:'2'},
-                  {item: $scope.product.productImage, category:'3'},
-                  {item:"test 4", category:'4'},
-                  {item:"test 3", category:'5'},
-                   {item:"test 4", category:'6'}                 
-                  ]
-      $scope.filter="3"
-      $scope.isDisplayed=function(item, filter){
-       if(filter!="")
-       {
-           if(item.category==filter)
-               return true;
-           return false;
-       }
-          return true;
+      for (var i = 0; i < $scope.product.metrics.length; i++) {
+        var metric = $scope.product.metrics[i];
+        for (var j = 0; j < metric.images.length; j++){
+          $scope.imageList.push({url: metric.images[j], color: metric.colorId._id, size: metric.size});
+        }
       }
+
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
         //get the index of the selected color from the availableColors list
         $scope.selectedColorIndex = _.findIndex($scope.availableColors, function(metric){
           return metric.colorId._id === $stateParams.color;
         });
+
         if($scope.selectedColorIndex !== -1){
           $scope.orderColor = $stateParams.color;
         }else{
           $scope.selectedColorIndex = 0; //by default go to the first color if the param color doesn't exist
           $scope.orderColor = $scope.availableColors[0].colorId._id;
         }
+         
       }else{
         //default select the first color if no color is provided
         $scope.orderColor = $scope.availableColors[0].colorId._id;
       }
+
+      $scope.imageIndex = _.findIndex($scope.imageList, {color: $scope.orderColor});
 
       $scope.updateAvailableQuantity($scope.orderColor);
     }, function errorCallback(response) {
@@ -81,6 +77,7 @@ angular.module('blinkUrbanApp')
       if(value){
         $scope.updateAvailableQuantity(value, $scope.orderSize);
       }
+      $scope.imageIndex = _.findIndex($scope.imageList, {color: $scope.orderColor});
     });
 
     //update availableQuantity everytime a size is selected
@@ -124,6 +121,9 @@ angular.module('blinkUrbanApp')
     //store selected size index to property highlight selected size
     $scope.selectSize = function(index){
     	$scope.selectedSizeIndex = index;
+    };
+    $scope.selectImage = function(index){
+      $scope.imageIndex = index;
     };
     //submit order to be added 
     $scope.submit = function(){

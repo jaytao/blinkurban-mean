@@ -2,89 +2,82 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <section>
-	<div class="productheader">
-		<div class="productunderline">
-			<h1>Product Page</h1>
-		<a href="/apparel" style="color:#2a6496"><b>Return to entire collection</a>
-		</div>		
-	</div>
+    <div class="productheader">
+        <div class="productunderline">
+            <h1>Product Page</h1>
+            <a href="/apparel" style="color:#2a6496"><b>Return to entire collection</a>
+        </div>      
+    </div>
 </section>
 
 <section>
-	<div class="row">
-		<div class="col-sm-6 nopaddinggeneral">
+    <div class="row">
+        <div class="col-sm-6 nopaddinggeneral">
             <div class="product-image" >
-<!--                 <img ng-src="{{product.productImage}}" alt="main product image"> -->
-               <li><img ng-src="{{imageList[imageIndex].url}}"></li>
-		       <li ng-repeat="li in imageList">
-                	<img ng-src="{{li.url}}" alt="product image" ng-click="selectImage($index)">		           
-		        </li>                        
+                 <img ng-src="{{imageList[imageIndex].url}}"> 
             </div>
-<!-- 			<div ng-repeat="img in product.metrics[selectedColorIndex].images track by $index" class="col-xs-6">
-				<img ng-src="{{img}}" class="img-responsive" alt="main product image">
-			</div> -->
-		</div>
-		<div class="col-sm-6 nopaddinggeneral">
-			<div class="productlisting">
-				<div class="productinfo">
-					<div class="row">
-						<div class="col-sm-8"><h2>{{product.name}}</h2></div>
-						<!-- <div class="col-sm-4 text-right"><h3>{{product.price | currency:"$"}}</h3></div> -->
-						<div class="col-sm-4 text-right"><h3>{{product.price}}</h3></div>
-					</div>				
-					<p>{{product.description}}</p>	
-					<fieldset>
-						<h4><small>COLOR: {{tempColor || getDisplayColorName().colorId.colorname}}</small></h4>
-						<ul class="list-unstyled list-inline">
-							<li class="product-color" ng-repeat="metric in availableColors" ng-class="{selected: $index == selectedColorIndex}">
-								<label ng-mouseover="hoverColorIn(metric.colorId.colorname)" ng-mouseleave="hoverColorOut()" class="radio-inline" for="color-{{metric.colorId._id}}" ng-style="{'background-color': '#' + metric.colorId.colorhex}">
-									<input type="radio" id="color-{{metric.colorId._id}}" name="color" ng-model="$parent.orderColor" ng-click="selectColor($index)" ng-value="metric.colorId._id" class="ng-hide">
-								</label>
-							</li>
-						</ul>
-					</fieldset>
+        </div>
+        <div class="col-sm-6 nopaddinggeneral">
+            <div class="productlisting">
+                <div class="productinfo">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>{{product.name}}</h2></div>
+                        <div class="col-sm-4 text-right"><h3>{{product.price}}</h3></div>
+                    </div>              
+                    <p>{{product.description}}</p>  
+                    <fieldset>
+                        <h4><small>COLOR: {{tempColor || getDisplayColorName().colorId.colorname}}</small></h4>
+                        <ul class="list-unstyled list-inline">
+                            <li class="product-color" ng-repeat="metric in availableColors" ng-class="{selected: $index == selectedColorIndex}">
+                                <label ng-mouseover="hoverColorIn(metric.colorId.colorname)" ng-mouseleave="hoverColorOut()" class="radio-inline" for="color-{{metric.colorId._id}}" ng-style="{'background-color': '#' + metric.colorId.colorhex}">
+                                    <input type="radio" id="color-{{metric.colorId._id}}" name="color" ng-model="$parent.orderColor" ng-click="selectColor($index)" ng-value="metric.colorId._id" class="ng-hide">
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
 
-					<fieldset>
-						<h4>
-							<small>SIZE: {{orderSize}}</small>
-							<small class="text-danger" ng-show="form.size.$error.required && form.$submitted">
-								Please select a size
-							</small>
-						</h4>
-						<ul class="list-unstyled list-inline">
-							<li class="product-size" ng-repeat="size in allSizes" ng-class="{selected: $index == selectedSizeIndex, unavailable: hasSize(size)}">
-								<label class="radio-inline text-center" for="size-{{size}}-{{$index}}">{{size}}
-									<input type="radio" id="size-{{size}}-{{$index}}" name="size" ng-disabled="hasSize(size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="size"class="ng-hide" required>
-								</label>
-							</li>
-						</ul>
-					</fieldset>			
-					<fieldset class="form-inline">
-					  	<div class="form-group">
-					    	<h4><small>QUANTITY: </small></h4>
-					  	</div>
-					  	<div class="form-group">
-					    	<label for="quantity" class="sr-only"></label>
-							<select class="form-control" id="quantity" ng-model="orderQuantity">
-								<option ng-repeat="count in availableQuantity">{{count}}</option>
-							</select>
-					  	</div>
-					</fieldset>
+                    <fieldset>
+                        <h4>
+                            <small>SIZE: {{orderSize}}</small>
+                            <small class="text-danger" ng-show="form.size.$error.required && form.$submitted">
+                                Please select a size
+                            </small>
+                        </h4>
+                        <ul class="list-unstyled list-inline">
+                            <li class="product-size" ng-repeat="size in allSizes" ng-class="{selected: $index == selectedSizeIndex, unavailable: hasSize(size)}">
+                                <label class="radio-inline text-center" for="size-{{size}}-{{$index}}">{{size}}
+                                    <input type="radio" id="size-{{size}}-{{$index}}" name="size" ng-disabled="hasSize(size)" ng-model="$parent.orderSize" ng-click="selectSize($index)" ng-value="size"class="ng-hide" required>
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>         
+                    <fieldset class="form-inline">
+                        <div class="form-group">
+                            <h4><small>QUANTITY: </small></h4>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity" class="sr-only"></label>
+                            <select class="form-control" id="quantity" ng-model="orderQuantity">
+                                <option ng-repeat="count in availableQuantity">{{count}}</option>
+                            </select>
+                        </div>
+                    </fieldset>
 
-					<button class="btn btn-primary cartbutton" type="submit" ng-click="submit()">ADD TO CART</button>
-					</div>
+                     <button class="btn btn-primary cartbutton" type="submit" ng-click="submit()">ADD TO CART</button>
+                    </div>
 
-			</div>
-		</div>
-	</div>
-	<div class="row">
-	    <input type='button' value='Filter 1' ng-click='filter="1"' />
-        <input type='button' value='Filter 2' ng-click='filter="2"' /></div>
-        <input type='button' value='Filter 3' ng-click='filter="3"' /></div>        
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2" ng-repeat="li in imageList">
+            <img style="height:16vw;width:16vw" ng-src="{{li.url}}" alt="product image" ng-click=  "selectImage($index)">
+        </div>    
+    </div>
+
 </section>
 <pre> {{imageList | json}} </pre>
 <section style="background-color:#fff;height:500px"></section>
 <section style="background-color:#F2EFE6;height:500px"></section>
-
 
 <div ng-include="'components/footer/footer.html'"></div>

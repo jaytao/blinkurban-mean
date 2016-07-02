@@ -149,9 +149,13 @@ angular.module('blinkUrbanApp')
             };
 
             $scope.getColorById = function(colorId){
-              return _.find($scope.colors, function(color){
-                return color._id === colorId;
-              });
+              if (colorId._id == null) {
+                return _.find($scope.colors, function(color){
+                  return color._id === colorId;
+                });
+              } else {
+                return colorId;
+              }
             };
 
             //add metricURL image to item metric images

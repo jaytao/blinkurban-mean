@@ -34,7 +34,7 @@ angular.module('blinkUrbanApp')
         }
       }
 
-      //clicking right arrow will change main Image on productImgPreview
+      //clicking right and left arrow will change main Image on productImgPreview
       $scope.rightArrow = function(){
         if ($scope.imageIndex == $scope.imageList.length - 1){
             $scope.imageIndex = 0;
@@ -50,6 +50,18 @@ angular.module('blinkUrbanApp')
             $scope.imageIndex--;
         }
       };
+
+        $scope.key = function($event){
+            // console.log($event.keyCode);
+            if ($event.keyCode == 37)
+                $scope.leftArrow();               
+            else if ($event.keyCode == 39)
+                $scope.rightArrow(); 
+        }
+
+        $('.modal').on('shown.bs.modal', function () {
+          $(this).find('div:visible:first').focus();
+        })
 
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
@@ -211,3 +223,4 @@ angular.module('blinkUrbanApp')
       });
     };
   });
+  

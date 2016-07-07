@@ -2,6 +2,10 @@
 	border-bottom: 1px solid #eee;
 }
 .img-responsive{
-    width:  200px;
-    height: 200px;
+    width:  20vw;
+    height: 20vw;
+}
+
+.snapshot-text{
+	padding:20px;
 }

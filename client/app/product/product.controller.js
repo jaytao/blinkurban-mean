@@ -59,10 +59,6 @@ angular.module('blinkUrbanApp')
                 $scope.rightArrow(); 
         }
 
-        $('.modal').on('shown.bs.modal', function () {
-          $(this).find('div:visible:first').focus();
-        })
-
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
         //get the index of the selected color from the availableColors list

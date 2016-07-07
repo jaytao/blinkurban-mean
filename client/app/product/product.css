@@ -92,6 +92,10 @@
     padding-top:0px;
 }
 
+.productunderline a{
+    color:#2a6496;
+}
+
 .productinfo h2{
     font-size: 40px;
     margin: 0;
@@ -202,5 +206,33 @@
 .product-image:hover .maximizeImg{
     visibility: visible;
     opacity: 1;    
+}
 
+.ProductInfo div{
+    margin:0px;
+}
+
+/*Modal CSS*/
+.leftArrow{
+    cursor:pointer;
+    opacity:.1;
+    position:absolute;
+    top:40%;
+    width:5vw;
+    height:5vw;
+}
+
+.rightArrow{
+    cursor:pointer;
+    opacity:.1;
+    position:absolute;
+    top:40%;
+    right:0;
+    width:5vw;
+    height:5vw;
+}
+
+.modalproductimg{
+    width:70vw;
+    height:70vw;
 }

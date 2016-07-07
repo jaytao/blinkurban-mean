@@ -1,13 +1,13 @@
 .frontbanner{
-  background-image: url(/assets/images/frontbanner.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height:655px;
-  width: auto;
-  position: relative;
-  display: block;
-  overflow: hidden;
-  max-width: 100%;
+    background-image: url(/assets/images/frontbanner.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height:60vw;
+    width: 100vw;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 
@@ -62,41 +62,41 @@
 /*BLOG CODE*/
 
 .blogstuff{
-  padding:0px;
+    padding:0px;
 }
 
 .blogstuff1{
-  border: 1px solid #e6e6e6;
-  border-radius: 2px;
-  margin:10px;  
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    margin:10px;  
 }
 
 .blogstuff1 h4{
-  color:#000; 
+    color:#000; 
 }
 
 .blogpanel{
-  padding:20px;
-  height:420px;   /*#this is where you change the height of the paragraph to make it consistent*/ 
+    padding:20px;
+    height:420px;   /*#this is where you change the height of the paragraph to make it consistent*/ 
 }
 
 .blogpanel p{
-  font-size:14px;
+    font-size:14px;
 }
 .panel-header{
-  padding:0px;
-  padding-bottom: 8px;
-  margin: 0px;
-  border-bottom:1px solid #e6e6e6;
-  margin-bottom: 10px;
+    padding:0px;
+    padding-bottom: 8px;
+    margin: 0px;
+    border-bottom:1px solid #e6e6e6;
+    margin-bottom: 10px;
 }
 
 .blogbutton{
-  padding:10px 20px 10px 20px;
+    padding:10px 20px 10px 20px;
 }
 .blogbutton a{
-  color:#2a6496;
-  padding-top:8px;
+    color:#2a6496;
+    padding-top:8px;
 }
 .blogbutton:before {
     content: "";
@@ -115,56 +115,57 @@
 /*END OF BLOG CODE*/
 
 .qualitysection{
-  background-color: #f1f1f1;
-  height: 100px;
+    background-color: #f1f1f1;
+    height: 100px;
 }
 
-.qualitysection1{
-  background-color: #f1f1f1;
-  height: 200px;
+.innovation-text{
+/*    background-color: #f1f1f1;*/
+    padding:4% 0;
+    height:310px;
 }
 
-.qualitysection1 span{
-  position: relative;
-  display: block;
-  max-width: 500px;
-  z-index:1;
-  left:35%; 
-  padding-top:4%;
+
+.innovation-text div{
+    max-width: 1200px;
+    width: 100%;
+    line-height: 1.7;
+    font-size: 1.2em;
+    font-weight: 200;       
 }
 
-.qualitysection1 a{
-  color:#222;
-  font-size: 70px;  
-  font-weight: 400;
-  background-color: #999;
-  padding:30px;
-  opacity: 60%;
+.innovation-text div button{
+    padding:10px;
+    margin:20px;
+    border-radius: 10px;
 }
 
 .welcomemessage h1{
-  margin:0;
-  height:75px;
+    margin:0;
+    height:75px;
 }
 
 .containermain{
-  margin-left:13%;
-  margin-right:13%;
+    margin-left:13%;
+    margin-right:13%;
 }
 
 .mainbanner{
-  margin:0px;
+    margin:0px;
+}
+
+.mainbanner div{
+    padding: 0;
 }
 
 /*INSTAGRAM CSS*/
 .igsection{
-  padding:25px;
-  background-color: #333;
-  color: #fff;
-  width: 100%
+    padding:25px;
+    background-color: #333;
+    color: #fff;
+    width: 100%
 }
 
 .igsection h2{
-  padding-bottom:20px;
-
+    padding-bottom:20px;
 }

@@ -1,21 +1,25 @@
 
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<section focus-if>
+<section>
     <div class="productheader">
         <div class="productunderline">
             <h1>Product Page</h1>
-            <a href="/apparel" style="color:#2a6496"><b>Return to entire collection</a>
+            <a href="/apparel"><b>Return to entire collection</a>
         </div>      
     </div>
 </section>
 
-<section>
+<section class="ProductInfo">
     <div class="row">
         <div class="col-sm-6 nopaddinggeneral">
             <div class="product-image" >
                  <img ng-click="openPictureModal()" ng-src="{{imageList[imageIndex].url}}">
-                 <p class="maximizeImg">Click Image to Expand<img src="http://icongal.com/gallery/download/6028/512/png"></p> 
+                 <p class="maximizeImg">Click Image to Expand
+                    <img src="http://icongal.com/gallery/download/6028/512/png">
+                    <img ng-click="leftArrow()" class="leftArrow" src="http://publicdomainvectors.org/photos/aiga_left_arrow.png">
+                    <img ng-click="rightArrow()" class="rightArrow" src="http://publicdomainvectors.org/tn_img/aiga_right_arrow.png"> 
+                </p>
             </div>
         </div>
         <div class="col-sm-6 nopaddinggeneral">

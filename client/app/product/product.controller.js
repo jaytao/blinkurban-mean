@@ -32,7 +32,7 @@ angular.module('blinkUrbanApp')
         for (var j = 0; j < metric.images.length; j++){
           $scope.imageList.push({url: metric.images[j], color: metric.colorId._id, size: metric.size});
         }
-      }
+      }          
 
       //clicking right and left arrow will change main Image on productImgPreview
       $scope.rightArrow = function(){

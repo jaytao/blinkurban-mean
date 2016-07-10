@@ -15,9 +15,22 @@ angular.module('blinkUrbanApp')
     }, function error(response){
 
     });
+
+     $http.get('/api/items').success(function(products) {
+      $scope.products = products;
+
+    }); 
+// Grab product colors
+    $scope.getProductColors = function(index){
+      var ret = _.map($scope.products[index].metrics, function(m){
+        return m.colorId.colorhex;
+      })
+      return _.uniq(ret);
+      //return _.uniq(_.pluck($scope.products[index].metrics, "colorId"),"colorId");
+    }
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('Category');
-    });
+    });          
   });
 
 angular.module('blinkUrbanApp')

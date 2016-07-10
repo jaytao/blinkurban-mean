@@ -211,11 +211,7 @@ angular.module('blinkUrbanApp')
     $scope.openPictureModal = function (){
       $modal.open({
         templateUrl: "app/product/productImgPreview.html",
-        controller: function($scope, $modalInstance){
-            $scope.cancel = function(){
-                $modalInstance.dismiss('cancel');
-            };
-        }
+        controller: "ProductCtrl"
       });
     };
   });

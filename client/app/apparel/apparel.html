@@ -49,7 +49,7 @@
 		<div class="col-sm-9">	
 			<div ng-controller="ItemCtrl" class="row">
 				<div ng-repeat="item in products">
-					<product-snapshot data="{item: item, metric: metric}" class="col-sm-4"></product-snapshot>
+					<product-snapshot data="{item: item, metric: metric, displayImg: item.productImage}" class="col-sm-4"></product-snapshot>
 				</div>
 			</div>
 		</div>

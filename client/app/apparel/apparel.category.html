@@ -41,7 +41,7 @@
 				<div ng-repeat="item in results">
 					<div ng-repeat="metric in getUnique(item.metrics)">
 						<div ng-show="$parent.show(metric.colorId, metric.size, item.price)">
-							<product-snapshot data="{item: item, metric: metric}" class="col-sm-4"></product-snapshot>
+							<product-snapshot data="{item: item, metric: metric, displayImg: metric.images[0]}" class="col-sm-4"></product-snapshot>
 						</div>
 					</div>
 				</div>

@@ -28,9 +28,24 @@ angular.module('blinkUrbanApp')
       return _.uniq(ret);
       //return _.uniq(_.pluck($scope.products[index].metrics, "colorId"),"colorId");
     }
+
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('Category');
-    });          
+    });
+
+    $scope.tempColor = "";
+    $scope.hoverColorIn = function(colorhex, item){
+
+      for (var i=0; i <= item.metrics.length; i++){
+        if (item.metrics[i].colorId.colorhex == colorhex){
+          $scope.tempColor = item.metrics[i].colorId.colorname;
+          return;
+        }
+      }
+    };
+    $scope.hoverColorOut = function(){
+      $scope.tempColor = "";
+    };                
   });
 
 angular.module('blinkUrbanApp')

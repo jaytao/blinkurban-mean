@@ -9,3 +9,23 @@
 .snapshot-text{
 	padding:20px;
 }
+
+.product-color-ss label{
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 2px 1px 0px 1px !important;
+    background-clip: content-box;
+}
+
+
+.product-color-ss{
+    display: block;
+    width:20px;
+    height:20px;
+    cursor: pointer;
+    padding: 0px !important;
+    margin-bottom: 5px;
+    overflow: hidden;
+}

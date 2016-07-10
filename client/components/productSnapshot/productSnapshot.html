@@ -1,18 +1,21 @@
 <a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.displayImg}}" class="img-responsive"></a>
-<fieldset>
-    <ul class="list-unstyled list-inline">
-        <li class="product-color" ng-repeat="metric in data.tempArray" ng-class="{selected: $index == selectedColorIndex}">
-            <label class="radio-inline" ng-style="{'background-color': '#' + metric}">
-            </label>
-        </li>
-    </ul>
-</fieldset>
+<div class="row" ng-controller="ApparelCtrl">
+	<div class="col-sm-6" style="color:#4CC3D9">
+		<small>{{tempColor}}</small>
+	</div>
+	<div class="col-sm-6">
+		<ul class="list-unstyled list-inline text-center">
+		    <li class="product-color-ss" ng-repeat="colorname in data.tempArray">
+		        <label ng-mouseover="hoverColorIn(colorname, data.item)" ng-mouseleave="hoverColorOut()" class="radio-inline" ng-style="{'background-color': '#' + colorname}">
+		        </label>
+		    </li>
+		</ul>
+	</div>
+</div>
 <div class="text-left snapshot-text">
 	<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}">{{data.item.name}}</a>
 	<p class="snapshot-price"><small>{{data.item.price | currency:"$"}}</small></p>
 </div>
-
-<pre> {{data.tempArray|json}}</pre>
 
 
 

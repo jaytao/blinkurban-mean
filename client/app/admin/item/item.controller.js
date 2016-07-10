@@ -17,14 +17,6 @@ angular.module('blinkUrbanApp')
       socket.syncUpdates('item', $scope.products);      
     }); 
 
-// Grab product colors
-    $scope.getProductColors = function(index){
-      var ret = _.each($scope.products[index].metrics, function(m){
-        return m.colorId.colorhex;
-      })
-      return ret;
-      //return _.uniq(_.pluck($scope.products[index].metrics, "colorId"),"colorId");
-    }
 
     $scope.openNewColorModal = function(colors){
       $modal.open({

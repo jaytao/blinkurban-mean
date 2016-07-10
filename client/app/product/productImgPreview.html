@@ -1,7 +1,7 @@
 <div ng-controller="ProductCtrl" id="maximizeImg">
 	<div style="position:relative" tabindex="0" ng-keydown="key($event)">
 		<img ng-click="leftArrow()" class="leftArrow" src="http://publicdomainvectors.org/photos/aiga_left_arrow.png">
-		<img class="modalproductimg" ng-src="{{imageList[imageIndex].url}}">
+		<img class="modalproductimg" ng-src="{{imageList[modalImageIndex].url}}">
 		<img ng-click="rightArrow()" class="rightArrow" src="http://publicdomainvectors.org/tn_img/aiga_right_arrow.png">
 	</div>
 	<hr>

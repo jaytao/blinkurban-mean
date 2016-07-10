@@ -1,12 +1,28 @@
-<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{product.productImage}}" class="img-responsive" width="100" height="100"></a>
+<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.item.productImage}}" class="img-responsive"></a>
+<fieldset>
+    <h4><small>COLOR: {{tempColor || getDisplayColorName().colorId.colorname}}</small></h4>
+    <ul class="list-unstyled list-inline">
+        <li class="product-color" ng-repeat="metric in availableColors" ng-class="{selected: $index == selectedColorIndex}">
+            <label class="radio-inline" ng-style="{'background-color': '#' + data.item.metrics.colorId.colorhex}">
+            </label>
+        </li>
+    </ul>
+</fieldset>
 <div class="text-left snapshot-text">
 	<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}">{{data.item.name}}</a>
 	<p class="snapshot-price"><small>{{data.item.price | currency:"$"}}</small></p>
 </div>
+
+<pre> {{data|json}}</pre>
+
+{{data.item.metrics}}
+
+
+
+<!-- Pauls old snapshot code to go by color index instead of main productImage -->
 
 <!-- <a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.metric.images[0]}}" class="img-responsive" width="100" height="100"></a>
 <div class="text-left snapshot-text">
 	<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}">{{data.item.name}}</a>
 	<p class="snapshot-price"><small>{{data.item.price | currency:"$"}}</small></p>
 </div> -->
-

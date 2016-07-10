@@ -29,12 +29,19 @@ exports.index = function(req, res) {
   if (req.headers.limit) {
     finder.limit(req.headers.limit);
   }
-
-  finder.populate('metrics.colorId').select('-basecost -__v').exec(function (err, items) {
-    if (err) { return handleError(res, err); }
-    if (!items) {return res.status(404).send("No items match")};
-    return res.status(200).json(items)
-  }); 
+  if (req.originalUrl == "/api/items/admin"){
+    finder.populate('metrics.colorId').select('-__v').exec(function (err, items) {
+      if (err) { return handleError(res, err); }
+      if (!items) {return res.status(404).send("No items match")};
+      return res.status(200).json(items)
+    });
+  } else {
+    finder.populate('metrics.colorId').select('-basecost -__v').exec(function (err, items) {
+      if (err) { return handleError(res, err); }
+      if (!items) {return res.status(404).send("No items match")};
+      return res.status(200).json(items)
+    }); 
+  }
 };
 
 // Get a single item

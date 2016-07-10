@@ -73,12 +73,12 @@ angular.module('blinkUrbanApp')
           $scope.filters.sizes.push({size: metric.size});
         });
       });
+      tempColor = _.uniq(tempColor);
       tempColor.forEach(function(item){
         $http.get('/api/colors/'+item).success(function(obj){
           $scope.filters.colors.push(obj);
         });
       });
-
       $scope.filters.sizes = _.uniq($scope.filters.sizes, 'size');
     });
 

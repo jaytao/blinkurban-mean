@@ -36,16 +36,16 @@ angular.module('blinkUrbanApp')
 
       //clicking right and left arrow will change main Image on productImgPreview
       $scope.rightArrow = function(){
-        if ($scope.imageIndex == $scope.imageList.length - 1){
-            $scope.imageIndex = 0;
+        if ($scope.modalImageIndex == $scope.imageList.length - 1){
+            $scope.modalImageIndex = 0;
         } else {
-            $scope.imageIndex++;
+            $scope.modalImageIndex++;
         }
       };
 
       $scope.leftArrow = function(){
-        if ($scope.imageIndex == 0){
-            $scope.imageIndex = $scope.imageList.length -1;
+        if ($scope.modalImageIndex == 0){
+            $scope.modalImageIndex = $scope.imageList.length -1;
         } else{ 
             $scope.imageIndex--;
         }
@@ -208,10 +208,13 @@ angular.module('blinkUrbanApp')
       $scope.tempColor = "";
     };
 
-    $scope.openPictureModal = function (){
+    $scope.openPictureModal = function(index){
       $modal.open({
         templateUrl: "app/product/productImgPreview.html",
-        controller: "ProductCtrl"
+        controller: function($scope, $modalInstance){
+          $scope.modalImageIndex = index;
+        },
+        scope: $scope
       });
     };
   });

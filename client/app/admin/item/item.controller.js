@@ -12,7 +12,7 @@ angular.module('blinkUrbanApp')
       socket.syncUpdates('color', $scope.colors);
     });
 
-    $http.get('/api/items').success(function(products) {
+    $http.get('/api/items/admin').success(function(products) {
       $scope.products = products;
       socket.syncUpdates('item', $scope.products);      
     }); 

@@ -16,7 +16,7 @@
 
 	<hr>
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-xs-3 col-xs-4">
 
 			<div class="apparel-sidebarheader">
 				<h2 href="">Show All</h2>
@@ -46,11 +46,10 @@
 			</div>		
 
 		</div>
-		<div class="col-sm-9">	
+		<div class="col-sm-9 col-xs-8">	
 			<div class="row">
 				<div ng-repeat="item in products">
-					<product-snapshot data="{item: item, metric: metric, displayImg: item.productImage, tempArray: getProductColors($index)}" class="col-sm-4"></product-snapshot>
-					
+					<product-snapshot data="{item: item, metric: metric, displayImg: item.productImage, tempArray: getProductColors($index)}" class="col-sm-4 col-xs-6"></product-snapshot>
 				</div>
 			</div>
 		</div>

@@ -6,8 +6,11 @@
     height: 15vw;
 }
 
+.productimglay{
+	padding:32px;
+}
 .snapshot-text{
-	padding:20px;
+	padding:10px;
 }
 
 .product-color-ss label{
@@ -16,7 +19,7 @@
     width: 100%;
     height: 100%;
     padding: 2px 1px 0px 1px !important;
-    background-clip: content-box;
+    background-clip: 3content-box;
 }
 
 

@@ -98,8 +98,16 @@ body {
  margin-top:50px;
 }
 
-.blurb{
-  padding:10px;
+@media (min-width: 768px) {
+  .blurb{
+    padding:10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .blurb{
+    padding:25px;
+  }
 }
 
 .blurfooter{

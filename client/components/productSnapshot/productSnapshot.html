@@ -1,6 +1,8 @@
-<a ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.displayImg}}" class="img-responsive"></a>
+<div class="productimglay">
+	<a class="text-center" ng-href="/product/{{data.item._id}}?color={{data.metric.colorId}}"><img ng-src="{{data.displayImg}}" class="img img-responsive"></a>
+</div>
 <div class="row" ng-controller="ApparelCtrl">
-	<div class="col-sm-6" style="color:#4CC3D9">
+	<div class="col-sm-6" style="color:#2a6496">
 		<small>{{tempColor}}</small>
 	</div>
 	<div class="col-sm-6">

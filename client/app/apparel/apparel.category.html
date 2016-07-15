@@ -2,26 +2,26 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-3">
-			<h4><strong>COLORS</strong></h4>
+		<div class="col-sm-3 col-xs-4">
+			<h4>COLORS</h4>
 			<div ng-repeat="color in filters.colors" class="checkbox">
 			  <label class="capitalize">
-					<input ng-click="color.selected = color.selected ? !color.selected : true" ng-value="color._id" type="checkbox" >{{color.colorname}}
+					<input ng-click="color.selected = color.selected ? !color.selected : true" ng-value="color._id" type="checkbox" ><a>{{color.colorname}}</a>
 				</label>
 			</div>
-			<h4><strong>SIZES</strong></h4>
+			<h4>SIZES</h4>
 			<div ng-repeat="size in filters.sizes" class="checkbox">
 				<label>
-					<input ng-click="size.selected = size.selected ? !size.selected: true" ng-value="size.size" type="checkbox">{{size.size}}
+					<input ng-click="size.selected = size.selected ? !size.selected: true" ng-value="size.size" type="checkbox"><a>{{size.size}}</a>
 				</label>
 			</div>
-			<h4><strong>PRICE RANGE</strong></h4>
+			<h4>PRICE RANGE</h4>
             <h5>MAX<h5>
             <input type="text" ng-model="priceMax" ng-model-options="{updateOn: 'blur'}"></input>
             <h5>MIN<h5> 
             <input type="text" ng-model="priceMin" ng-model-options="{updateOn: 'blur'}"></input>
-		    <h4><strong>OTHER CATEGORIES</strong><h4>
-			<div ng-repeat="category in categories">
+		    <h4>OTHER CATEGORIES<h4>
+			<div ng-repeat="category in categories" class="apparel-sidebar">
 				<span><h5>{{category.name | uppercase}}</h5><span>
 				<ul class="list-unstyled">
 					<li style="text-transform: capitalize" ng-repeat="type in category.types track by $index"><a ng-href="/apparel/{{type}}">{{type}}</a></li>
@@ -29,7 +29,7 @@
 			</div>
             	
 		</div>
-		<div class="col-sm-9">
+		<div class="col-sm-9 col-xs-8">
 			<ol class="breadcrumb">
 			  <li><a href="/">BLINK URBAN</a></li>
 			  <li><a href="/apparel">APPAREL</a></li>
@@ -41,7 +41,7 @@
 				<div ng-repeat="item in results">
 					<div ng-repeat="metric in getUnique(item.metrics)">
 						<div ng-show="$parent.show(metric.colorId, metric.size, item.price)">
-							<product-snapshot data="{item: item, metric: metric, displayImg: metric.images[0], tempArray: getProductColors($index)}" class="col-sm-4"></product-snapshot>
+							<product-snapshot data="{item: item, metric: metric, displayImg: metric.images[0], tempArray: getProductColors($index)}" class="col-sm-4 col-xs-6"></product-snapshot>
 						</div>
 					</div>
 				</div>

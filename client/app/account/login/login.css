@@ -131,6 +131,20 @@ a{
 	font-size:14px;
 }
 
+@media (max-width: 767px) {
+	.formpadding{ text-align: center}
+}
+
+
 .border-left{
     border-left: 1px solid #000000;
+}
+
+@media(max-width:767px){
+	.loginseperatorborder{
+		border:1px dashed #000;
+		width: 100%;
+		height:auto;
+		margin-bottom:20px;
+	}
 }

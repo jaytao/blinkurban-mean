@@ -5,9 +5,10 @@
 <div style="margin-top:30px; height:10px"></div>
 <div class="container">
   <div class="row">
-
     <div class="col-sm-6">
-      <div class="col-xs-12 col-md-8 col-md-offset-2 content-block">
+      <div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-0 col-md-8 col-md-offset-2 content-block">
+        <div class="loginseperatorborder"></div>
+        <div class="loginseperatorborder"></div>
         <div class="login">
           <h2 class="loginheader"><strong>NEW CUSTOMERS</strong></h2>
           <a>Create an account to transform your online experience!</a>    
@@ -15,13 +16,14 @@
               <input type="submit" value="SIGN UP"/>
           </form>          
         </div>
+        <br><br><br>
+        <div class="loginseperatorborder"></div>
+        <div class="loginseperatorborder"></div>
       </div>
     </div>
-
     
     <div class="col-sm-6 border-left">
-<!--       <br></br> -->
-      <div class="col-xs-12 col-md-8 col-md-offset-2 content-block">
+      <div class="col-xs-9 col-xs-offset-1 col-sm-10 col-md-8 col-md-offset-2 content-block">
         <div class="text-left">         
           <form class="form formpadding" name="form" ng-submit="login(form)" novalidate>
             <br></br>
@@ -29,6 +31,7 @@
             <div class="login">
               <label class="formpadding">EMAIL ADDRESS:</label>
               <input type="email" name="email" ng-model="user.email" required>
+              <br>
               <label>PASSWORD:</label>
               <input type="password" name="password" ng-model="user.password" required>
 

@@ -9,3 +9,10 @@ There is a problem with how the The Main Image Division is set up, it, it runs w
 There is a problem with how the prorduct description is displayed when the product only has one color and size, if there is only one color and size, the choices should be pretty selected.
 	Difficulty: Simple
 	Way to fix: Set condition for this case
+
+THere is a problem with how the search is laid out in xs view
+
+To Do list
+-add color to product snapshot
+-add warning
+-format cart responsiveness

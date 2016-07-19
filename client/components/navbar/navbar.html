@@ -2,73 +2,72 @@
   <div class="header2" > 
     <div class="containermod text-left">
 
-      <div class="row">
-        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+      <div class="row collapseformat">
+        <button type="button" class="navbar-toggle navbarcollapsecolor" ng-click="isCollapsed = !isCollapsed">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">      
-          <div class="col-sm-5">
+          <div class="col-sm-4">
             <ul class="list-inline apparelpadding">
               <li>
                 <a href="/"><img class="img" src="assets/images/logowhite.png" width="25" height="" alt="BLUR"></a>
               </li> 
         
-            <li class="hvr-underline-from-center1 dropdown">
-              <a href="/apparel" role="button" aria-haspopup="true" aria-expanded="false">APPAREL OUTLET</a>
-              
-              <ul class="dropdown-menu">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-2">
-                      <h5><strong>FEATURED</strong></h5>
-                      <li role="separator" class="divider"></li>
-                      <li><a href=""><strong>New Arrivals</strong></a></li>
-                      <li><a href=""><strong>Spring Collections</strong></a></li>
-                      <li><a href=""><strong>Clearance</strong></a></li>
-                    </div>
-                    <div class="col-sm-2">
-                      <h5><strong>TOPS</strong></h5>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="">Hoodies</a></li>
-                      <li><a href="">T-Shirts</a></li>
-                      <li><a href="">Shirts</a></li>
-                      <li><a href="">Polos</a></li>
-                      <li><a href="">Sweaters</a></li>
-                    </div>
-                    <div class="col-sm-2">
-                      <h5><strong>BOTTOMS</strong></h5>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="">Hoodies</a></li>
-                      <li><a href="">T-Shirts</a></li>
-                      <li><a href="">Shirts</a></li>
-                      <li><a href="">Polos</a></li>
-                      <li><a href="">Sweaters</a></li>
-                    </div>
-                    <div class="col-sm-2">
-                      <h5><strong>ACCESSORIES</strong></h5>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="">Hoodies</a></li>
-                      <li><a href="">T-Shirts</a></li>
-                      <li><a href="">Shirts</a></li>
-                      <li><a href="">Polos</a></li>
-                      <li><a href="">Sweaters</a></li>
-                    </div>
+              <li class="hvr-underline-from-center1 dropdown">
+                <a href="/apparel" role="button" aria-haspopup="true" aria-expanded="false">APPAREL OUTLET</a>
+                
+<!--                 <ul class="dropdown-menu">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h5><strong>FEATURED</strong></h5>
+                        <li role="separator" class="divider"></li>
+                        <li><a href=""><strong>New Arrivals</strong></a></li>
+                        <li><a href=""><strong>Spring Collections</strong></a></li>
+                        <li><a href=""><strong>Clearance</strong></a></li>
+                      </div>
+                      <div class="col-sm-2">
+                        <h5><strong>TOPS</strong></h5>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="">Hoodies</a></li>
+                        <li><a href="">T-Shirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Polos</a></li>
+                        <li><a href="">Sweaters</a></li>
+                      </div>
+                      <div class="col-sm-2">
+                        <h5><strong>BOTTOMS</strong></h5>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="">Hoodies</a></li>
+                        <li><a href="">T-Shirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Polos</a></li>
+                        <li><a href="">Sweaters</a></li>
+                      </div>
+                      <div class="col-sm-2">
+                        <h5><strong>ACCESSORIES</strong></h5>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="">Hoodies</a></li>
+                        <li><a href="">T-Shirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Polos</a></li>
+                        <li><a href="">Sweaters</a></li>
+                      </div>
+                      
+                      <div class="col-sm-2">
+                        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                          <a ng-href="{{item.link}}">{{item.title}}</a>
+                        </li>
+                      </div>
                     
-                    <div class="col-sm-2">
-                      <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-                        <a ng-href="{{item.link}}">{{item.title}}</a>
-                      </li>
                     </div>
-                  
                   </div>
-                </div>
-              </ul> 
-            </li> 
-    <!--          <li><a href="/">RUNWAY</a></li>
-              <li><a href="/">MAGAZINE</a></li> -->
+                </ul>  -->
+              </li>
+
               <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}" dropdown on-toggle="toggled(open)">
                 <a href id="admin-dropdown" dropdown-toggle>ADMIN<span class="caret "></span></a>
                 <ul class="dropdown-menu" aria-labelledby="admin-dropdown">
@@ -81,11 +80,11 @@
               </li>
             </ul>             
           </div>      
-          <div class="col-sm-2 text-center" style="padding-top:5px">
+          <div class="col-sm-4 text-center" style="padding-top:5px">
             <a href="/" style="color:#fff;font-size:24px;font-weight:400">BLINK URBAN</a>
           </div>
 
-          <div class="col-sm-5">
+          <div class="col-sm-4">
             <ul class="nav navbar-nav navbar-right ngAnimate" style="color:white">
               <li class="hvr-underline-from-center" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')} "><a href="/login">LOGIN / JOIN</a></li>
 
@@ -96,9 +95,11 @@
                   <li><a href="/myorders">Order History</a></li>
                 </ul>
               </li>
+
               <li class="hvr-underline-from-center" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
                 <a href="" ng-click="logout()">SIGN OUT</a>
               </li>
+
               <li class="hvr-underline-from-center"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>          
               <li>
                 <div class="container-2">

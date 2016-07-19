@@ -164,6 +164,7 @@ h4{
 .nopaddingright{
   padding-right:0px;
 }
+
 .nopaddinggeneral{
   padding:0px;
 }
@@ -547,3 +548,8 @@ background-color: #f8f8f8;
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: transparent;
 }
+
+.navbarcollapsecolor{
+  background-color: #fff;
+}
+

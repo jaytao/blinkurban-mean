@@ -18,9 +18,15 @@
 @media (max-width: 767px) {
 	.apparelbanner{
 		height:150px;
-		padding-top:20%;
+		padding-top:15%;
 	}
 	.apparelbannerimg{
 		height: 150px;
+	}
+}
+
+@media (max-width: 767px){
+	.collapseformat{
+		text-align: center;
 	}
 }

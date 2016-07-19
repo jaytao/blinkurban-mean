@@ -1,8 +1,42 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-    <div class="col-sm-7" ng-if="model == null">
-        <div ng-include="'components/404/404.html'"></div>
-    </div>
-    <div class="col-sm-7" ng-if="model != null">
-          <pre>user = {{model | json}}</pre>
-    </div>
+
+<div class="row">
+	<div class="col-sm-12" ng-if="model == null">
+	    <div ng-include="'components/404/404.html'"></div>
+	</div>
+	<div class="col-sm-12" ng-if="model != null">
+		<br>
+
+		<div class="col-sm-offset-1">
+			<h1>Model Bio<h1>
+		</div>
+
+		<br>
+		
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-1"><img ng-src="{{model.coverPhoto}}"></div>
+	    	<div class="col-sm-6">
+	    		<a>
+	    		Name:
+	    		{{model.name | uppercase}}
+	    		<br>
+	    		Shirt Size:
+	    		{{model.shirtSize | uppercase}}
+	    		<br>
+	    		Height:
+	    		{{model.height}}
+	    		<br>
+	    		Weight:
+	    		{{model.weight}}
+	    		<br>
+	    		Description:
+	    		{{model.description}}
+	    		</a>
+	<!--     		<pre>user = {{model | json}}</pre> -->
+			</div>			
+		</div>			
+	</div>
+</div>
+
 <div ng-include="'components/footer/footer.html'"></div>
+

@@ -80,14 +80,9 @@
     <div class="row productimglist">
         <div class="col-xs-2" ng-repeat="li in imageList">
             <img ng-src="{{li.url}}" alt="product image" ng-click=  "selectImage($index)">
-            <hr>
         </div>    
     </div>
 
-<!--     <hr> -->
-
 </section>
-
-<section style="background-color:#F2EFE6;height:500px"></section>
 
 <div ng-include="'components/footer/footer.html'"></div>

@@ -4,25 +4,25 @@ angular.module('blinkUrbanApp')
   .controller('FooterCtrl', function ($scope) {
     $scope.company = [{
       'title': 'ABOUT US',
-      'link': '/resources/about'
+      'link': 'resources/resource#about'
     },{
       'title': 'OUR COMMITMENT',
-      'link': '/resources/commitment'
+      'link': 'resources/resource#commitment'
     },{
       'title': 'RESOURCES',
-      'link': '/resources/resource'
+      'link': 'resources/resource#resource'
     }];
 
 
     $scope.help = [{
       'title': 'CONTACT US',
-      'link': '/resources/contact'
+      'link': 'resources/resource#support'
     },{
       'title': 'FAQs',
-      'link': '/resources/faq'
+      'link': 'resources/resource#faq'
     },{
       'title': 'SHIPPING INFO',
-      'link': '/resources/shipping'  
+      'link': 'resources/resource#shipping'  
     }];
 
   });

@@ -34,31 +34,6 @@ angular.module('blinkUrbanApp')
         }
       }          
 
-      //clicking right and left arrow will change main Image on productImgPreview
-      $scope.rightArrow = function(){
-        if ($scope.modalImageIndex == $scope.imageList.length - 1){
-            $scope.modalImageIndex = 0;
-        } else {
-            $scope.modalImageIndex++;
-        }
-      };
-
-      $scope.leftArrow = function(){
-        if ($scope.modalImageIndex == 0){
-            $scope.modalImageIndex = $scope.imageList.length -1;
-        } else{ 
-            $scope.imageIndex--;
-        }
-      };
-
-        $scope.key = function($event){
-            // console.log($event.keyCode);
-            if ($event.keyCode == 37)
-                $scope.leftArrow();               
-            else if ($event.keyCode == 39)
-                $scope.rightArrow(); 
-        }
-
       //if a color has been provided, set it as the orderColor
       if($stateParams.color){
         //get the index of the selected color from the availableColors list
@@ -85,7 +60,34 @@ angular.module('blinkUrbanApp')
       //redirect to home page if it is an invalid id
       $location.path("/");
     });
-    
+
+    $scope.key = function($event){
+        // console.log($event.keyCode);
+      if ($event.keyCode == 37)
+        $scope.leftArrow();               
+      else if ($event.keyCode == 39)
+        $scope.rightArrow(); 
+    }
+
+
+     //clicking right and left arrow will change main Image on productImgPreview
+    $scope.rightArrow = function(){
+      if ($scope.modalImageIndex == $scope.imageList.length - 1){
+          $scope.modalImageIndex = 0;
+      } else {
+          $scope.modalImageIndex++;
+      }
+    };
+
+    $scope.leftArrow = function(){
+      if ($scope.modalImageIndex == 0){
+          $scope.modalImageIndex = $scope.imageList.length -1;
+      } else{ 
+          $scope.imageIndex--;
+      }
+    };
+
+   
     //filter availableSizes everytime there's a change to orderColor
     $scope.$watch('orderColor', function(value){
       $scope.availableSizes = [];
@@ -94,6 +96,7 @@ angular.module('blinkUrbanApp')
             $scope.availableSizes.push(item.size);
           }
       });
+
       //reset order size if it isn't available for the new selected color
       if($scope.hasSize($scope.orderSize)){
         $scope.orderSize = "";

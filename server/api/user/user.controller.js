@@ -4,6 +4,13 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+
+//mailing stuff
+var api_key = 'key-a7ca4294e59fce5f3448ec42cce6979b';
+var domain = 'sandboxa2ccce38b5b6439c8d0fde751b3e03cf.mailgun.org';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+
+
 //var validator = require('validator');
 
 var validationError = function(res, err) {
@@ -31,6 +38,18 @@ exports.create = function (req, res, next) {
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
+    //TODO send email
+    var url = "http://45.55.151.216:9000/"
+    var data = {
+      from: 'Blink Urban <me@samples.mailgun.org>',
+      to: 'blinkurban@gmail.com',
+      subject: 'Verify your email address',
+      text: 'Please click link',
+      html: 'Please click <a href="' + user.verifyToken + '">here</a>'
+    };
+    mailgun.messages().send(data, function (error, body) {
+      console.log(body);
+    }); 
     res.json({ token: token });
   });
 };

@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
+var randToken = require('rand-token');
 
 var UserSchema = new Schema({
   firstname: { type: String, maxlength: [128, "First name cannot exceed {MAXLENGTH} characters"], required: "First name is required"},
@@ -15,7 +16,26 @@ var UserSchema = new Schema({
   },
   hashedPassword: String,
   provider: String,
-  salt: String
+  salt: String,
+  emailVerified: {
+    type: Boolean,
+    default: false
+  },
+  verifyToken: {
+    type: String,
+    default: function() {
+      return randToken.generate(64);
+    }
+  },
+
+//sets expiration date to 6 hours after
+  verifyTokenExpiration: {
+    type: Date,
+    default: function(){
+      return +new Date() + 6*60*60*1000
+    }
+  }
+  
 });
 
 /**

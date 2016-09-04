@@ -25,7 +25,9 @@
     "socket.io": "^1.0.6",
     "socket.io-client": "^1.0.6",
     "socketio-jwt": "^3.0.0",
-    "stripe": "^4.1.0"
+    "stripe": "^4.1.0",
+    "rand-token": "^0.2.1",
+    "mailgun-js": "^0.7.12"
   },
   "devDependencies": {
     "connect-livereload": "~0.4.0",

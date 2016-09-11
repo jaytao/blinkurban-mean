@@ -1,0 +1,9 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div ng-if='verified'>
+Thank you. Your email address has been verified
+</div>
+<div ng-if='!verified'>
+Sorry could not successfully verify your email address. Try sending out the verification code again. Thank you
+</div>
+<div ng-include="'components/footer/footer.html'"></div>

@@ -34,7 +34,10 @@ angular.module('blinkUrbanApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
-
+    $scope.isVerified = function(){
+      var temp = $scope.getCurrentUser().emailVerified;
+      return temp
+    };
     $scope.searchQuery = '';
     $scope.search = function() {
       if ($scope.searchQuery) {

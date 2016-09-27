@@ -16,14 +16,29 @@ angular.module('blinkUrbanApp')
     //get the product that matches the provided id
     $http.get('/api/items/' + $stateParams.id).then(function successCallback(response) {
       $scope.product = response.data;
+
       //filter unique size to available sizes 
       $scope.availableSizes = _.pluck(_.uniq($scope.product.metrics, 'size'), 'size');
+      //sort sizes
+      $scope.availableSizes.sort(function(a,b) {
+        var sizeScore = {
+          xs: 0,
+          s: 1,
+          m: 2,
+          l: 3,
+          xl: 4,
+          xxl: 5
+        } 
+        return sizeScore[a.toLowerCase()] - sizeScore[b.toLowerCase()] 
+      })
+
       $scope.allSizes = $scope.availableSizes;
+
       //filter unique colorname to available colors
       $scope.availableColors = _.uniq($scope.product.metrics, function(metric){
         return metric.colorId._id;
       });
-      
+ 
       //Clicking subset image will change main image
       $scope.imageList = [{url: $scope.product.productImage, color: null, size: null}];
 

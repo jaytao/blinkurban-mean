@@ -33,12 +33,18 @@ exports.index = function(req, res) {
     finder.populate('metrics.colorId').select('-__v').exec(function (err, items) {
       if (err) { return handleError(res, err); }
       if (!items) {return res.status(404).send("No items match")};
+      for (var x = 0; x < items.length; x++){
+        items[x].metrics.sort(sortMetricsByColor);
+      }
       return res.status(200).json(items)
     });
   } else {
     finder.populate('metrics.colorId').select('-basecost -__v').exec(function (err, items) {
       if (err) { return handleError(res, err); }
       if (!items) {return res.status(404).send("No items match")};
+      for (var x = 0; x < items.length; x++){
+        items[x].metrics.sort(sortMetricsByColor);
+      }
       return res.status(200).json(items)
     }); 
   }
@@ -51,6 +57,7 @@ exports.show = function(req, res) {
   .exec(function (err, item) {
     if(err) { return handleError(res, err); }
     if(!item) { return res.status(404).send('Not Found'); }
+    item.metrics.sort(sortMetricsByColor);
     return res.json(item);
   });
 };
@@ -139,6 +146,10 @@ exports.get = function(req, res){
         return res.status(200).json(docs); 
     });
 };
+
+function sortMetricsByColor(a,b){
+  return a.colorId.colorname.toLowerCase().localeCompare(b.colorId.colorname.toLowerCase()); 
+}
 
 function handleError(res, err) {
   return res.status(500).send(err);

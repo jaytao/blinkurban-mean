@@ -72,16 +72,16 @@ angular.module('blinkUrbanApp')
 
      //clicking right and left arrow will change main Image on productImgPreview
     $scope.rightArrow = function(){
-      if ($scope.modalImageIndex == $scope.imageList.length - 1){
-          $scope.modalImageIndex = 0;
+      if ($scope.imageIndex == $scope.imageList.length - 1){
+          $scope.imageIndex = 0;
       } else {
-          $scope.modalImageIndex++;
+          $scope.imageIndex++;
       }
     };
 
     $scope.leftArrow = function(){
-      if ($scope.modalImageIndex == 0){
-          $scope.modalImageIndex = $scope.imageList.length -1;
+      if ($scope.imageIndex == 0){
+          $scope.imageIndex = $scope.imageList.length -1;
       } else{ 
           $scope.imageIndex--;
       }

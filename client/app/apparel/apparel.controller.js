@@ -18,7 +18,9 @@ angular.module('blinkUrbanApp')
 
      $http.get('/api/items').success(function(products) {
       $scope.products = products;
-
+      $scope.products.sort(function(a,b){
+        return a.colorId.colorname - b.colorId.colorname;
+      }); 
     }); 
 // Grab product colors
     $scope.getProductColors = function(index){

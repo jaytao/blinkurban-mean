@@ -16,8 +16,8 @@ angular.module('blinkUrbanApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Account created, redirect to home
-          $location.path('/');
+          // Account created, redirect to send verification email page
+          $location.path('/verify');
         })
         .catch( function(err) {
           err = err.data;

@@ -11,9 +11,19 @@ angular.module('blinkUrbanApp')
         $scope.verified = false;  
     });
   })
-
-  .controller('VerifyCtrl', function ($scope, $http){
-    $http.get('/api/verify/send').then(function success(response){
-    }, function error(response){
-    });
+  .controller('VerifyCtrl', function ($scope, $http, $location, Auth){
+    if (!Auth.getCurrentUser().emailVerified) {
+        $http.get('/api/verify/send').then(function success(response){
+        }, function error(response){
+        });
+    }
+    $location.path("/verify/confirmation") 
+  })
+  .controller('VerifyConfirmationCtrl', function ($scope, $http, Auth){
+    if (Auth.getCurrentUser().emailVerified) {
+        $scope.message = "User email already verified."
+    }
+    else {
+        $scope.message = "A email has been sent to confirm your email address."     
+    } 
   })

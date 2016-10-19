@@ -10,13 +10,12 @@ exports.verify = function(req, res){
   User.findOne({verifyToken: req.body.token, emailVerified: false}, function(err, user){
     if (err) { return handleError(res,err);}  
     if (!user) {
-      return res.status(404).send("Invalid token");
+      return res.status(404).send({response: "Invalid token"});
     }
-    console.log(user.email);
-    if (user.verifyTokenExpiration > Date.now){return res.status(404)}
+    if (user.verifyTokenExpiration < new Date()){return res.status(404).send({response: "Token has timed out"})}
     user.emailVerified = true;
     user.save(function (err){
-      return res.status(200).send("Email verified");
+      return res.status(200).send({response: "User email verified"});
     });   
   });  
 }
@@ -26,12 +25,13 @@ exports.send = function(req,res){
   User.findById(userId, function (err, user){
     if (err) {handleError(res,err); }
     if (!user) { handleError(res,err); }
+    if (user.emailVerified) { return res.status(200).send({response: "User email already verified. No action needed"})}
     user.verifyToken = randToken.generate(64);
     console.log(user.verifyToken);
-    user.verifyTokenExpiration = +new Date() + 6*60*60*1000;
+    user.verifyTokenExpiration = +new Date() + 60*60*1000;
     user.save(function (err){
       sendTokenEmail(user.email, user.verifyToken); 
-      return res.status(200);
+      return res.status(200).send({response: "User email successfully verified"});
     });
   });
 

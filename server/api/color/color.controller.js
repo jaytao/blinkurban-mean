@@ -7,7 +7,7 @@ var Color = require('./color.model');
 exports.index = function(req, res) {
   Color.find(function (err, colors) {
     if(err) { return handleError(res, err); }
-    return res.status(200).json(colors);
+    return res.status(200).send(colors);
   });
 };
 
@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   Color.findById(req.params.id, function (err, color) {
     if(err) { return handleError(res, err); }
-    if(!color) { return res.status(404).send('Not Found'); }
+    if(!color) { return res.status(404).send({message: 'ColorNot Found'}); }
     return res.json(color);
   });
 };
@@ -24,7 +24,7 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Color.create(req.body, function(err, color) {
     if(err) { return handleError(res, err); }
-    return res.status(201).json(color);
+    return res.status(201).send(color);
   });
 };
 
@@ -33,11 +33,11 @@ exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Color.findById(req.params.id, function (err, color) {
     if (err) { return handleError(res, err); }
-    if(!color) { return res.status(404).send('Not Found'); }
+    if(!color) { return res.status(404).send({message: 'Color Not Found'}); }
     var updated = _.merge(color, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.status(200).json(color);
+      return res.status(200).send(color);
     });
   });
 };
@@ -46,10 +46,10 @@ exports.update = function(req, res) {
 exports.destroy = function(req, res) {
   Color.findById(req.params.id, function (err, color) {
     if(err) { return handleError(res, err); }
-    if(!color) { return res.status(404).send('Not Found'); }
+    if(!color) { return res.status(404).send({message: 'Color Not Found'}); }
     color.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.status(204).send('No Content');
+      return res.status(204).send({message: 'Color Deleted'});
     });
   });
 };

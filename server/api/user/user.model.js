@@ -32,7 +32,7 @@ var UserSchema = new Schema({
   verifyTokenExpiration: {
     type: Date,
     default: function(){
-      return +new Date() + 6*60*60*1000
+      return +new Date() + 60*60*1000
     }
   }
   

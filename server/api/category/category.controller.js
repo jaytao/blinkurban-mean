@@ -7,7 +7,7 @@ var Category = require('./category.model');
 exports.index = function(req, res) {
   Category.find(function (err, categorys) {
     if(err) { return handleError(res, err); }
-    return res.status(200).json(categorys);
+    return res.status(200).send(categorys);
   });
 };
 
@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   Category.findById(req.params.id, function (err, category) {
     if(err) { return handleError(res, err); }
-    if(!category) { return res.status(404).send('Not Found'); }
+    if(!category) { return res.status(404).send({message: 'Category Not Found'}); }
     return res.json(category);
   });
 };
@@ -24,7 +24,7 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Category.create(req.body, function(err, category) {
     if(err) { return handleError(res, err); }
-    return res.status(201).json(category);
+    return res.status(201).send(category);
   });
 };
 
@@ -33,11 +33,11 @@ exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Category.findById(req.params.id, function (err, category) {
     if (err) { return handleError(res, err); }
-    if(!category) { return res.status(404).send('Not Found'); }
+    if(!category) { return res.status(404).send({message: 'Category Not Found'}); }
     category.types = req.body.types;
     category.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.status(200).json(category);
+      return res.status(200).send(category);
     });
   });
 };
@@ -46,10 +46,10 @@ exports.update = function(req, res) {
 exports.destroy = function(req, res) {
   Category.findById(req.params.id, function (err, category) {
     if(err) { return handleError(res, err); }
-    if(!category) { return res.status(404).send('Not Found'); }
+    if(!category) { return res.status(404).send({message: 'Category Not Found'}); }
     category.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.status(204).send('No Content');
+      return res.status(204).send({message: 'Category Deleted'});
     });
   });
 };
